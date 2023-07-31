@@ -15,3 +15,12 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet var rateLabel: UILabel!
     @IBOutlet var posterImageView: UIImageView!
 }
+
+extension MainCollectionViewCell {
+    func configure(with data: Movie) {
+        titleLabel.text = data.title
+        rateLabel.text = "\(data.rate)점"
+        posterImageView.image = UIImage(named: data.posterImageName)
+        posterImageView.contentMode = .scaleAspectFill
+    }
+}

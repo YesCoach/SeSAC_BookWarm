@@ -10,11 +10,13 @@ import UIKit
 final class MainCollectionViewController: UICollectionViewController {
 
     private let userName: String = "고래밥"
+    private var data: [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationItem()
         configureCollectionView()
+        configureData()
     }
 }
 
@@ -24,10 +26,16 @@ private extension MainCollectionViewController {
     }
 
     func configureCollectionView() {
+        // Xib -> UINib
+        let nib = UINib(nibName: "MainCollectionViewCell", bundle: nil)
         collectionView.register(
-            MainCollectionViewCell.self,
+            nib,
             forCellWithReuseIdentifier: MainCollectionViewCell.identifier
         )
+    }
+
+    func configureData() {
+        data = MovieInfo().movie
     }
 }
 
@@ -37,7 +45,7 @@ extension MainCollectionViewController {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 10
+        return data.count
     }
 
     override func collectionView(
@@ -50,6 +58,7 @@ extension MainCollectionViewController {
         ) as? MainCollectionViewCell
         else { return UICollectionViewCell() }
 
+        cell.configure(with: data[indexPath.item])
         return cell
     }
 }
