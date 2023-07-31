@@ -18,12 +18,30 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureNavigationItem()
     }
+
+    @objc func didDismissBarButtonTouched(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
+
 }
 
 private extension DetailViewController {
     func configureUI() {
         resultLabel.text = data?.title ?? ""
+    }
+
+    func configureNavigationItem() {
+        navigationItem.title = data?.title ?? ""
+        let dismissButton = UIBarButtonItem(
+            image: .init(systemName: "chevron.left"),
+            style: .plain,
+            target: self,
+            action: #selector(didDismissBarButtonTouched)
+        )
+        navigationItem.leftBarButtonItem = dismissButton
+        navigationItem.leftBarButtonItem?.tintColor = .systemMint
     }
 }
 

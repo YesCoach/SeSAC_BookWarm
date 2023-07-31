@@ -40,7 +40,7 @@ final class MainCollectionViewController: UICollectionViewController {
 private extension MainCollectionViewController {
     func configureNavigationItem() {
         navigationItem.title = "\(userName)님의 책장"
-        navigationItem.rightBarButtonItem?.tintColor = .black
+        navigationItem.rightBarButtonItem?.tintColor = .systemMint
     }
 
     func configureCollectionView() {
