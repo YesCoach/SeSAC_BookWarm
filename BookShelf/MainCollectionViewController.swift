@@ -18,6 +18,7 @@ final class MainCollectionViewController: UICollectionViewController {
         configureCollectionView()
         configureData()
     }
+
     @IBAction func didSearchBarButtonTouched(_ sender: UIBarButtonItem) {
 
         guard let viewController = UIStoryboard(
@@ -39,6 +40,7 @@ final class MainCollectionViewController: UICollectionViewController {
 private extension MainCollectionViewController {
     func configureNavigationItem() {
         navigationItem.title = "\(userName)님의 책장"
+        navigationItem.rightBarButtonItem?.tintColor = .black
     }
 
     func configureCollectionView() {
@@ -71,6 +73,7 @@ private extension MainCollectionViewController {
 }
 
 // MARK: - DataSource 구현부
+
 extension MainCollectionViewController {
     override func collectionView(
         _ collectionView: UICollectionView,
