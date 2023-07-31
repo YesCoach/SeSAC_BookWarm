@@ -14,6 +14,8 @@
 		892E89D12A77991100254B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 892E89D02A77991100254B54 /* Assets.xcassets */; };
 		892E89D42A77991100254B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E89D22A77991100254B54 /* LaunchScreen.storyboard */; };
 		892E89DC2A77995400254B54 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89DB2A77995400254B54 /* MainCollectionViewController.swift */; };
+		892E89DF2A779A3000254B54 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */; };
+		892E89E02A779A3000254B54 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		892E89D32A77991100254B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		892E89D52A77991100254B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		892E89DB2A77995400254B54 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
+		892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				892E89CB2A77991000254B54 /* ViewController.swift */,
 				892E89CD2A77991000254B54 /* Main.storyboard */,
 				892E89DB2A77995400254B54 /* MainCollectionViewController.swift */,
+				892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */,
+				892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */,
 				892E89D02A77991100254B54 /* Assets.xcassets */,
 				892E89D22A77991100254B54 /* LaunchScreen.storyboard */,
 				892E89D52A77991100254B54 /* Info.plist */,
@@ -131,6 +137,7 @@
 				892E89D42A77991100254B54 /* LaunchScreen.storyboard in Resources */,
 				892E89D12A77991100254B54 /* Assets.xcassets in Resources */,
 				892E89CF2A77991000254B54 /* Main.storyboard in Resources */,
+				892E89E02A779A3000254B54 /* MainCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +150,7 @@
 			files = (
 				892E89CC2A77991000254B54 /* ViewController.swift in Sources */,
 				892E89DC2A77995400254B54 /* MainCollectionViewController.swift in Sources */,
+				892E89DF2A779A3000254B54 /* MainCollectionViewCell.swift in Sources */,
 				892E89C82A77991000254B54 /* AppDelegate.swift in Sources */,
 				892E89CA2A77991000254B54 /* SceneDelegate.swift in Sources */,
 			);
