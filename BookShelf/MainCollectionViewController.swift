@@ -18,6 +18,22 @@ final class MainCollectionViewController: UICollectionViewController {
         configureCollectionView()
         configureData()
     }
+    @IBAction func didSearchBarButtonTouched(_ sender: UIBarButtonItem) {
+
+        guard let viewController = UIStoryboard(
+            name: "Main",
+            bundle: nil
+        ).instantiateViewController(
+            withIdentifier: SearchViewController.identifier
+        ) as? SearchViewController
+        else { return }
+
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.modalTransitionStyle = .coverVertical
+
+        present(navigationController, animated: true)
+    }
 }
 
 private extension MainCollectionViewController {

@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,11 +38,48 @@
                             <outlet property="delegate" destination="3Nq-bT-2LW" id="EFE-MR-CzE"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="JTi-jW-0fs"/>
+                    <navigationItem key="navigationItem" id="JTi-jW-0fs">
+                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="deh-eT-5Vn">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="didSearchBarButtonTouched:" destination="3Nq-bT-2LW" id="FWm-l9-nCP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MrM-YD-bka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1576.3358778625955" y="22.535211267605636"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="t4r-cW-762">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="8eC-l2-BJC" customClass="SearchViewController" customModule="BookShelf" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2K1-WG-BSx">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFW-EF-lXh">
+                                <rect key="frame" x="175.66666666666666" y="428" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qpF-oD-ngH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yFW-EF-lXh" firstAttribute="centerX" secondItem="qpF-oD-ngH" secondAttribute="centerX" id="0KO-D1-qiW"/>
+                            <constraint firstItem="yFW-EF-lXh" firstAttribute="centerY" secondItem="qpF-oD-ngH" secondAttribute="centerY" id="Ftb-dm-cEb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="yFW-EF-lXh" id="PJz-t5-RdF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="snA-aW-bLI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2382" y="23"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iyB-G4-w6h">
@@ -63,6 +101,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

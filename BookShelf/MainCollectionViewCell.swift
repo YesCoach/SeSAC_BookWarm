@@ -32,6 +32,7 @@ private extension MainCollectionViewCell {
         contentView.layer.cornerRadius = 15.0
         nameLabel.font = .boldSystemFont(ofSize: 20.0)
         nameLabel.textColor = .white
+        nameLabel.numberOfLines = 1
         rateLabel.textColor = .white
         rateLabel.font = .systemFont(ofSize: 14.0, weight: .regular)
     }
