@@ -34,7 +34,7 @@ private extension MainCollectionViewController {
         )
 
         let flowLayout = UICollectionViewFlowLayout()
-        let spacing = 8.0
+        let spacing = 10.0
         let width = UIScreen.main.bounds.width - (spacing * 3)
         flowLayout.itemSize = .init(width: width / 2, height: width / 2)
         flowLayout.sectionInset = UIEdgeInsets(
