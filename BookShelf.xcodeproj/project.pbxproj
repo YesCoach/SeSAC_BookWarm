@@ -18,6 +18,7 @@
 		892E89E02A779A3000254B54 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */; };
 		892E89E22A779CA300254B54 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89E12A779CA300254B54 /* Movie.swift */; };
 		892E89E52A779CCF00254B54 /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89E42A779CCF00254B54 /* MovieInfo.swift */; };
+		892E89E72A77A47700254B54 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89E62A77A47700254B54 /* UIColor+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
 		892E89E12A779CA300254B54 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		892E89E42A779CCF00254B54 /* MovieInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
+		892E89E62A77A47700254B54 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				892E89DB2A77995400254B54 /* MainCollectionViewController.swift */,
 				892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */,
 				892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */,
+				892E89E82A77A47E00254B54 /* Extension */,
 				892E89E32A779CAD00254B54 /* Model */,
 				892E89D02A77991100254B54 /* Assets.xcassets */,
 				892E89D22A77991100254B54 /* LaunchScreen.storyboard */,
@@ -88,6 +91,14 @@
 				892E89E42A779CCF00254B54 /* MovieInfo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		892E89E82A77A47E00254B54 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				892E89E62A77A47700254B54 /* UIColor+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				892E89E52A779CCF00254B54 /* MovieInfo.swift in Sources */,
+				892E89E72A77A47700254B54 /* UIColor+.swift in Sources */,
 				892E89CC2A77991000254B54 /* ViewController.swift in Sources */,
 				892E89DC2A77995400254B54 /* MainCollectionViewController.swift in Sources */,
 				892E89E22A779CA300254B54 /* Movie.swift in Sources */,

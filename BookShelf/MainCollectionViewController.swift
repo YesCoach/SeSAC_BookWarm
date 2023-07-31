@@ -32,6 +32,21 @@ private extension MainCollectionViewController {
             nib,
             forCellWithReuseIdentifier: MainCollectionViewCell.identifier
         )
+
+        let flowLayout = UICollectionViewFlowLayout()
+        let spacing = 8.0
+        let width = UIScreen.main.bounds.width - (spacing * 3)
+        flowLayout.itemSize = .init(width: width / 2, height: width / 2)
+        flowLayout.sectionInset = UIEdgeInsets(
+            top: spacing,
+            left: spacing,
+            bottom: spacing,
+            right: spacing
+        )
+        flowLayout.minimumLineSpacing = spacing
+        flowLayout.minimumInteritemSpacing = spacing
+
+        collectionView.collectionViewLayout = flowLayout
     }
 
     func configureData() {
