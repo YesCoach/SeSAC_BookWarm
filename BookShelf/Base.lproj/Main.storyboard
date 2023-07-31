@@ -103,6 +103,9 @@
                             <constraint firstItem="Cy8-OL-Lgk" firstAttribute="centerY" secondItem="EkA-ce-LH4" secondAttribute="centerY" id="h7t-Aa-smh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="Cy8-OL-Lgk" id="jhi-Zp-avS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7J6-VN-IlD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

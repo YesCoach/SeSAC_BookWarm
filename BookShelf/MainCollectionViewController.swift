@@ -95,4 +95,21 @@ extension MainCollectionViewController {
         cell.configure(with: data[indexPath.item])
         return cell
     }
+
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        let item = data[indexPath.item]
+
+        guard let viewController = UIStoryboard(
+            name: "Main",
+            bundle: nil
+        ).instantiateViewController(
+            withIdentifier: DetailViewController.identifier
+        ) as? DetailViewController else { return }
+
+        viewController.configure(with: item)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
