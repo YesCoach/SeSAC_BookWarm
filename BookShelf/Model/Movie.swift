@@ -16,3 +16,9 @@ struct Movie {
     var rate: Double
     var posterImageName: String
 }
+
+extension Movie {
+    var info: String {
+        return "\(releaseDate) | \(runtime)분 | \(rate)점"
+    }
+}

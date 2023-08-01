@@ -11,7 +11,9 @@ final class DetailViewController: UIViewController {
 
     static let identifier = "DetailViewController"
 
-    @IBOutlet var resultLabel: UILabel!
+    @IBOutlet var posterImageView: UIImageView!
+    @IBOutlet var infoLabel: UILabel!
+    @IBOutlet var overviewLabel: UILabel!
 
     private var data: Movie?
 
@@ -19,6 +21,16 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureNavigationItem()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        enableLargeTitle()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        disableLargeTitle()
     }
 
     @objc func didDismissBarButtonTouched(_ sender: UIBarButtonItem) {
@@ -29,7 +41,13 @@ final class DetailViewController: UIViewController {
 
 private extension DetailViewController {
     func configureUI() {
-        resultLabel.text = data?.title ?? ""
+        guard let data else { return }
+        infoLabel.text = data.info
+        overviewLabel.text = data.overview
+
+        posterImageView.image = .init(named: data.posterImageName)
+        posterImageView.contentMode = .scaleAspectFill
+        posterImageView.layer.opacity = 0.9
     }
 
     func configureNavigationItem() {
@@ -42,6 +60,14 @@ private extension DetailViewController {
         )
         navigationItem.leftBarButtonItem = dismissButton
         navigationItem.leftBarButtonItem?.tintColor = .systemMint
+    }
+
+    func enableLargeTitle() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
+    func disableLargeTitle() {
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
 }
 
