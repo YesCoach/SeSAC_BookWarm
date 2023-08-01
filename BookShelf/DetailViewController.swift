@@ -14,6 +14,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var infoLabel: UILabel!
     @IBOutlet var overviewLabel: UILabel!
+    @IBOutlet var stackView: UIStackView!
 
     private var data: Movie?
 
@@ -47,7 +48,15 @@ private extension DetailViewController {
 
         posterImageView.image = .init(named: data.posterImageName)
         posterImageView.contentMode = .scaleAspectFill
-        posterImageView.layer.opacity = 0.9
+
+        let spacing = 16.0
+        stackView.layoutMargins = .init(
+            top: spacing,
+            left: spacing,
+            bottom: spacing,
+            right: spacing
+        )
+        stackView.isLayoutMarginsRelativeArrangement = true
     }
 
     func configureNavigationItem() {
@@ -60,6 +69,7 @@ private extension DetailViewController {
         )
         navigationItem.leftBarButtonItem = dismissButton
         navigationItem.leftBarButtonItem?.tintColor = .systemMint
+        navigationItem.largeTitleDisplayMode = .automatic
     }
 
     func enableLargeTitle() {
