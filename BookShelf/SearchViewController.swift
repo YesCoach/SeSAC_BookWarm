@@ -11,6 +11,13 @@ final class SearchViewController: UIViewController {
 
     static let identifier = "SearchViewController"
 
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "제목을 입력하세요."
+        searchBar.delegate = self
+        return searchBar
+    }()
+
     @IBOutlet var resultLabel: UILabel!
 
     override func viewDidLoad() {
@@ -18,6 +25,10 @@ final class SearchViewController: UIViewController {
         configureUI()
         configureNavigationItem()
         configure(with: "검색 화면")
+    }
+
+    @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 
     @objc func didDismissButtonTouched(_ sender: UIBarButtonItem) {
@@ -31,7 +42,6 @@ private extension SearchViewController {
     }
 
     func configureNavigationItem() {
-        navigationItem.title = "검색 화면"
         let dismissButton = UIBarButtonItem(
             image: .init(systemName: "xmark"),
             style: .plain,
@@ -40,6 +50,8 @@ private extension SearchViewController {
         )
         navigationItem.leftBarButtonItem = dismissButton
         navigationItem.leftBarButtonItem?.tintColor = .systemMint
+
+        navigationItem.titleView = searchBar
     }
 }
 
@@ -47,4 +59,10 @@ extension SearchViewController {
     func configure(with keyword: String) {
         resultLabel.text = keyword
     }
+}
+
+// MARK: - SearchBarDelegate
+
+extension SearchViewController: UISearchBarDelegate {
+
 }

@@ -103,7 +103,9 @@ private extension DetailViewController {
     }
 
     func configureLayout() {
-        scrollView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(
+            equalTo: view.keyboardLayoutGuide.topAnchor
+        ).isActive = true
     }
 
     func enableLargeTitle() {
