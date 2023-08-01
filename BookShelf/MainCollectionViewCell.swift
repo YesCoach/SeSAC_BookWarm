@@ -14,15 +14,26 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var rateLabel: UILabel!
     @IBOutlet var posterImageView: UIImageView!
+    @IBOutlet var favoriteButton: UIButton!
+
+    var completionHandler: ((Bool) -> ())?
+
+    @IBAction func didFavoriteButtonTouched(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        completionHandler?(sender.isSelected)
+    }
 }
 
 extension MainCollectionViewCell {
-    func configure(with data: Movie) {
+    func configure(with data: Movie, completion: @escaping (Bool) -> ()) {
         configureUI()
         nameLabel.text = data.title
         rateLabel.text = "\(data.rate)"
         posterImageView.image = UIImage(named: data.posterImageName)
         posterImageView.contentMode = .scaleAspectFill
+        favoriteButton.isSelected = data.isFavorite
+
+        completionHandler = completion
     }
 }
 
@@ -35,5 +46,7 @@ private extension MainCollectionViewCell {
         nameLabel.numberOfLines = 1
         rateLabel.textColor = .white
         rateLabel.font = .systemFont(ofSize: 14.0, weight: .regular)
+        favoriteButton.setImage(.init(systemName: "star"), for: .normal)
+        favoriteButton.setImage(.init(systemName: "star.fill"), for: .selected)
     }
 }

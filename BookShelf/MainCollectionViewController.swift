@@ -92,7 +92,10 @@ extension MainCollectionViewController {
         ) as? MainCollectionViewCell
         else { return UICollectionViewCell() }
 
-        cell.configure(with: data[indexPath.item])
+        cell.configure(with: data[indexPath.item]) { [weak self] isFavorite in
+            self?.data[indexPath.item].isFavorite = isFavorite
+        }
+
         return cell
     }
 
@@ -111,6 +114,7 @@ extension MainCollectionViewController {
 
         viewController.configure(with: item) { [weak self] isFavorite in
             self?.data[indexPath.item].isFavorite = isFavorite
+            self?.collectionView.reloadItems(at: [indexPath])
         }
         navigationController?.pushViewController(viewController, animated: true)
     }
