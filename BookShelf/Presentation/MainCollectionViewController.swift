@@ -121,10 +121,13 @@ extension MainCollectionViewController {
                 self?.data[index].isFavorite = isFavorite
             }
         }
-
         return cell
     }
+}
 
+// MARK: - CollectionViewDelegate 구현부
+
+extension MainCollectionViewController {
     override func collectionView(
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath

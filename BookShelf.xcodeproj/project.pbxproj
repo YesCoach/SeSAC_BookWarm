@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		892E89C82A77991000254B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89C72A77991000254B54 /* AppDelegate.swift */; };
 		892E89CA2A77991000254B54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89C92A77991000254B54 /* SceneDelegate.swift */; };
-		892E89CC2A77991000254B54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89CB2A77991000254B54 /* ViewController.swift */; };
 		892E89CF2A77991000254B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E89CD2A77991000254B54 /* Main.storyboard */; };
 		892E89D12A77991100254B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 892E89D02A77991100254B54 /* Assets.xcassets */; };
 		892E89D42A77991100254B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E89D22A77991100254B54 /* LaunchScreen.storyboard */; };
@@ -28,7 +27,6 @@
 		892E89C42A77991000254B54 /* BookShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		892E89C72A77991000254B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		892E89C92A77991000254B54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		892E89CB2A77991000254B54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		892E89CE2A77991000254B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		892E89D02A77991100254B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		892E89D32A77991100254B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,17 +74,13 @@
 			children = (
 				892E89C72A77991000254B54 /* AppDelegate.swift */,
 				892E89C92A77991000254B54 /* SceneDelegate.swift */,
-				892E89CB2A77991000254B54 /* ViewController.swift */,
-				892E89CD2A77991000254B54 /* Main.storyboard */,
-				892E89E92A77A7E900254B54 /* SearchViewController.swift */,
-				892E89DB2A77995400254B54 /* MainCollectionViewController.swift */,
-				892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */,
-				892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */,
-				892E89EB2A77B3AC00254B54 /* DetailViewController.swift */,
-				892E89E82A77A47E00254B54 /* Extension */,
 				892E89E32A779CAD00254B54 /* Model */,
-				892E89D02A77991100254B54 /* Assets.xcassets */,
+				89E6F2E32A792A84008F7751 /* Presentation */,
+				892E89E82A77A47E00254B54 /* Extension */,
+				892E89CD2A77991000254B54 /* Main.storyboard */,
+				892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */,
 				892E89D22A77991100254B54 /* LaunchScreen.storyboard */,
+				892E89D02A77991100254B54 /* Assets.xcassets */,
 				892E89D52A77991100254B54 /* Info.plist */,
 			);
 			path = BookShelf;
@@ -108,6 +102,17 @@
 				89E6F2E12A78EBBD008F7751 /* UITextView+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		89E6F2E32A792A84008F7751 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				892E89E92A77A7E900254B54 /* SearchViewController.swift */,
+				892E89DB2A77995400254B54 /* MainCollectionViewController.swift */,
+				892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */,
+				892E89EB2A77B3AC00254B54 /* DetailViewController.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +189,6 @@
 			files = (
 				892E89E52A779CCF00254B54 /* MovieInfo.swift in Sources */,
 				892E89E72A77A47700254B54 /* UIColor+.swift in Sources */,
-				892E89CC2A77991000254B54 /* ViewController.swift in Sources */,
 				892E89EA2A77A7E900254B54 /* SearchViewController.swift in Sources */,
 				892E89DC2A77995400254B54 /* MainCollectionViewController.swift in Sources */,
 				892E89E22A779CA300254B54 /* Movie.swift in Sources */,

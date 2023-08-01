@@ -11,14 +11,14 @@ final class SearchViewController: UIViewController {
 
     static let identifier = "SearchViewController"
 
+    @IBOutlet var resultLabel: UILabel!
+
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "제목을 입력하세요."
         searchBar.delegate = self
         return searchBar
     }()
-
-    @IBOutlet var resultLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

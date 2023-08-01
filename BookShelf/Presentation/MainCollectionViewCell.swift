@@ -22,6 +22,13 @@ class MainCollectionViewCell: UICollectionViewCell {
         sender.isSelected.toggle()
         completionHandler?(sender.isSelected)
     }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        posterImageView.image = nil
+        favoriteButton.isSelected = false
+        completionHandler = nil
+    }
 }
 
 extension MainCollectionViewCell {

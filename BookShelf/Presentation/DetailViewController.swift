@@ -48,6 +48,10 @@ final class DetailViewController: UIViewController {
         disableLargeTitle()
     }
 
+    @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+
     @objc func didDismissBarButtonTouched(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
@@ -55,10 +59,6 @@ final class DetailViewController: UIViewController {
     @objc func didFavoriteBarButtonTouched(_ sender: UIBarButtonItem) {
         sender.isSelected.toggle()
         completionHandler?(sender.isSelected)
-    }
-
-    @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
     }
 }
 
@@ -123,6 +123,8 @@ extension DetailViewController {
         completionHandler = completion
     }
 }
+
+// MARK: - TextViewDelegate 구현부
 
 extension DetailViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
