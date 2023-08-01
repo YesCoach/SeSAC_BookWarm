@@ -16,6 +16,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet var overviewLabel: UILabel!
     @IBOutlet var memoTextView: UITextView!
     @IBOutlet var stackView: UIStackView!
+    @IBOutlet var scrollView: UIScrollView!
 
     private lazy var favoriteButton: UIButton = {
         let button = UIButton()
@@ -33,6 +34,7 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureLayout()
         configureNavigationItem()
     }
 
@@ -54,6 +56,10 @@ final class DetailViewController: UIViewController {
         sender.isSelected.toggle()
         completionHandler?(sender.isSelected)
     }
+
+    @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 }
 
 private extension DetailViewController {
@@ -66,6 +72,7 @@ private extension DetailViewController {
         favoriteButton.isSelected = data.isFavorite
 
         memoTextView.setupPlaceHolder(with: placeHolder)
+        memoTextView.isScrollEnabled = false
         memoTextView.delegate = self
 
         let spacing = 16.0
@@ -92,8 +99,11 @@ private extension DetailViewController {
 
         let favoriteButton = UIBarButtonItem(customView: favoriteButton)
         navigationItem.rightBarButtonItem = favoriteButton
-
         navigationItem.largeTitleDisplayMode = .automatic
+    }
+
+    func configureLayout() {
+        scrollView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
     }
 
     func enableLargeTitle() {

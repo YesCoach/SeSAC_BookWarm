@@ -90,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RdF-rk-hoL">
-                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mBd-0o-tnM">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="511"/>
@@ -117,7 +117,7 @@
                                                 <rect key="frame" x="0.0" y="64.666666666666629" width="393" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="128" id="Xtg-EP-jDq"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="Xtg-EP-jDq"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -141,23 +141,33 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EkA-ce-LH4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="RdF-rk-hoL" firstAttribute="leading" secondItem="HXM-t4-Y1E" secondAttribute="leading" id="2qL-Cz-qtM"/>
                             <constraint firstItem="RdF-rk-hoL" firstAttribute="top" secondItem="EkA-ce-LH4" secondAttribute="top" id="HRx-Ds-4tk"/>
+                            <constraint firstItem="RdF-rk-hoL" firstAttribute="bottom" secondItem="EkA-ce-LH4" secondAttribute="bottom" priority="250" id="WHU-hE-XcO"/>
                             <constraint firstAttribute="trailing" secondItem="RdF-rk-hoL" secondAttribute="trailing" id="cAF-pL-sxg"/>
-                            <constraint firstAttribute="bottom" secondItem="RdF-rk-hoL" secondAttribute="bottom" id="o15-7f-h99"/>
                             <constraint firstItem="Y6A-RI-Gdx" firstAttribute="width" secondItem="HXM-t4-Y1E" secondAttribute="width" id="wXO-jd-4Ak"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="rEQ-hd-h2v" appends="YES" id="9Zv-pC-qty"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="infoLabel" destination="Cy8-OL-Lgk" id="jhi-Zp-avS"/>
                         <outlet property="memoTextView" destination="bIx-wH-fGb" id="9iY-8P-5ov"/>
                         <outlet property="overviewLabel" destination="W7V-Yu-yTI" id="XSn-d5-QSa"/>
                         <outlet property="posterImageView" destination="mBd-0o-tnM" id="f1H-Qe-uaS"/>
+                        <outlet property="scrollView" destination="RdF-rk-hoL" id="mpf-3e-6MP"/>
                         <outlet property="stackView" destination="Y6A-RI-Gdx" id="IAN-LP-Dil"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7J6-VN-IlD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="rEQ-hd-h2v">
+                    <connections>
+                        <action selector="didBackgroundViewTouched:" destination="bWk-NV-PZn" id="YLt-KX-n2t"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2381" y="733"/>
         </scene>
