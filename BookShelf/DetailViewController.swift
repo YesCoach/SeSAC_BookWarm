@@ -14,6 +14,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var infoLabel: UILabel!
     @IBOutlet var overviewLabel: UILabel!
+    @IBOutlet var memoTextView: UITextView!
     @IBOutlet var stackView: UIStackView!
 
     private lazy var favoriteButton: UIButton = {
@@ -26,7 +27,7 @@ final class DetailViewController: UIViewController {
     }()
 
     private var data: Movie?
-
+    private let placeHolder = "메모를 입력해보세요"
     private var completionHandler: ((Bool) -> ())?
 
     override func viewDidLoad() {
@@ -63,6 +64,9 @@ private extension DetailViewController {
         posterImageView.image = .init(named: data.posterImageName)
         posterImageView.contentMode = .scaleAspectFill
         favoriteButton.isSelected = data.isFavorite
+
+        memoTextView.setupPlaceHolder(with: placeHolder)
+        memoTextView.delegate = self
 
         let spacing = 16.0
         stackView.layoutMargins = .init(
@@ -105,5 +109,20 @@ extension DetailViewController {
     func configure(with data: Movie, completion: @escaping (Bool) -> ()) {
         self.data = data
         completionHandler = completion
+    }
+}
+
+extension DetailViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == placeHolder {
+            textView.text = ""
+            textView.textColor = .black
+        }
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            textView.setupPlaceHolder(with: placeHolder)
+        }
     }
 }
