@@ -9,8 +9,22 @@ import UIKit
 
 final class MainCollectionViewController: UICollectionViewController {
 
+    private lazy var favoriteButton: UIButton = {
+        let button = UIButton()
+        button.setImage(.init(systemName: "star"), for: .normal)
+        button.setImage(.init(systemName: "star.fill"), for: .selected)
+        button.tintColor = .systemMint
+        button.addTarget(self, action: #selector(didFavoriteBarButtonTouched), for: .touchUpInside)
+        return button
+    }()
+
     private let userName: String = "고래밥"
     private var data: [Movie] = []
+    private var isFavoriteMode: Bool = false {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +34,6 @@ final class MainCollectionViewController: UICollectionViewController {
     }
 
     @IBAction func didSearchBarButtonTouched(_ sender: UIBarButtonItem) {
-
         guard let viewController = UIStoryboard(
             name: "Main",
             bundle: nil
@@ -35,12 +48,20 @@ final class MainCollectionViewController: UICollectionViewController {
 
         present(navigationController, animated: true)
     }
+
+    @objc func didFavoriteBarButtonTouched(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        isFavoriteMode = sender.isSelected
+    }
 }
 
 private extension MainCollectionViewController {
     func configureNavigationItem() {
         navigationItem.title = "\(userName)님의 책장"
         navigationItem.rightBarButtonItem?.tintColor = .systemMint
+
+        let favoriteBarButton = UIBarButtonItem(customView: favoriteButton)
+        navigationItem.rightBarButtonItems?.append(favoriteBarButton)
     }
 
     func configureCollectionView() {
@@ -79,7 +100,7 @@ extension MainCollectionViewController {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return data.count
+        return isFavoriteMode ? data.filter { $0.isFavorite }.count : data.count
     }
 
     override func collectionView(
@@ -92,8 +113,13 @@ extension MainCollectionViewController {
         ) as? MainCollectionViewCell
         else { return UICollectionViewCell() }
 
-        cell.configure(with: data[indexPath.item]) { [weak self] isFavorite in
-            self?.data[indexPath.item].isFavorite = isFavorite
+        let movie = isFavoriteMode ?
+            data.filter { $0.isFavorite }[indexPath.row] : data[indexPath.row]
+
+        cell.configure(with: movie) { [weak self] isFavorite in
+            if let index = self?.data.firstIndex(where: { $0.title == movie.title }) {
+                self?.data[index].isFavorite = isFavorite
+            }
         }
 
         return cell
