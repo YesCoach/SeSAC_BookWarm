@@ -16,6 +16,11 @@ final class SearchViewController: UIViewController {
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "제목을 입력하세요."
+        searchBar.searchTextField.addTarget(
+            self,
+            action: #selector(didKeyboardReturnButtonTouched),
+            for: .editingDidEndOnExit
+        )
         searchBar.delegate = self
         return searchBar
     }()
@@ -27,12 +32,16 @@ final class SearchViewController: UIViewController {
         configure(with: "검색 화면")
     }
 
-    @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
-
     @objc func didDismissButtonTouched(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
+    }
+
+    @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
+        searchBar.resignFirstResponder()
+    }
+
+    @objc func didKeyboardReturnButtonTouched(_ sender: UITextField) {
+        searchBar.resignFirstResponder()
     }
 }
 
