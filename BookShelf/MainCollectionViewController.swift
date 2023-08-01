@@ -109,7 +109,9 @@ extension MainCollectionViewController {
             withIdentifier: DetailViewController.identifier
         ) as? DetailViewController else { return }
 
-        viewController.configure(with: item)
+        viewController.configure(with: item) { [weak self] isFavorite in
+            self?.data[indexPath.item].isFavorite = isFavorite
+        }
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

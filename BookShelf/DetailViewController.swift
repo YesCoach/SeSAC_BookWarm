@@ -16,7 +16,18 @@ final class DetailViewController: UIViewController {
     @IBOutlet var overviewLabel: UILabel!
     @IBOutlet var stackView: UIStackView!
 
+    private lazy var favoriteButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "star"), for: .normal)
+        button.setImage(UIImage(systemName: "star.fill"), for: .selected)
+        button.addTarget(self, action: #selector(didFavoriteBarButtonTouched), for: .touchUpInside)
+        button.tintColor = .systemMint
+        return button
+    }()
+
     private var data: Movie?
+
+    private var completionHandler: ((Bool) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +49,10 @@ final class DetailViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    @objc func didFavoriteBarButtonTouched(_ sender: UIBarButtonItem) {
+        sender.isSelected.toggle()
+        completionHandler?(sender.isSelected)
+    }
 }
 
 private extension DetailViewController {
@@ -45,9 +60,9 @@ private extension DetailViewController {
         guard let data else { return }
         infoLabel.text = data.info
         overviewLabel.text = data.overview
-
         posterImageView.image = .init(named: data.posterImageName)
         posterImageView.contentMode = .scaleAspectFill
+        favoriteButton.isSelected = data.isFavorite
 
         let spacing = 16.0
         stackView.layoutMargins = .init(
@@ -61,6 +76,7 @@ private extension DetailViewController {
 
     func configureNavigationItem() {
         navigationItem.title = data?.title ?? ""
+
         let dismissButton = UIBarButtonItem(
             image: .init(systemName: "chevron.left"),
             style: .plain,
@@ -69,6 +85,10 @@ private extension DetailViewController {
         )
         navigationItem.leftBarButtonItem = dismissButton
         navigationItem.leftBarButtonItem?.tintColor = .systemMint
+
+        let favoriteButton = UIBarButtonItem(customView: favoriteButton)
+        navigationItem.rightBarButtonItem = favoriteButton
+
         navigationItem.largeTitleDisplayMode = .automatic
     }
 
@@ -82,7 +102,8 @@ private extension DetailViewController {
 }
 
 extension DetailViewController {
-    func configure(with data: Movie) {
+    func configure(with data: Movie, completion: @escaping (Bool) -> ()) {
         self.data = data
+        completionHandler = completion
     }
 }
