@@ -145,6 +145,7 @@ extension MainCollectionViewController {
             self?.data[indexPath.item].isFavorite = isFavorite
             self?.collectionView.reloadItems(at: [indexPath])
         }
+        viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

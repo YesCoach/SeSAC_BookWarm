@@ -21,6 +21,7 @@
 		892E89EA2A77A7E900254B54 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89E92A77A7E900254B54 /* SearchViewController.swift */; };
 		892E89EC2A77B3AC00254B54 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89EB2A77B3AC00254B54 /* DetailViewController.swift */; };
 		89E6F2E22A78EBBD008F7751 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2E12A78EBBD008F7751 /* UITextView+.swift */; };
+		89E6F2F12A7A294A008F7751 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F02A7A294A008F7751 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		892E89E92A77A7E900254B54 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		892E89EB2A77B3AC00254B54 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		89E6F2E12A78EBBD008F7751 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
+		89E6F2F02A7A294A008F7751 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */,
 				892E89E92A77A7E900254B54 /* SearchViewController.swift */,
 				892E89EB2A77B3AC00254B54 /* DetailViewController.swift */,
+				89E6F2F02A7A294A008F7751 /* HomeViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				892E89E22A779CA300254B54 /* Movie.swift in Sources */,
 				892E89DF2A779A3000254B54 /* MainCollectionViewCell.swift in Sources */,
 				892E89EC2A77B3AC00254B54 /* DetailViewController.swift in Sources */,
+				89E6F2F12A7A294A008F7751 /* HomeViewController.swift in Sources */,
 				892E89C82A77991000254B54 /* AppDelegate.swift in Sources */,
 				89E6F2E22A78EBBD008F7751 /* UITextView+.swift in Sources */,
 				892E89CA2A77991000254B54 /* SceneDelegate.swift in Sources */,
