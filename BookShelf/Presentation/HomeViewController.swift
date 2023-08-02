@@ -15,12 +15,17 @@ final class HomeViewController: UIViewController {
     private var data: [Movie] = MovieInfo().movie
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTableView()
-        configureCollectionView()
+        configureUI()
     }
 }
 
 private extension HomeViewController {
+    func configureUI() {
+        navigationItem.title = "둘러보기"
+        configureTableView()
+        configureCollectionView()
+    }
+
     func configureTableView() {
         let nib = UINib(nibName: HomeItemTableViewCell.identifier, bundle: nil)
         homeItemTableView.register(nib, forCellReuseIdentifier: HomeItemTableViewCell.identifier)
@@ -29,7 +34,7 @@ private extension HomeViewController {
         homeItemTableView.delegate = self
 
         homeItemTableView.rowHeight = 120.0
-        homeItemTableView.separatorInset = .init(top: 0, left: 80, bottom: 0, right: 20)
+        homeItemTableView.separatorInset = .init(top: 0, left: 20, bottom: 0, right: 20)
     }
 
     func configureCollectionView() {
@@ -40,12 +45,13 @@ private extension HomeViewController {
 
         recentItemCollectionView.dataSource = self
         recentItemCollectionView.delegate = self
+        recentItemCollectionView.scrollIndicatorInsets = .init(top: 0, left: 0, bottom: -5, right: 0)
 
         let layout = UICollectionViewFlowLayout()
-
         let spacing = 10.0
         let width = UIScreen.main.bounds.width - (spacing * 5)
-        layout.itemSize = .init(width: width / 4, height: 150)
+        let height = recentItemCollectionView.frame.height
+        layout.itemSize = .init(width: width / 4, height: height - (spacing * 2))
         layout.sectionInset = UIEdgeInsets(
             top: spacing,
             left: spacing,
@@ -80,6 +86,13 @@ extension HomeViewController: UITableViewDataSource {
         cell.configure(with: data[indexPath.row])
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "요즘 인기 작품"
+        }
+        return nil
     }
 }
 

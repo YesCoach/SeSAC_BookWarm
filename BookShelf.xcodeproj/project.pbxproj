@@ -20,6 +20,7 @@
 		892E89E72A77A47700254B54 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89E62A77A47700254B54 /* UIColor+.swift */; };
 		892E89EA2A77A7E900254B54 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89E92A77A7E900254B54 /* SearchViewController.swift */; };
 		892E89EC2A77B3AC00254B54 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89EB2A77B3AC00254B54 /* DetailViewController.swift */; };
+		89CA33B22A7A3DEE00DA1978 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33B12A7A3DEE00DA1978 /* CollectionReusableView.swift */; };
 		89E6F2E22A78EBBD008F7751 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2E12A78EBBD008F7751 /* UITextView+.swift */; };
 		89E6F2F12A7A294A008F7751 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F02A7A294A008F7751 /* HomeViewController.swift */; };
 		89E6F2F42A7A2C03008F7751 /* HomeItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */; };
@@ -44,6 +45,7 @@
 		892E89E62A77A47700254B54 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		892E89E92A77A7E900254B54 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		892E89EB2A77B3AC00254B54 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		89CA33B12A7A3DEE00DA1978 /* CollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		89E6F2E12A78EBBD008F7751 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
 		89E6F2F02A7A294A008F7751 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				892E89E92A77A7E900254B54 /* SearchViewController.swift */,
 				892E89EB2A77B3AC00254B54 /* DetailViewController.swift */,
 				89E6F2F02A7A294A008F7751 /* HomeViewController.swift */,
+				89CA33B12A7A3DEE00DA1978 /* CollectionReusableView.swift */,
 				89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */,
 				89E6F2F32A7A2C03008F7751 /* HomeItemTableViewCell.xib */,
 				89E6F2F62A7A328F008F7751 /* RecentItemCollectionViewCell.swift */,
@@ -211,6 +214,7 @@
 				892E89EA2A77A7E900254B54 /* SearchViewController.swift in Sources */,
 				892E89DC2A77995400254B54 /* MainCollectionViewController.swift in Sources */,
 				892E89E22A779CA300254B54 /* Movie.swift in Sources */,
+				89CA33B22A7A3DEE00DA1978 /* CollectionReusableView.swift in Sources */,
 				892E89DF2A779A3000254B54 /* MainCollectionViewCell.swift in Sources */,
 				892E89EC2A77B3AC00254B54 /* DetailViewController.swift in Sources */,
 				89E6F2F12A7A294A008F7751 /* HomeViewController.swift in Sources */,
