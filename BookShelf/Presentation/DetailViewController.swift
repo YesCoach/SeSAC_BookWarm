@@ -46,12 +46,7 @@ final class DetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         disableLargeTitle()
-        if memoTextView.text.isEmpty == false {
-            data?.memo = memoTextView.text!
-        }
-        if let data {
-            completionHandler?(data)
-        }
+        saveChangedMovieData()
     }
 
     @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
@@ -137,6 +132,16 @@ private extension DetailViewController {
 
     func disableLargeTitle() {
         navigationController?.navigationBar.prefersLargeTitles = false
+    }
+
+    /// VC가 사라지기 전에, 변동 데이터를 저장하는 메소드입니다.
+    func saveChangedMovieData() {
+        if memoTextView.text.isEmpty == false {
+            data?.memo = memoTextView.text!
+        }
+        if let data {
+            completionHandler?(data)
+        }
     }
 }
 

@@ -145,7 +145,7 @@ extension MainCollectionViewController {
             self?.data[indexPath.item] = movie
             self?.collectionView.reloadItems(at: [indexPath])
         }
-        
+
         viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
     }
