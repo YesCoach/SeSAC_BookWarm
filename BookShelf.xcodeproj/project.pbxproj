@@ -107,9 +107,9 @@
 		89E6F2E32A792A84008F7751 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				892E89E92A77A7E900254B54 /* SearchViewController.swift */,
 				892E89DB2A77995400254B54 /* MainCollectionViewController.swift */,
 				892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */,
+				892E89E92A77A7E900254B54 /* SearchViewController.swift */,
 				892E89EB2A77B3AC00254B54 /* DetailViewController.swift */,
 			);
 			path = Presentation;

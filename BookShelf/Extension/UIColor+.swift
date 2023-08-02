@@ -11,10 +11,10 @@ extension UIColor {
 
     /// 랜덤으로 UIColor 색상을 반환합니다.
     static var random: UIColor {
-        let color: [UIColor] = [
-            .systemGreen, .systemRed, .systemMint, .systemOrange, .systemYellow,
-            .systemPurple, .systemCyan, .systemBlue
-        ]
-        return color.randomElement() ?? .black
+        let red = CGFloat.random(in: 0...1)
+        let green = CGFloat.random(in: 0...1)
+        let blue = CGFloat.random(in: 0...1)
+
+        return UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
 }
