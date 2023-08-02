@@ -137,6 +137,7 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .none)
         didSelectCell(at: indexPath)
     }
 }
@@ -175,6 +176,7 @@ extension HomeViewController: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
+        collectionView.reloadItems(at: [indexPath])
         didSelectCell(at: indexPath)
     }
 }
