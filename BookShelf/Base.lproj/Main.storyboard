@@ -254,11 +254,11 @@
             </objects>
             <point key="canvasLocation" x="2421" y="23"/>
         </scene>
-        <!--Item-->
+        <!--나의 책장-->
         <scene sceneID="iyB-G4-w6h">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a8y-OC-f3X" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="24w-sY-oqu"/>
+                    <tabBarItem key="tabBarItem" title="나의 책장" image="film.circle" catalog="system" id="24w-sY-oqu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="54v-DO-Rih">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -273,11 +273,11 @@
             </objects>
             <point key="canvasLocation" x="649.61832061068696" y="22.535211267605636"/>
         </scene>
-        <!--Item-->
+        <!--둘러보기-->
         <scene sceneID="jer-zm-2AO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1dU-rh-1zr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="yjr-UI-sBn"/>
+                    <tabBarItem key="tabBarItem" title="둘러보기" image="leaf.fill" catalog="system" id="yjr-UI-sBn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="awP-B7-l56">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -301,6 +301,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemMintColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="1dU-rh-1zr" kind="relationship" relationship="viewControllers" id="GRr-D2-QvQ"/>
@@ -313,6 +314,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="film.circle" catalog="system" width="128" height="123"/>
+        <image name="leaf.fill" catalog="system" width="128" height="109"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
