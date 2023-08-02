@@ -18,7 +18,14 @@ struct Movie {
 }
 
 extension Movie {
+
+    /// "출시년도 | 상영시간 | 평점" 형태로 반환
     var info: String {
         return "\(releaseDate) | \(runtime)분 | \(rate)점"
+    }
+
+    /// "출시년도 ∙ 상영시간 ∙ 평점" 형태로 반환
+    var homeItemInfo: String {
+        return "\(releaseDate) ∙ \(runtime)분 ∙ \(rate)점"
     }
 }
