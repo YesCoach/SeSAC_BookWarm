@@ -141,10 +141,11 @@ extension MainCollectionViewController {
             withIdentifier: DetailViewController.identifier
         ) as? DetailViewController else { return }
 
-        viewController.configure(with: item) { [weak self] isFavorite in
-            self?.data[indexPath.item].isFavorite = isFavorite
+        viewController.configure(with: item) { [weak self] movie in
+            self?.data[indexPath.item] = movie
             self?.collectionView.reloadItems(at: [indexPath])
         }
+        
         viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
     }

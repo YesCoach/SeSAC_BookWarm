@@ -29,7 +29,7 @@ final class DetailViewController: UIViewController {
 
     private var data: Movie?
     private let placeHolder = "메모를 입력해보세요"
-    private var completionHandler: ((Bool) -> ())?
+    private var completionHandler: ((Movie) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +46,12 @@ final class DetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         disableLargeTitle()
+        if memoTextView.text.isEmpty == false {
+            data?.memo = memoTextView.text!
+        }
+        if let data {
+            completionHandler?(data)
+        }
     }
 
     @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
@@ -62,7 +68,10 @@ final class DetailViewController: UIViewController {
 
     @objc func didFavoriteBarButtonTouched(_ sender: UIBarButtonItem) {
         sender.isSelected.toggle()
-        completionHandler?(sender.isSelected)
+        data?.isFavorite = sender.isSelected
+        if let data {
+            completionHandler?(data)
+        }
     }
 }
 
@@ -75,6 +84,7 @@ private extension DetailViewController {
         posterImageView.contentMode = .scaleAspectFill
         favoriteButton.isSelected = data.isFavorite
 
+        memoTextView.text = data.memo
         memoTextView.setupPlaceHolder(with: placeHolder)
         memoTextView.isScrollEnabled = false
         memoTextView.delegate = self
@@ -131,7 +141,7 @@ private extension DetailViewController {
 }
 
 extension DetailViewController {
-    func configure(with data: Movie, completion: @escaping (Bool) -> ()) {
+    func configure(with data: Movie, completion: @escaping (Movie) -> ()) {
         self.data = data
         completionHandler = completion
     }
@@ -143,12 +153,13 @@ extension DetailViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == placeHolder {
             textView.text = ""
-            textView.textColor = .black
+            textView.textColor = .label
         }
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            textView.text = ""
             textView.setupPlaceHolder(with: placeHolder)
         }
     }

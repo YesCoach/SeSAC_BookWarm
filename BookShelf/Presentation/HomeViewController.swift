@@ -75,8 +75,8 @@ private extension HomeViewController {
         ) as? DetailViewController
         else { return }
 
-        viewController.configure(with: movie) { [weak self] isFavorite in
-            self?.data[indexPath.row].isFavorite = isFavorite
+        viewController.configure(with: movie) { [weak self] movie in
+            self?.data[indexPath.row] = movie
         }
 
         let navigationVC = UINavigationController(rootViewController: viewController)

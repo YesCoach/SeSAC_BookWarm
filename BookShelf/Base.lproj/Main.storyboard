@@ -196,7 +196,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" text="asdasdasdsadsad" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bIx-wH-fGb">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bIx-wH-fGb">
                                                 <rect key="frame" x="0.0" y="64.666666666666629" width="393" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                                 <constraints>

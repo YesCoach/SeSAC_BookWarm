@@ -15,6 +15,8 @@ struct Movie {
     var overview: String
     var rate: Double
     var posterImageName: String
+
+    var memo: String?
 }
 
 extension Movie {
