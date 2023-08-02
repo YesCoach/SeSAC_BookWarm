@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -39,14 +40,24 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cES-uv-trf" userLabel="Separator">
+                        <rect key="frame" x="159.33333333333334" y="256.66666666666669" width="260.66666666666663" height="0.33333333333331439"/>
+                        <color key="backgroundColor" systemColor="separatorColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="PSe-i3-Czx"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="cES-uv-trf" firstAttribute="leading" secondItem="EKm-SU-ZkE" secondAttribute="leading" id="6Zm-vW-gJK"/>
                     <constraint firstAttribute="trailing" secondItem="EKm-SU-ZkE" secondAttribute="trailing" constant="10" id="MjU-nV-UXk"/>
                     <constraint firstItem="EKm-SU-ZkE" firstAttribute="centerY" secondItem="XYc-g3-5qS" secondAttribute="centerY" id="Mwe-NS-YSg"/>
                     <constraint firstItem="EKm-SU-ZkE" firstAttribute="leading" secondItem="XYc-g3-5qS" secondAttribute="trailing" constant="10" id="UjP-0a-RG8"/>
                     <constraint firstItem="XYc-g3-5qS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="dg0-iT-Z8p"/>
                     <constraint firstItem="XYc-g3-5qS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="m9f-NW-74v"/>
                     <constraint firstAttribute="bottom" secondItem="XYc-g3-5qS" secondAttribute="bottom" constant="10" id="n0x-mY-ffH"/>
+                    <constraint firstAttribute="bottom" secondItem="cES-uv-trf" secondAttribute="bottom" id="sOX-Ti-qhr"/>
+                    <constraint firstAttribute="trailing" secondItem="cES-uv-trf" secondAttribute="trailing" constant="10" id="zKQ-u9-qCV"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -59,4 +70,9 @@
             <point key="canvasLocation" x="62.595419847328245" y="95.422535211267615"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

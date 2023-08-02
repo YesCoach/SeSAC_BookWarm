@@ -34,7 +34,7 @@ private extension HomeViewController {
         homeItemTableView.delegate = self
 
         homeItemTableView.rowHeight = 120.0
-        homeItemTableView.separatorInset = .init(top: 0, left: 20, bottom: 0, right: 20)
+        homeItemTableView.separatorStyle = .none
     }
 
     func configureCollectionView() {
@@ -88,11 +88,29 @@ extension HomeViewController: UITableViewDataSource {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    // Custom Header View를 구현해서, 원하는 section에 넣어주는 작업.
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-            return "요즘 인기 작품"
+            let header = HomeItemTableHeaderView()
+            header.configure(with: .popluar)
+            return header
         }
-        return nil
+        return UIView()
+    }
+
+    // tableView의 grouped style을 사용해야, section header가 sticky하게 고정되지 않음.
+    // section 별로 원하는 높이를 지정해야 함.
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 40
+        }
+        return .leastNonzeroMagnitude
+    }
+
+    // tableview의 grouped style은 section마다 header와 footer가 default로 들어가기 때문에
+    // header나 footer를 사용하지 않는 section에 대해서 높이 처리가 필요하다.
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNonzeroMagnitude
     }
 }
 
@@ -128,6 +146,8 @@ extension HomeViewController: UICollectionViewDataSource {
         return cell
     }
 }
+
+// MARK: - CollectionView Delegate 구현부
 
 extension HomeViewController: UICollectionViewDelegate {
 
