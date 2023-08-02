@@ -9,26 +9,54 @@ import UIKit
 
 final class HomeViewController: UIViewController {
 
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var recentCollectionView: UICollectionView!
+    @IBOutlet var homeItemTableView: UITableView!
+    @IBOutlet var recentItemCollectionView: UICollectionView!
 
     private var data: [Movie] = MovieInfo().movie
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        configureCollectionView()
     }
 }
 
 private extension HomeViewController {
     func configureTableView() {
         let nib = UINib(nibName: HomeItemTableViewCell.identifier, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: HomeItemTableViewCell.identifier)
+        homeItemTableView.register(nib, forCellReuseIdentifier: HomeItemTableViewCell.identifier)
 
-        tableView.dataSource = self
-        tableView.delegate = self
+        homeItemTableView.dataSource = self
+        homeItemTableView.delegate = self
 
-        tableView.rowHeight = 120.0
-        tableView.separatorInset = .init(top: 0, left: 80, bottom: 0, right: 20)
+        homeItemTableView.rowHeight = 120.0
+        homeItemTableView.separatorInset = .init(top: 0, left: 80, bottom: 0, right: 20)
+    }
+
+    func configureCollectionView() {
+        let nib = UINib(nibName: RecentItemCollectionViewCell.identifier, bundle: nil)
+        recentItemCollectionView.register(
+            nib, forCellWithReuseIdentifier: RecentItemCollectionViewCell.identifier
+        )
+
+        recentItemCollectionView.dataSource = self
+        recentItemCollectionView.delegate = self
+
+        let layout = UICollectionViewFlowLayout()
+
+        let spacing = 10.0
+        let width = UIScreen.main.bounds.width - (spacing * 5)
+        layout.itemSize = .init(width: width / 4, height: 150)
+        layout.sectionInset = UIEdgeInsets(
+            top: spacing,
+            left: spacing,
+            bottom: spacing,
+            right: spacing
+        )
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        layout.scrollDirection = .horizontal
+
+        recentItemCollectionView.collectionViewLayout = layout
     }
 }
 
@@ -58,5 +86,36 @@ extension HomeViewController: UITableViewDataSource {
 // MARK: - TableView Delegate 구현부
 
 extension HomeViewController: UITableViewDelegate {
+
+}
+
+
+// MARK: - CollectionView DataSource 구현부
+
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        return data.count
+    }
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: RecentItemCollectionViewCell.identifier,
+            for: indexPath
+        ) as? RecentItemCollectionViewCell
+        else { return UICollectionViewCell() }
+
+        cell.configure(with: data[indexPath.item])
+
+        return cell
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate {
 
 }

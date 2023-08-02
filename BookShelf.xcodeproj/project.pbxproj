@@ -24,6 +24,8 @@
 		89E6F2F12A7A294A008F7751 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F02A7A294A008F7751 /* HomeViewController.swift */; };
 		89E6F2F42A7A2C03008F7751 /* HomeItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */; };
 		89E6F2F52A7A2C03008F7751 /* HomeItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E6F2F32A7A2C03008F7751 /* HomeItemTableViewCell.xib */; };
+		89E6F2F82A7A328F008F7751 /* RecentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F62A7A328F008F7751 /* RecentItemCollectionViewCell.swift */; };
+		89E6F2F92A7A328F008F7751 /* RecentItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E6F2F72A7A328F008F7751 /* RecentItemCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		89E6F2F02A7A294A008F7751 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemTableViewCell.swift; sourceTree = "<group>"; };
 		89E6F2F32A7A2C03008F7751 /* HomeItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeItemTableViewCell.xib; sourceTree = "<group>"; };
+		89E6F2F62A7A328F008F7751 /* RecentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		89E6F2F72A7A328F008F7751 /* RecentItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentItemCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 				89E6F2F02A7A294A008F7751 /* HomeViewController.swift */,
 				89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */,
 				89E6F2F32A7A2C03008F7751 /* HomeItemTableViewCell.xib */,
+				89E6F2F62A7A328F008F7751 /* RecentItemCollectionViewCell.swift */,
+				89E6F2F72A7A328F008F7751 /* RecentItemCollectionViewCell.xib */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -183,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E6F2F52A7A2C03008F7751 /* HomeItemTableViewCell.xib in Resources */,
+				89E6F2F92A7A328F008F7751 /* RecentItemCollectionViewCell.xib in Resources */,
 				892E89D42A77991100254B54 /* LaunchScreen.storyboard in Resources */,
 				892E89D12A77991100254B54 /* Assets.xcassets in Resources */,
 				892E89CF2A77991000254B54 /* Main.storyboard in Resources */,
@@ -199,6 +206,7 @@
 			files = (
 				892E89E52A779CCF00254B54 /* MovieInfo.swift in Sources */,
 				89E6F2F42A7A2C03008F7751 /* HomeItemTableViewCell.swift in Sources */,
+				89E6F2F82A7A328F008F7751 /* RecentItemCollectionViewCell.swift in Sources */,
 				892E89E72A77A47700254B54 /* UIColor+.swift in Sources */,
 				892E89EA2A77A7E900254B54 /* SearchViewController.swift in Sources */,
 				892E89DC2A77995400254B54 /* MainCollectionViewController.swift in Sources */,
