@@ -64,6 +64,25 @@ private extension HomeViewController {
 
         recentItemCollectionView.collectionViewLayout = layout
     }
+
+
+    /// 셀 선택시 해당 아이템의 상세화면으로 이동하는 메서드.
+    /// - Parameter indexPath: 선택한 셀의 indexPath입니다.
+    func didSelectCell(at indexPath: IndexPath) {
+        let movie = data[indexPath.row]
+        guard let viewController = storyboard?.instantiateViewController(
+            identifier: DetailViewController.identifier
+        ) as? DetailViewController
+        else { return }
+
+        viewController.configure(with: movie) { [weak self] isFavorite in
+            self?.data[indexPath.row].isFavorite = isFavorite
+        }
+
+        let navigationVC = UINavigationController(rootViewController: viewController)
+        navigationVC.modalPresentationStyle = .fullScreen
+        present(navigationVC, animated: true)
+    }
 }
 
 // MARK: - TableView DataSource 구현부
@@ -118,19 +137,7 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movie = data[indexPath.row]
-        guard let viewController = storyboard?.instantiateViewController(
-            identifier: DetailViewController.identifier
-        ) as? DetailViewController
-        else { return }
-
-        viewController.configure(with: movie) { [weak self] isFavorite in
-            self?.data[indexPath.row].isFavorite = isFavorite
-        }
-
-        let navigationVC = UINavigationController(rootViewController: viewController)
-        navigationVC.modalPresentationStyle = .fullScreen
-        present(navigationVC, animated: true)
+        didSelectCell(at: indexPath)
     }
 }
 
@@ -168,18 +175,6 @@ extension HomeViewController: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        let movie = data[indexPath.row]
-        guard let viewController = storyboard?.instantiateViewController(
-            identifier: DetailViewController.identifier
-        ) as? DetailViewController
-        else { return }
-
-        viewController.configure(with: movie) { [weak self] isFavorite in
-            self?.data[indexPath.row].isFavorite = isFavorite
-        }
-
-        let navigationVC = UINavigationController(rootViewController: viewController)
-        navigationVC.modalPresentationStyle = .fullScreen
-        present(navigationVC, animated: true)
+        didSelectCell(at: indexPath)
     }
 }
