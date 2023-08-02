@@ -15,7 +15,7 @@ struct Movie {
     var overview: String
     var rate: Double
     var posterImageName: String
-
+    var platforms: [Platform] = Platform.random
     var memo: String?
 }
 

@@ -15,10 +15,17 @@ final class HomeItemTableViewCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var infoLabel: UILabel!
     @IBOutlet var stackView: UIStackView!
+    @IBOutlet var platformStackView: UIStackView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         configureUI()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        posterImageView.image = nil
+        platformStackView.removeAllSubviews()
     }
 }
 
@@ -40,5 +47,14 @@ extension HomeItemTableViewCell {
         posterImageView.image = UIImage(named: data.posterImageName)
         titleLabel.text = data.title
         infoLabel.text = data.homeItemInfo
+
+        if data.platforms.isEmpty == false {
+            for platform in data.platforms {
+                let button = UIButton.makePlatformButton(platform)
+                platformStackView.addArrangedSubview(button)
+            }
+            platformStackView.addArrangedSubview(UIView())
+            layoutIfNeeded()
+        }
     }
 }

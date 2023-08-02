@@ -24,7 +24,7 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="EKm-SU-ZkE">
-                        <rect key="frame" x="159.33333333333334" y="108.33333333333333" width="260.66666666666663" height="40.666666666666671"/>
+                        <rect key="frame" x="159.33333333333334" y="53.333333333333329" width="260.66666666666663" height="150.66666666666669"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sS-G9-YF6">
                                 <rect key="frame" x="0.0" y="0.0" width="260.66666666666669" height="20.333333333333332"/>
@@ -33,11 +33,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSs-yU-ryN">
-                                <rect key="frame" x="0.0" y="20.333333333333329" width="260.66666666666669" height="20.333333333333329"/>
+                                <rect key="frame" x="0.0" y="20.333333333333336" width="260.66666666666669" height="20.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="XNe-ea-ym4">
+                                <rect key="frame" x="0.0" y="40.666666666666657" width="260.66666666666669" height="110"/>
+                            </stackView>
                         </subviews>
                     </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cES-uv-trf" userLabel="Separator">
@@ -63,6 +66,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="infoLabel" destination="NSs-yU-ryN" id="stW-PQ-Se9"/>
+                <outlet property="platformStackView" destination="XNe-ea-ym4" id="ElH-NM-75z"/>
                 <outlet property="posterImageView" destination="XYc-g3-5qS" id="XQK-EU-fOn"/>
                 <outlet property="stackView" destination="EKm-SU-ZkE" id="loc-65-TkX"/>
                 <outlet property="titleLabel" destination="6sS-G9-YF6" id="xze-ja-eXH"/>
