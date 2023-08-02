@@ -92,13 +92,12 @@
 		892E89C62A77991000254B54 /* BookShelf */ = {
 			isa = PBXGroup;
 			children = (
-				892E89C72A77991000254B54 /* AppDelegate.swift */,
-				892E89C92A77991000254B54 /* SceneDelegate.swift */,
-				892E89E32A779CAD00254B54 /* Model */,
+				89CA33C12A7AA87B00DA1978 /* Application */,
+				892E89E32A779CAD00254B54 /* Domain */,
 				89E6F2E32A792A84008F7751 /* Presentation */,
-				892E89E82A77A47E00254B54 /* Extension */,
+				89CA33C02A7AA85F00DA1978 /* Common */,
+				89CA33C52A7AA9F500DA1978 /* Mock */,
 				892E89CD2A77991000254B54 /* Main.storyboard */,
-				892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */,
 				892E89D22A77991100254B54 /* LaunchScreen.storyboard */,
 				892E89D02A77991100254B54 /* Assets.xcassets */,
 				892E89D52A77991100254B54 /* Info.plist */,
@@ -106,15 +105,12 @@
 			path = BookShelf;
 			sourceTree = "<group>";
 		};
-		892E89E32A779CAD00254B54 /* Model */ = {
+		892E89E32A779CAD00254B54 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				892E89E12A779CA300254B54 /* Movie.swift */,
-				892E89E42A779CCF00254B54 /* MovieInfo.swift */,
-				89CA33B52A7A4B5700DA1978 /* HomeCategory.swift */,
-				89CA33B72A7A729100DA1978 /* Platform.swift */,
+				89CA33BF2A7AA83600DA1978 /* Entities */,
 			);
-			path = Model;
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		892E89E82A77A47E00254B54 /* Extension */ = {
@@ -128,19 +124,79 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		89E6F2E32A792A84008F7751 /* Presentation */ = {
+		89CA33BF2A7AA83600DA1978 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				892E89DB2A77995400254B54 /* MainCollectionViewController.swift */,
-				892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */,
-				892E89E92A77A7E900254B54 /* SearchViewController.swift */,
-				892E89EB2A77B3AC00254B54 /* DetailViewController.swift */,
+				892E89E12A779CA300254B54 /* Movie.swift */,
+				89CA33B52A7A4B5700DA1978 /* HomeCategory.swift */,
+				89CA33B72A7A729100DA1978 /* Platform.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		89CA33C02A7AA85F00DA1978 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				892E89E82A77A47E00254B54 /* Extension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		89CA33C12A7AA87B00DA1978 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				892E89C72A77991000254B54 /* AppDelegate.swift */,
+				892E89C92A77991000254B54 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		89CA33C22A7AA8AA00DA1978 /* Home */ = {
+			isa = PBXGroup;
+			children = (
 				89E6F2F02A7A294A008F7751 /* HomeViewController.swift */,
 				89CA33B32A7A498600DA1978 /* HomeItemTableHeaderView.swift */,
 				89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */,
 				89E6F2F32A7A2C03008F7751 /* HomeItemTableViewCell.xib */,
 				89E6F2F62A7A328F008F7751 /* RecentItemCollectionViewCell.swift */,
 				89E6F2F72A7A328F008F7751 /* RecentItemCollectionViewCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		89CA33C32A7AA99D00DA1978 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				892E89DB2A77995400254B54 /* MainCollectionViewController.swift */,
+				892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */,
+				892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */,
+				892E89E92A77A7E900254B54 /* SearchViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		89CA33C42A7AA9BC00DA1978 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				892E89EB2A77B3AC00254B54 /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		89CA33C52A7AA9F500DA1978 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				892E89E42A779CCF00254B54 /* MovieInfo.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		89E6F2E32A792A84008F7751 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				89CA33C22A7AA8AA00DA1978 /* Home */,
+				89CA33C32A7AA99D00DA1978 /* Main */,
+				89CA33C42A7AA9BC00DA1978 /* Detail */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";

@@ -12,7 +12,7 @@
         <!--Main Collection View Controller-->
         <scene sceneID="UdL-Mo-P8u">
             <objects>
-                <collectionViewController id="3Nq-bT-2LW" customClass="MainCollectionViewController" customModule="BookShelf" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController interactionActivityTrackingBaseName=" " id="3Nq-bT-2LW" customClass="MainCollectionViewController" customModule="BookShelf" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3V4-ZH-4wZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
