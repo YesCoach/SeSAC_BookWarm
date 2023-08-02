@@ -53,7 +53,11 @@ final class DetailViewController: UIViewController {
     }
 
     @objc func didDismissBarButtonTouched(_ sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
+        if navigationController?.modalPresentationStyle == .fullScreen {
+            dismiss(animated: true)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
 
     @objc func didFavoriteBarButtonTouched(_ sender: UIBarButtonItem) {
@@ -88,15 +92,24 @@ private extension DetailViewController {
     func configureNavigationItem() {
         navigationItem.title = data?.title ?? ""
 
-        let dismissButton = UIBarButtonItem(
-            image: .init(systemName: "chevron.left"),
-            style: .plain,
-            target: self,
-            action: #selector(didDismissBarButtonTouched)
-        )
-        navigationItem.leftBarButtonItem = dismissButton
+        if navigationController?.modalPresentationStyle == .fullScreen {
+            let dismissButton = UIBarButtonItem(
+                image: .init(systemName: "xmark"),
+                style: .plain,
+                target: self,
+                action: #selector(didDismissBarButtonTouched)
+            )
+            navigationItem.leftBarButtonItem = dismissButton
+        } else {
+            let dismissButton = UIBarButtonItem(
+                image: .init(systemName: "chevron.left"),
+                style: .plain,
+                target: self,
+                action: #selector(didDismissBarButtonTouched)
+            )
+            navigationItem.leftBarButtonItem = dismissButton
+        }
         navigationItem.leftBarButtonItem?.tintColor = .systemMint
-
         let favoriteButton = UIBarButtonItem(customView: favoriteButton)
         navigationItem.rightBarButtonItem = favoriteButton
         navigationItem.largeTitleDisplayMode = .automatic

@@ -117,7 +117,21 @@ extension HomeViewController: UITableViewDataSource {
 // MARK: - TableView Delegate 구현부
 
 extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = data[indexPath.row]
+        guard let viewController = storyboard?.instantiateViewController(
+            identifier: DetailViewController.identifier
+        ) as? DetailViewController
+        else { return }
 
+        viewController.configure(with: movie) { [weak self] isFavorite in
+            self?.data[indexPath.row].isFavorite = isFavorite
+        }
+
+        let navigationVC = UINavigationController(rootViewController: viewController)
+        navigationVC.modalPresentationStyle = .fullScreen
+        present(navigationVC, animated: true)
+    }
 }
 
 
