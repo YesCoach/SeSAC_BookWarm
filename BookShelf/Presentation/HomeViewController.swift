@@ -164,5 +164,22 @@ extension HomeViewController: UICollectionViewDataSource {
 // MARK: - CollectionView Delegate 구현부
 
 extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        let movie = data[indexPath.row]
+        guard let viewController = storyboard?.instantiateViewController(
+            identifier: DetailViewController.identifier
+        ) as? DetailViewController
+        else { return }
 
+        viewController.configure(with: movie) { [weak self] isFavorite in
+            self?.data[indexPath.row].isFavorite = isFavorite
+        }
+
+        let navigationVC = UINavigationController(rootViewController: viewController)
+        navigationVC.modalPresentationStyle = .fullScreen
+        present(navigationVC, animated: true)
+    }
 }
