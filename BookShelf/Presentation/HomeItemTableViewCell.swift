@@ -26,10 +26,12 @@ private extension HomeItemTableViewCell {
     func configureUI() {
         posterImageView.layer.cornerRadius = 10.0
         posterImageView.contentMode = .scaleAspectFill
-        titleLabel.font = .systemFont(ofSize: 15.0, weight: .regular)
+        titleLabel.font = .systemFont(ofSize: 15.0, weight: .semibold)
         titleLabel.numberOfLines = 1
         infoLabel.font = .systemFont(ofSize: 13.0, weight: .regular)
         infoLabel.textColor = .secondaryLabel
+
+        stackView.spacing = 8.0
     }
 }
 
