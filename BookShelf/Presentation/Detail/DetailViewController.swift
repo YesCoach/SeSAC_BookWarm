@@ -81,6 +81,7 @@ private extension DetailViewController {
         favoriteButton.isSelected = data.isFavorite
 
         memoTextView.text = data.memo
+        memoTextView.setupDetailTextView()
         memoTextView.setupPlaceHolder(with: placeHolder)
         memoTextView.isScrollEnabled = false
         memoTextView.delegate = self
@@ -138,7 +139,9 @@ private extension DetailViewController {
 
     /// VC가 사라지기 전에, 변동 데이터를 저장하는 메소드입니다.
     func saveChangedMovieData() {
-        if memoTextView.text.isEmpty == false {
+        if memoTextView.text! == placeHolder || memoTextView.text.isEmpty {
+            data?.memo = nil
+        } else {
             data?.memo = memoTextView.text!
         }
         if let data {
