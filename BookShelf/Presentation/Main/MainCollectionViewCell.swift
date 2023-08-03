@@ -18,6 +18,11 @@ class MainCollectionViewCell: UICollectionViewCell {
 
     var completionHandler: ((Bool) -> ())?
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        configureUI()
+    }
+
     @IBAction func didFavoriteButtonTouched(_ sender: UIButton) {
         sender.isSelected.toggle()
         completionHandler?(sender.isSelected)
@@ -33,7 +38,6 @@ class MainCollectionViewCell: UICollectionViewCell {
 
 extension MainCollectionViewCell {
     func configure(with data: Movie, completion: @escaping (Bool) -> ()) {
-        configureUI()
         nameLabel.text = data.title
         rateLabel.text = "\(data.rate)"
         posterImageView.image = UIImage(named: data.posterImageName)
