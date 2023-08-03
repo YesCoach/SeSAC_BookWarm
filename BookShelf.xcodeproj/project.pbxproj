@@ -97,8 +97,6 @@
 				89E6F2E32A792A84008F7751 /* Presentation */,
 				89CA33C02A7AA85F00DA1978 /* Common */,
 				89CA33C52A7AA9F500DA1978 /* Mock */,
-				892E89CD2A77991000254B54 /* Main.storyboard */,
-				892E89D22A77991100254B54 /* LaunchScreen.storyboard */,
 				892E89D02A77991100254B54 /* Assets.xcassets */,
 				892E89D52A77991100254B54 /* Info.plist */,
 			);
@@ -194,6 +192,8 @@
 		89E6F2E32A792A84008F7751 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				892E89CD2A77991000254B54 /* Main.storyboard */,
+				892E89D22A77991100254B54 /* LaunchScreen.storyboard */,
 				89CA33C22A7AA8AA00DA1978 /* Home */,
 				89CA33C32A7AA99D00DA1978 /* Main */,
 				89CA33C42A7AA9BC00DA1978 /* Detail */,

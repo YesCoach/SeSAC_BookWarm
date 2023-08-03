@@ -38,14 +38,7 @@
                             <outlet property="delegate" destination="3Nq-bT-2LW" id="EFE-MR-CzE"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="JTi-jW-0fs">
-                        <barButtonItem key="rightBarButtonItem" image="magnifyingglass" catalog="system" id="deh-eT-5Vn">
-                            <color key="tintColor" systemColor="labelColor"/>
-                            <connections>
-                                <action selector="didSearchBarButtonTouched:" destination="3Nq-bT-2LW" id="FWm-l9-nCP"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="JTi-jW-0fs"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MrM-YD-bka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -316,7 +309,6 @@
     <resources>
         <image name="film.circle" catalog="system" width="128" height="123"/>
         <image name="leaf.fill" catalog="system" width="128" height="109"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

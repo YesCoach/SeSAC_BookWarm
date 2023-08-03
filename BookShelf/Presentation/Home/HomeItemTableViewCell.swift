@@ -54,6 +54,8 @@ extension HomeItemTableViewCell {
                 platformStackView.addArrangedSubview(button)
             }
             platformStackView.addArrangedSubview(UIView())
+
+            // TODO: - 버튼 관련 이슈 해결 안됨
             layoutIfNeeded()
         }
     }

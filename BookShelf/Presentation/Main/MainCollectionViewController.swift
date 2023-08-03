@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum MainViewMode {
+    case whole
+    case favorite
+    case search
+}
+
 final class MainCollectionViewController: UICollectionViewController {
 
     private lazy var favoriteButton: UIButton = {
@@ -18,9 +24,18 @@ final class MainCollectionViewController: UICollectionViewController {
         return button
     }()
 
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.setShowsCancelButton(true, animated: false)
+        searchBar.tintColor = .systemMint
+        return searchBar
+    }()
+
     private let userName: String = "고래밥"
     private var data: [Movie] = []
-    private var isFavoriteMode: Bool = false {
+
+    private var contentMode: MainViewMode = .whole {
         didSet {
             collectionView.reloadData()
         }
@@ -31,6 +46,11 @@ final class MainCollectionViewController: UICollectionViewController {
         configureNavigationItem()
         configureCollectionView()
         configureData()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     @IBAction func didSearchBarButtonTouched(_ sender: UIBarButtonItem) {
@@ -51,17 +71,20 @@ final class MainCollectionViewController: UICollectionViewController {
 
     @objc func didFavoriteBarButtonTouched(_ sender: UIButton) {
         sender.isSelected.toggle()
-        isFavoriteMode = sender.isSelected
+        contentMode = sender.isSelected ? .favorite : .whole
     }
 }
+
+// MARK: - Private Method
 
 private extension MainCollectionViewController {
     func configureNavigationItem() {
         navigationItem.title = "\(userName)님의 책장"
-        navigationItem.rightBarButtonItem?.tintColor = .systemMint
+        navigationItem.titleView = searchBar
 
         let favoriteBarButton = UIBarButtonItem(customView: favoriteButton)
-        navigationItem.rightBarButtonItems?.append(favoriteBarButton)
+        navigationItem.rightBarButtonItem = favoriteBarButton
+        navigationItem.rightBarButtonItem?.tintColor = .systemMint
     }
 
     func configureCollectionView() {
@@ -100,7 +123,11 @@ extension MainCollectionViewController {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return isFavoriteMode ? data.filter { $0.isFavorite }.count : data.count
+        switch contentMode {
+        case .whole: return data.count
+        case .favorite: return data.filter { $0.isFavorite }.count
+        case .search: return data.filter { $0.title.contains(searchBar.text!) }.count
+        }
     }
 
     override func collectionView(
@@ -113,8 +140,16 @@ extension MainCollectionViewController {
         ) as? MainCollectionViewCell
         else { return UICollectionViewCell() }
 
-        let movie = isFavoriteMode ?
-            data.filter { $0.isFavorite }[indexPath.row] : data[indexPath.row]
+        var movie: Movie
+
+        switch contentMode {
+        case .whole:
+            movie = data[indexPath.row]
+        case .favorite:
+            movie = data.filter { $0.isFavorite }[indexPath.row]
+        case .search:
+            movie = data.filter { $0.title.contains(searchBar.text!) }[indexPath.row]
+        }
 
         cell.configure(with: movie) { [weak self] isFavorite in
             if let index = self?.data.firstIndex(where: { $0.title == movie.title }) {
@@ -148,5 +183,24 @@ extension MainCollectionViewController {
 
         viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+// MARK: - UISearchBarDelegate 구현부
+
+extension MainCollectionViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard searchText.isEmpty == false
+        else {
+            contentMode = .whole
+            return
+        }
+        contentMode = .search
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        contentMode = .whole
+        searchBar.resignFirstResponder()
     }
 }

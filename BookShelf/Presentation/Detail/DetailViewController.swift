@@ -53,6 +53,7 @@ final class DetailViewController: UIViewController {
         view.endEditing(true)
     }
 
+    // viewController의 화면 전환 방식에 따른 돌아가기 버튼 로직 분기 처리
     @objc func didDismissBarButtonTouched(_ sender: UIBarButtonItem) {
         if navigationController?.modalPresentationStyle == .fullScreen {
             dismiss(animated: true)
@@ -94,6 +95,7 @@ private extension DetailViewController {
         stackView.isLayoutMarginsRelativeArrangement = true
     }
 
+    // viewController의 화면 전환 방식에 따른 네비게이션 아이템 구성 로직 분기 처리
     func configureNavigationItem() {
         navigationItem.title = data?.title ?? ""
 
