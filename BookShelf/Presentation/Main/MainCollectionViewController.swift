@@ -33,6 +33,14 @@ final class MainCollectionViewController: UICollectionViewController {
         return searchBar
     }()
 
+    private lazy var tapGesture: UITapGestureRecognizer = {
+        let gesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(didBackgroundViewTouched)
+        )
+        return gesture
+    }()
+
     private let userName: String = "고래밥"
     private var data: [Movie] = []
 
@@ -81,6 +89,10 @@ final class MainCollectionViewController: UICollectionViewController {
         searchBar.resignFirstResponder()
         contentMode = sender.isSelected ? .favorite : .whole
     }
+
+    @objc func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
+        searchBar.resignFirstResponder()
+    }
 }
 
 // MARK: - Private Method
@@ -118,6 +130,14 @@ private extension MainCollectionViewController {
         flowLayout.minimumInteritemSpacing = spacing
 
         collectionView.collectionViewLayout = flowLayout
+    }
+
+    func addTapGesture() {
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    func removeTapGesture() {
+        view.removeGestureRecognizer(tapGesture)
     }
 
     func configureData() {
@@ -222,10 +242,12 @@ extension MainCollectionViewController: UISearchBarDelegate {
     }
 
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        addTapGesture()
         return true
     }
 
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        removeTapGesture()
         return true
     }
 }
