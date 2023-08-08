@@ -28,6 +28,11 @@
 		89CD163B2A82645100B29615 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 89CD163A2A82645100B29615 /* .gitignore */; };
 		89CD163D2A8264DF00B29615 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD163C2A8264DF00B29615 /* APIKey.swift */; };
 		89CD163F2A82669600B29615 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD163E2A82669600B29615 /* Book.swift */; };
+		89CD16442A82695F00B29615 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD16422A82695F00B29615 /* SearchTableViewCell.swift */; };
+		89CD16452A82695F00B29615 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CD16432A82695F00B29615 /* SearchTableViewCell.xib */; };
+		89CD16482A82706B00B29615 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 89CD16472A82706B00B29615 /* Kingfisher */; };
+		89CD164B2A82707300B29615 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 89CD164A2A82707300B29615 /* SwiftyJSON */; };
+		89CD164E2A82707D00B29615 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 89CD164D2A82707D00B29615 /* Alamofire */; };
 		89E6F2E22A78EBBD008F7751 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2E12A78EBBD008F7751 /* UITextView+.swift */; };
 		89E6F2F12A7A294A008F7751 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F02A7A294A008F7751 /* HomeViewController.swift */; };
 		89E6F2F42A7A2C03008F7751 /* HomeItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */; };
@@ -60,6 +65,8 @@
 		89CD163A2A82645100B29615 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		89CD163C2A8264DF00B29615 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		89CD163E2A82669600B29615 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		89CD16422A82695F00B29615 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		89CD16432A82695F00B29615 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		89E6F2E12A78EBBD008F7751 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
 		89E6F2F02A7A294A008F7751 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -73,6 +80,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89CD164E2A82707D00B29615 /* Alamofire in Frameworks */,
+				89CD164B2A82707300B29615 /* SwiftyJSON in Frameworks */,
+				89CD16482A82706B00B29615 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +188,8 @@
 				892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */,
 				892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */,
 				892E89E92A77A7E900254B54 /* SearchViewController.swift */,
+				89CD16422A82695F00B29615 /* SearchTableViewCell.swift */,
+				89CD16432A82695F00B29615 /* SearchTableViewCell.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -226,6 +238,11 @@
 			dependencies = (
 			);
 			name = BookShelf;
+			packageProductDependencies = (
+				89CD16472A82706B00B29615 /* Kingfisher */,
+				89CD164A2A82707300B29615 /* SwiftyJSON */,
+				89CD164D2A82707D00B29615 /* Alamofire */,
+			);
 			productName = BookShelf;
 			productReference = 892E89C42A77991000254B54 /* BookShelf.app */;
 			productType = "com.apple.product-type.application";
@@ -254,6 +271,11 @@
 				Base,
 			);
 			mainGroup = 892E89BB2A77990F00254B54;
+			packageReferences = (
+				89CD16462A82706B00B29615 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				89CD16492A82707300B29615 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				89CD164C2A82707D00B29615 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 892E89C52A77991000254B54 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -269,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E6F2F52A7A2C03008F7751 /* HomeItemTableViewCell.xib in Resources */,
+				89CD16452A82695F00B29615 /* SearchTableViewCell.xib in Resources */,
 				89CD163B2A82645100B29615 /* .gitignore in Resources */,
 				89E6F2F92A7A328F008F7751 /* RecentItemCollectionViewCell.xib in Resources */,
 				892E89D42A77991100254B54 /* LaunchScreen.storyboard in Resources */,
@@ -291,6 +314,7 @@
 				89CA33B42A7A498600DA1978 /* HomeItemTableHeaderView.swift in Sources */,
 				89E6F2F82A7A328F008F7751 /* RecentItemCollectionViewCell.swift in Sources */,
 				89CA33BA2A7A744E00DA1978 /* UIButton+.swift in Sources */,
+				89CD16442A82695F00B29615 /* SearchTableViewCell.swift in Sources */,
 				89CA33B62A7A4B5700DA1978 /* HomeCategory.swift in Sources */,
 				892E89E72A77A47700254B54 /* UIColor+.swift in Sources */,
 				89CD163F2A82669600B29615 /* Book.swift in Sources */,
@@ -522,6 +546,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		89CD16462A82706B00B29615 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		89CD16492A82707300B29615 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		89CD164C2A82707D00B29615 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		89CD16472A82706B00B29615 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89CD16462A82706B00B29615 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		89CD164A2A82707300B29615 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89CD16492A82707300B29615 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		89CD164D2A82707D00B29615 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89CD164C2A82707D00B29615 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 892E89BC2A77990F00254B54 /* Project object */;
 }

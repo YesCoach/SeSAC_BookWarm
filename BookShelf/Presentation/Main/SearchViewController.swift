@@ -6,12 +6,16 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 final class SearchViewController: UIViewController {
 
     static let identifier = "SearchViewController"
 
-    @IBOutlet var resultLabel: UILabel!
+    // MARK: - UI Components
+
+    @IBOutlet var tableView: UITableView!
 
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -25,11 +29,18 @@ final class SearchViewController: UIViewController {
         return searchBar
     }()
 
+    // MARK: - Properties
+
+    private var dataList: [Book] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureNavigationItem()
-        configure(with: "검색 화면")
     }
 
     @objc func didDismissButtonTouched(_ sender: UIBarButtonItem) {
@@ -46,8 +57,13 @@ final class SearchViewController: UIViewController {
 }
 
 private extension SearchViewController {
+
     func configureUI() {
-        resultLabel.font = .systemFont(ofSize: 24.0)
+        let nib = UINib(nibName: SearchTableViewCell.identifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: SearchTableViewCell.identifier)
+        tableView.dataSource = self
+        tableView.keyboardDismissMode = .onDrag
+        tableView.rowHeight = 120.0
     }
 
     func configureNavigationItem() {
@@ -62,16 +78,83 @@ private extension SearchViewController {
 
         navigationItem.titleView = searchBar
     }
+
+    func fetchData(with keyword: String) {
+        let headers: HTTPHeaders = .init(["Authorization": "KakaoAK \(APIKey.kakaoKey)"])
+        let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let url = "https://dapi.kakao.com/v3/search/book?query=\(encodedKeyword ?? "")"
+
+        AF.request(
+            url,
+            method: .get,
+            headers: headers
+        )
+        .validate()
+        .responseJSON { [weak self] response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print("JSON: \(json)")
+
+                self?.dataList = json["documents"].map({ (str, json) in
+                    let book = Book(
+                        title: json["title"].stringValue,
+                        authors: json["authors"].map{ (_, json) in
+                            json.stringValue
+                        },
+                        contents: json["contents"].stringValue,
+                        price: json["price"].intValue,
+                        salePrice: json["sale_price"].intValue,
+                        status: json["status"].stringValue,
+                        thumbnail: json["thumbnail"].stringValue,
+                        translators: json["translators"].map{ (_, json) in
+                            json.stringValue
+                        }
+                    )
+                    return book
+                })
+
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
 }
 
-extension SearchViewController {
-    func configure(with keyword: String) {
-        resultLabel.text = keyword
+// MARK: - UITableViewDataSource 구현부
+
+extension SearchViewController: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataList.count
     }
+
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: SearchTableViewCell.identifier,
+            for: indexPath
+        ) as? SearchTableViewCell
+        else { return UITableViewCell() }
+
+        cell.configure(with: dataList[indexPath.row])
+
+        return cell
+    }
+
 }
 
 // MARK: - SearchBarDelegate
 
 extension SearchViewController: UISearchBarDelegate {
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+
+        fetchData(with: searchBar.text!)
+    }
 
 }

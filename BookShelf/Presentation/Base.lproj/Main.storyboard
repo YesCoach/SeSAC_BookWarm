@@ -52,26 +52,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yFW-EF-lXh">
-                                <rect key="frame" x="175.66666666666666" y="428" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vA0-0H-Lu6">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qpF-oD-ngH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="yFW-EF-lXh" firstAttribute="centerX" secondItem="qpF-oD-ngH" secondAttribute="centerX" id="0KO-D1-qiW"/>
-                            <constraint firstItem="yFW-EF-lXh" firstAttribute="centerY" secondItem="qpF-oD-ngH" secondAttribute="centerY" id="Ftb-dm-cEb"/>
+                            <constraint firstItem="vA0-0H-Lu6" firstAttribute="leading" secondItem="qpF-oD-ngH" secondAttribute="leading" id="HuP-5F-sbL"/>
+                            <constraint firstItem="qpF-oD-ngH" firstAttribute="bottom" secondItem="vA0-0H-Lu6" secondAttribute="bottom" id="NAl-n8-3Dp"/>
+                            <constraint firstItem="vA0-0H-Lu6" firstAttribute="top" secondItem="qpF-oD-ngH" secondAttribute="top" id="eUs-1k-Ql9"/>
+                            <constraint firstItem="qpF-oD-ngH" firstAttribute="trailing" secondItem="vA0-0H-Lu6" secondAttribute="trailing" id="i5M-UY-EGd"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ze4-nR-yXc" appends="YES" id="vg6-4Z-tfR"/>
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="resultLabel" destination="yFW-EF-lXh" id="PJz-t5-RdF"/>
+                        <outlet property="tableView" destination="vA0-0H-Lu6" id="MkK-x2-3qw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="snA-aW-bLI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
