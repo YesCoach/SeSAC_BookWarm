@@ -25,6 +25,8 @@
 		89CA33B82A7A729100DA1978 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33B72A7A729100DA1978 /* Platform.swift */; };
 		89CA33BA2A7A744E00DA1978 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33B92A7A744E00DA1978 /* UIButton+.swift */; };
 		89CA33BC2A7A75D100DA1978 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33BB2A7A75D100DA1978 /* UIStackView+.swift */; };
+		89CD163B2A82645100B29615 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 89CD163A2A82645100B29615 /* .gitignore */; };
+		89CD163D2A8264DF00B29615 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD163C2A8264DF00B29615 /* APIKey.swift */; };
 		89E6F2E22A78EBBD008F7751 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2E12A78EBBD008F7751 /* UITextView+.swift */; };
 		89E6F2F12A7A294A008F7751 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F02A7A294A008F7751 /* HomeViewController.swift */; };
 		89E6F2F42A7A2C03008F7751 /* HomeItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */; };
@@ -54,6 +56,8 @@
 		89CA33B72A7A729100DA1978 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		89CA33B92A7A744E00DA1978 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		89CA33BB2A7A75D100DA1978 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		89CD163A2A82645100B29615 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		89CD163C2A8264DF00B29615 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		89E6F2E12A78EBBD008F7751 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
 		89E6F2F02A7A294A008F7751 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				89E6F2E32A792A84008F7751 /* Presentation */,
 				89CA33C02A7AA85F00DA1978 /* Common */,
 				89CA33C52A7AA9F500DA1978 /* Mock */,
+				89CD163A2A82645100B29615 /* .gitignore */,
+				89CD163C2A8264DF00B29615 /* APIKey.swift */,
 				892E89D02A77991100254B54 /* Assets.xcassets */,
 				892E89D52A77991100254B54 /* Info.plist */,
 			);
@@ -260,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E6F2F52A7A2C03008F7751 /* HomeItemTableViewCell.xib in Resources */,
+				89CD163B2A82645100B29615 /* .gitignore in Resources */,
 				89E6F2F92A7A328F008F7751 /* RecentItemCollectionViewCell.xib in Resources */,
 				892E89D42A77991100254B54 /* LaunchScreen.storyboard in Resources */,
 				892E89D12A77991100254B54 /* Assets.xcassets in Resources */,
@@ -276,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				892E89E52A779CCF00254B54 /* MovieInfo.swift in Sources */,
+				89CD163D2A8264DF00B29615 /* APIKey.swift in Sources */,
 				89E6F2F42A7A2C03008F7751 /* HomeItemTableViewCell.swift in Sources */,
 				89CA33B42A7A498600DA1978 /* HomeItemTableHeaderView.swift in Sources */,
 				89E6F2F82A7A328F008F7751 /* RecentItemCollectionViewCell.swift in Sources */,
