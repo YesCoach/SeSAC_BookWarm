@@ -26,6 +26,16 @@ final class MainCollectionViewController: UICollectionViewController {
         return barButtonItem
     }()
 
+    private lazy var searchBarButton: UIBarButtonItem = {
+        let button = UIButton()
+        button.setImage(.init(systemName: "magnifyingglass"), for: .normal)
+        button.tintColor = .systemMint
+        button.addTarget(self, action: #selector(didSearchBarButtonTouched), for: .touchUpInside)
+
+        let barButtonItem = UIBarButtonItem(customView: button)
+        return barButtonItem
+    }()
+
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.delegate = self
@@ -102,8 +112,7 @@ private extension MainCollectionViewController {
         navigationItem.title = "\(userName)님의 책장"
         navigationItem.titleView = searchBar
 
-        navigationItem.rightBarButtonItem = favoriteBarButton
-        navigationItem.rightBarButtonItem?.tintColor = .systemMint
+        navigationItem.rightBarButtonItems = [searchBarButton, favoriteBarButton]
 
         navigationItem.hidesSearchBarWhenScrolling = true
     }
