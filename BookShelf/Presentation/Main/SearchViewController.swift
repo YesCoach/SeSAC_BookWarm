@@ -17,6 +17,7 @@ final class SearchViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var emptyLabel: UILabel!
+    @IBOutlet var indicatorView: UIActivityIndicatorView!
 
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -72,6 +73,8 @@ private extension SearchViewController {
         tableView.rowHeight = 180.0
         emptyLabel.font = .systemFont(ofSize: 16, weight: .regular)
         emptyLabel.text = "검색 결과가 없어요!"
+
+        indicatorView.isHidden = true
     }
 
     func configureNavigationItem() {
@@ -95,6 +98,8 @@ private extension SearchViewController {
 
         let url = "https://dapi.kakao.com/v3/search/book?query=\(encodedKeyword)&page=\(page)"
 
+        indicatorView.startAnimating()
+        indicatorView.isHidden = false
         AF.request(
             url,
             method: .get,
@@ -102,6 +107,8 @@ private extension SearchViewController {
         )
         .validate()
         .responseJSON { [weak self] response in
+            self?.indicatorView.stopAnimating()
+            self?.indicatorView.isHidden = true
             switch response.result {
             case .success(let value):
                 let json = JSON(value)

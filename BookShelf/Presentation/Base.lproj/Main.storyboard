@@ -63,6 +63,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="xtM-bS-eHU">
+                                <rect key="frame" x="186.66666666666666" y="428.66666666666669" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qpF-oD-ngH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -71,9 +74,11 @@
                             <constraint firstItem="1Pf-S8-m5g" firstAttribute="centerX" secondItem="vA0-0H-Lu6" secondAttribute="centerX" id="Biv-SP-o8m"/>
                             <constraint firstItem="vA0-0H-Lu6" firstAttribute="leading" secondItem="qpF-oD-ngH" secondAttribute="leading" id="HuP-5F-sbL"/>
                             <constraint firstItem="qpF-oD-ngH" firstAttribute="bottom" secondItem="vA0-0H-Lu6" secondAttribute="bottom" id="NAl-n8-3Dp"/>
+                            <constraint firstItem="xtM-bS-eHU" firstAttribute="centerX" secondItem="qpF-oD-ngH" secondAttribute="centerX" id="Nzx-ht-1k9"/>
                             <constraint firstItem="vA0-0H-Lu6" firstAttribute="top" secondItem="qpF-oD-ngH" secondAttribute="top" id="eUs-1k-Ql9"/>
                             <constraint firstItem="qpF-oD-ngH" firstAttribute="trailing" secondItem="vA0-0H-Lu6" secondAttribute="trailing" id="i5M-UY-EGd"/>
                             <constraint firstItem="vA0-0H-Lu6" firstAttribute="top" secondItem="1Pf-S8-m5g" secondAttribute="bottom" constant="-389" id="iOC-H4-V0T"/>
+                            <constraint firstItem="xtM-bS-eHU" firstAttribute="centerY" secondItem="qpF-oD-ngH" secondAttribute="centerY" id="khH-3n-nfS"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ze4-nR-yXc" appends="YES" id="vg6-4Z-tfR"/>
@@ -81,6 +86,7 @@
                     </view>
                     <connections>
                         <outlet property="emptyLabel" destination="1Pf-S8-m5g" id="ekQ-fJ-mji"/>
+                        <outlet property="indicatorView" destination="xtM-bS-eHU" id="uv0-eI-vi4"/>
                         <outlet property="tableView" destination="vA0-0H-Lu6" id="MkK-x2-3qw"/>
                     </connections>
                 </viewController>
