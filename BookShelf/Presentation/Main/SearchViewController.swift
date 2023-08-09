@@ -99,6 +99,7 @@ private extension SearchViewController {
         // Query Value
         let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
 
+        // Pagination Query 반영
         let url = "https://dapi.kakao.com/v3/search/book?query=\(encodedKeyword)&page=\(page)"
 
         indicatorView.startAnimating()
@@ -108,7 +109,8 @@ private extension SearchViewController {
             method: .get,
             headers: headers
         )
-        .validate()
+        // 유효성 검사 - Request에 대한 Response가 성공했는지 StatusCode로 확인
+        .validate(statusCode: 200..<300)
         .responseJSON { [weak self] response in
             self?.indicatorView.stopAnimating()
             self?.indicatorView.isHidden = true
@@ -116,8 +118,8 @@ private extension SearchViewController {
             case .success(let value):
                 let json = JSON(value)
 
+                // 리소스가 마지막 페이지인지 확인하고 프로퍼티에 저장
                 self?.isEnd = json["meta"]["is_end"].boolValue
-
                 let data = json["documents"].map({ (str, json) in
                     let book = Book(
                         title: json["title"].stringValue,
@@ -135,7 +137,6 @@ private extension SearchViewController {
                     )
                     return book
                 })
-
                 self?.dataList.append(contentsOf: data)
 
             case .failure(let error):
