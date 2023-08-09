@@ -36,6 +36,8 @@ final class SearchViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    private var page = 1
+    private var isEnd = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +64,7 @@ private extension SearchViewController {
         let nib = UINib(nibName: SearchTableViewCell.identifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: SearchTableViewCell.identifier)
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
         tableView.keyboardDismissMode = .onDrag
         tableView.rowHeight = 120.0
     }
@@ -79,10 +82,13 @@ private extension SearchViewController {
         navigationItem.titleView = searchBar
     }
 
-    func fetchData(with keyword: String) {
+    func fetchData(with keyword: String, page: Int) {
+        // Request Header
         let headers: HTTPHeaders = .init(["Authorization": "KakaoAK \(APIKey.kakaoKey)"])
-        let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let url = "https://dapi.kakao.com/v3/search/book?query=\(encodedKeyword ?? "")"
+        // Query Value
+        let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+
+        let url = "https://dapi.kakao.com/v3/search/book?query=\(encodedKeyword)&page=\(page)"
 
         AF.request(
             url,
@@ -94,9 +100,10 @@ private extension SearchViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
 
-                self?.dataList = json["documents"].map({ (str, json) in
+                self?.isEnd = json["meta"]["is_end"].boolValue
+
+                let data = json["documents"].map({ (str, json) in
                     let book = Book(
                         title: json["title"].stringValue,
                         authors: json["authors"].map{ (_, json) in
@@ -113,6 +120,8 @@ private extension SearchViewController {
                     )
                     return book
                 })
+
+                self?.dataList.append(contentsOf: data)
 
             case .failure(let error):
                 print(error)
@@ -147,6 +156,25 @@ extension SearchViewController: UITableViewDataSource {
 
 }
 
+// MARK: - UITableViewDataSourcePrefetching 구현부
+
+extension SearchViewController: UITableViewDataSourcePrefetching {
+
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if indexPath.row == dataList.count - 1 && page < 50 && !isEnd {
+                page += 1
+                fetchData(with: searchBar.text!, page: page)
+            }
+        }
+    }
+
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        print("====취소: \(indexPaths)")
+    }
+
+}
+
 // MARK: - SearchBarDelegate
 
 extension SearchViewController: UISearchBarDelegate {
@@ -166,7 +194,10 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
 
-        fetchData(with: searchBar.text!)
+        page = 1
+        isEnd = false
+        dataList = []
+        fetchData(with: searchBar.text!, page: page)
     }
 
 }
