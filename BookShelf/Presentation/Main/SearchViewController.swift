@@ -37,6 +37,7 @@ final class SearchViewController: UIViewController {
         didSet {
             tableView.reloadData()
             emptyLabel.isHidden = !dataList.isEmpty
+            tableView.isScrollEnabled = !dataList.isEmpty
         }
     }
     private var page = 1
@@ -47,6 +48,7 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureNavigationItem()
+        dataList = []
     }
 
     @objc func didDismissButtonTouched(_ sender: UIBarButtonItem) {
@@ -68,7 +70,8 @@ private extension SearchViewController {
         let nib = UINib(nibName: SearchTableViewCell.identifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: SearchTableViewCell.identifier)
         tableView.dataSource = self
-        tableView.prefetchDataSource = self
+        tableView.delegate = self
+//        tableView.prefetchDataSource = self
         tableView.keyboardDismissMode = .onDrag
         tableView.rowHeight = 180.0
         emptyLabel.font = .systemFont(ofSize: 16, weight: .regular)
@@ -183,6 +186,20 @@ extension SearchViewController: UITableViewDataSourcePrefetching {
 
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         print("====취소: \(indexPaths)")
+    }
+
+}
+
+// MARK: - ScrollView Pagenatiohn 구현
+
+extension SearchViewController: UITableViewDelegate {
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("\(scrollView.contentOffset.y) >> \(scrollView.contentSize.height)")
+        if scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.height) {
+            page += 1
+            fetchData(with: searchKeyword, page: page)
+        }
     }
 
 }
