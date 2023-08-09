@@ -17,6 +17,7 @@ final class SearchTableViewCell: UITableViewCell {
     @IBOutlet var authorLabel: UILabel!
     @IBOutlet var translatorLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var statusLabel: UILabel!
     @IBOutlet var contentLabel: UILabel!
 
     override func awakeFromNib() {
@@ -37,7 +38,8 @@ extension SearchTableViewCell {
         nameLabel.text = book.title
         authorLabel.text = book.authors.joined(separator: ", ")
         translatorLabel.text = book.translators.joined(separator: ", ")
-        priceLabel.text = "\(book.salePrice)원"
+        priceLabel.text = "\(book.price)원"
+        statusLabel.text = book.status
         contentLabel.text = book.contents
     }
 
@@ -55,6 +57,7 @@ private extension SearchTableViewCell {
         authorLabel.textColor = .lightGray
         translatorLabel.textColor = .lightGray
 
+        statusLabel.font = .systemFont(ofSize: 14.0, weight: .semibold)
         contentLabel.numberOfLines = 0
 
         thumbnailImageView.contentMode = .scaleAspectFit

@@ -66,7 +66,7 @@ private extension SearchViewController {
         tableView.dataSource = self
         tableView.prefetchDataSource = self
         tableView.keyboardDismissMode = .onDrag
-        tableView.rowHeight = 120.0
+        tableView.rowHeight = 180.0
     }
 
     func configureNavigationItem() {

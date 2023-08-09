@@ -49,8 +49,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일시품절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNL-Gr-JLK">
+                                <rect key="frame" x="0.0" y="97.333333333333329" width="255" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="줄거리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iP8-oH-Gcs">
-                                <rect key="frame" x="0.0" y="97.333333333333314" width="255" height="118.66666666666669"/>
+                                <rect key="frame" x="0.0" y="121.66666666666666" width="255" height="94.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -74,6 +80,7 @@
                 <outlet property="contentLabel" destination="iP8-oH-Gcs" id="x6b-h9-gP7"/>
                 <outlet property="nameLabel" destination="vkg-JP-PSt" id="Mh2-wl-Tfr"/>
                 <outlet property="priceLabel" destination="y7h-6C-jhm" id="IHM-9W-3a8"/>
+                <outlet property="statusLabel" destination="XNL-Gr-JLK" id="WdS-Ol-yex"/>
                 <outlet property="thumbnailImageView" destination="mHF-1h-xjC" id="eaT-c3-KZR"/>
                 <outlet property="translatorLabel" destination="mUs-Fg-IeR" id="vz6-iA-kjC"/>
             </connections>
