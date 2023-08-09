@@ -56,21 +56,31 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색 결과가 없어요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Pf-S8-m5g">
+                                <rect key="frame" x="0.0" y="404" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qpF-oD-ngH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="1Pf-S8-m5g" firstAttribute="centerX" secondItem="vA0-0H-Lu6" secondAttribute="centerX" id="Biv-SP-o8m"/>
                             <constraint firstItem="vA0-0H-Lu6" firstAttribute="leading" secondItem="qpF-oD-ngH" secondAttribute="leading" id="HuP-5F-sbL"/>
                             <constraint firstItem="qpF-oD-ngH" firstAttribute="bottom" secondItem="vA0-0H-Lu6" secondAttribute="bottom" id="NAl-n8-3Dp"/>
                             <constraint firstItem="vA0-0H-Lu6" firstAttribute="top" secondItem="qpF-oD-ngH" secondAttribute="top" id="eUs-1k-Ql9"/>
                             <constraint firstItem="qpF-oD-ngH" firstAttribute="trailing" secondItem="vA0-0H-Lu6" secondAttribute="trailing" id="i5M-UY-EGd"/>
+                            <constraint firstItem="vA0-0H-Lu6" firstAttribute="top" secondItem="1Pf-S8-m5g" secondAttribute="bottom" constant="-389" id="iOC-H4-V0T"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ze4-nR-yXc" appends="YES" id="vg6-4Z-tfR"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="emptyLabel" destination="1Pf-S8-m5g" id="ekQ-fJ-mji"/>
                         <outlet property="tableView" destination="vA0-0H-Lu6" id="MkK-x2-3qw"/>
                     </connections>
                 </viewController>

@@ -16,6 +16,7 @@ final class SearchViewController: UIViewController {
     // MARK: - UI Components
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var emptyLabel: UILabel!
 
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -34,10 +35,12 @@ final class SearchViewController: UIViewController {
     private var dataList: [Book] = [] {
         didSet {
             tableView.reloadData()
+            emptyLabel.isHidden = !dataList.isEmpty
         }
     }
     private var page = 1
     private var isEnd = false
+    private var searchKeyword: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +70,8 @@ private extension SearchViewController {
         tableView.prefetchDataSource = self
         tableView.keyboardDismissMode = .onDrag
         tableView.rowHeight = 180.0
+        emptyLabel.font = .systemFont(ofSize: 16, weight: .regular)
+        emptyLabel.text = "검색 결과가 없어요!"
     }
 
     func configureNavigationItem() {
@@ -164,7 +169,7 @@ extension SearchViewController: UITableViewDataSourcePrefetching {
         for indexPath in indexPaths {
             if indexPath.row == dataList.count - 1 && page < 50 && !isEnd {
                 page += 1
-                fetchData(with: searchBar.text!, page: page)
+                fetchData(with: searchKeyword, page: page)
             }
         }
     }
@@ -196,8 +201,9 @@ extension SearchViewController: UISearchBarDelegate {
 
         page = 1
         isEnd = false
+        searchKeyword = searchBar.text!
         dataList = []
-        fetchData(with: searchBar.text!, page: page)
+        fetchData(with: searchKeyword, page: page)
     }
 
 }
