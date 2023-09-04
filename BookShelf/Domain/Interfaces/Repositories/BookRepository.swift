@@ -10,4 +10,5 @@ import Foundation
 protocol BookRepository {
     func fetchBookList(query: String, page: Int, completion: @escaping (Result<KakaoSearchResult<Book>, APIError>) -> ())
     func storeBookInfo(book: Book)
+    func readBookInfo() -> [Book]
 }

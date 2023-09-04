@@ -64,6 +64,8 @@ private extension SearchTableViewCell {
         contentLabel.numberOfLines = 0
 
         thumbnailImageView.contentMode = .scaleAspectFit
+
+        selectionStyle = .none
     }
 
 }

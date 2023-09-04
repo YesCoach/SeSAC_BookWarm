@@ -29,6 +29,8 @@
 		890C299E2AA5EAAA00ED7D9C /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C299D2AA5EAAA00ED7D9C /* AppDIContainer.swift */; };
 		890C29A02AA5EE3500ED7D9C /* KakaoSearchResultDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C299F2AA5EE3500ED7D9C /* KakaoSearchResultDTO+Mapping.swift */; };
 		890C29A22AA5F57D00ED7D9C /* DTOMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29A12AA5F57D00ED7D9C /* DTOMapping.swift */; };
+		890C29A42AA5FCD500ED7D9C /* FetchBookUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29A32AA5FCD500ED7D9C /* FetchBookUseCase.swift */; };
+		890C29A62AA5FEBD00ED7D9C /* RealmMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29A52AA5FEBD00ED7D9C /* RealmMapping.swift */; };
 		892E89C82A77991000254B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89C72A77991000254B54 /* AppDelegate.swift */; };
 		892E89CA2A77991000254B54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89C92A77991000254B54 /* SceneDelegate.swift */; };
 		892E89CF2A77991000254B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E89CD2A77991000254B54 /* Main.storyboard */; };
@@ -84,6 +86,8 @@
 		890C299D2AA5EAAA00ED7D9C /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		890C299F2AA5EE3500ED7D9C /* KakaoSearchResultDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaoSearchResultDTO+Mapping.swift"; sourceTree = "<group>"; };
 		890C29A12AA5F57D00ED7D9C /* DTOMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOMapping.swift; sourceTree = "<group>"; };
+		890C29A32AA5FCD500ED7D9C /* FetchBookUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBookUseCase.swift; sourceTree = "<group>"; };
+		890C29A52AA5FEBD00ED7D9C /* RealmMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMapping.swift; sourceTree = "<group>"; };
 		892E89C42A77991000254B54 /* BookShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		892E89C72A77991000254B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		892E89C92A77991000254B54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				890C297F2AA5C35100ED7D9C /* RealmStorage.swift */,
+				890C29A52AA5FEBD00ED7D9C /* RealmMapping.swift */,
 			);
 			path = RealmStorage;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				890C29832AA5C6FD00ED7D9C /* SearchBookUseCase.swift */,
+				890C29A32AA5FCD500ED7D9C /* FetchBookUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -224,8 +230,8 @@
 		890C298E2AA5CBA100ED7D9C /* RealmStorage */ = {
 			isa = PBXGroup;
 			children = (
-				890C29962AA5D18D00ED7D9C /* EntityMapping */,
 				890C298F2AA5CBBD00ED7D9C /* RealmBookStorage.swift */,
+				890C29962AA5D18D00ED7D9C /* EntityMapping */,
 			);
 			path = RealmStorage;
 			sourceTree = "<group>";
@@ -508,6 +514,7 @@
 				890C29842AA5C6FD00ED7D9C /* SearchBookUseCase.swift in Sources */,
 				890C296D2AA5A9F400ED7D9C /* APIHeader.swift in Sources */,
 				890C298B2AA5CAB500ED7D9C /* DefaultBookRepository.swift in Sources */,
+				890C29A62AA5FEBD00ED7D9C /* RealmMapping.swift in Sources */,
 				890C296F2AA5AA4300ED7D9C /* NetworkManager.swift in Sources */,
 				890C29772AA5B45D00ED7D9C /* KakaoSearchResult.swift in Sources */,
 				89CA33BC2A7A75D100DA1978 /* UIStackView+.swift in Sources */,
@@ -524,6 +531,7 @@
 				890C29752AA5AE6100ED7D9C /* URLRequest+.swift in Sources */,
 				89E6F2E22A78EBBD008F7751 /* UITextView+.swift in Sources */,
 				890C29A02AA5EE3500ED7D9C /* KakaoSearchResultDTO+Mapping.swift in Sources */,
+				890C29A42AA5FCD500ED7D9C /* FetchBookUseCase.swift in Sources */,
 				890C299E2AA5EAAA00ED7D9C /* AppDIContainer.swift in Sources */,
 				892E89CA2A77991000254B54 /* SceneDelegate.swift in Sources */,
 				890C299C2AA5EA9200ED7D9C /* DIContainer.swift in Sources */,

@@ -39,10 +39,18 @@ extension MyBookShelfCollectionViewCell {
         nameLabel.text = data.title
         rateLabel.text = "\(data.rate)"
         posterImageView.image = UIImage(named: data.posterImageName)
-        posterImageView.contentMode = .scaleAspectFill
         favoriteButton.isSelected = data.isFavorite
 
         completionHandler = completion
+    }
+
+    func configure(with data: Book) {
+        nameLabel.text = data.title
+        rateLabel.text = ""
+        if let _url = data.thumbnail, let url = URL(string: _url) {
+            posterImageView.kf.setImage(with: url)
+        }
+        favoriteButton.isSelected = false
     }
 }
 
@@ -50,6 +58,7 @@ private extension MyBookShelfCollectionViewCell {
     func configureUI() {
         contentView.backgroundColor = .random
         contentView.layer.cornerRadius = 15.0
+        posterImageView.contentMode = .scaleAspectFill
         nameLabel.font = .boldSystemFont(ofSize: 20.0)
         nameLabel.textColor = .white
         nameLabel.minimumScaleFactor = 0.6

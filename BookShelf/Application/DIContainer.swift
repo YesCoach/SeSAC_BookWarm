@@ -27,9 +27,17 @@ final class DIContainer {
         self.dependencies = dependencies
     }
 
+    // MARK: - UseCase
+
     func makeSearchBookUseCase() -> SearchBookUseCase {
         return DefaultSearchBookUseCase(bookRepository: makeBookRepository())
     }
+
+    func makeFetchBookUseCase() -> FetchBookUseCase {
+        return DefaultFetchBookUseCase(bookRepository: makeBookRepository())
+    }
+
+    // MARK: - Repository
 
     func makeBookRepository() -> BookRepository {
         return DefaultBookRepository(

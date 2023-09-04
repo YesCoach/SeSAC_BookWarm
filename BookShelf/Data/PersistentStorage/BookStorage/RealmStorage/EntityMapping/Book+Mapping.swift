@@ -8,7 +8,8 @@
 import Foundation
 import RealmSwift
 
-class BookEntity: Object {
+class BookEntity: Object, RealmMapping {
+    typealias DomainType = Book
 
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var title: String?
@@ -50,17 +51,45 @@ class BookEntity: Object {
         self.status = status
         self.thumbnail = thumbnail
         self.url = url
+        self.authorsArray = authors ?? []
+        self.translatorsArray = translators ?? []
+    }
 
-        let authorList = List<String>()
-        if let authors {
-            authorList.append(objectsIn: authors)
-        }
-        self.authors = authorList
+    func toDomain() -> DomainType {
+        return DomainType(
+            authors: authorsArray,
+            contents: contents,
+            datetime: datetime,
+            isbn: isbn,
+            price: price,
+            publisher: publisher,
+            salePrice: salePrice,
+            status: status,
+            thumbnail: thumbnail,
+            title: title,
+            translators: translatorsArray,
+            url: url
+        )
+    }
+}
 
-        let translatorList = List<String>()
-        if let translators {
-            translatorList.append(objectsIn: translators)
+extension BookEntity {
+    var authorsArray: [String] {
+        get {
+            return authors.map { $0 }
         }
-        self.translators = translatorList
+        set {
+            authors.removeAll()
+            authors.append(objectsIn: newValue)
+        }
+    }
+    var translatorsArray: [String] {
+        get {
+            return translators.map { $0 }
+        }
+        set {
+            translators.removeAll()
+            translators.append(objectsIn: newValue)
+        }
     }
 }

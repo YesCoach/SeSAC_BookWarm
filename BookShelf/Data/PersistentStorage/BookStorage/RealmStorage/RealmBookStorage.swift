@@ -37,4 +37,8 @@ extension RealmBookStorage: BookStorage {
         realmStorage.createData(data: bookEntity)
     }
 
+    func readBookInfo() -> [Book] {
+        return realmStorage.readData(BookEntity.self).map { $0.toDomain() }
+    }
+
 }

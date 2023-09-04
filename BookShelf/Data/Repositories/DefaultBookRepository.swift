@@ -40,4 +40,8 @@ extension DefaultBookRepository: BookRepository {
     func storeBookInfo(book: Book) {
         bookStorage.storeBookInfo(book: book)
     }
+
+    func readBookInfo() -> [Book] {
+        return bookStorage.readBookInfo()
+    }
 }

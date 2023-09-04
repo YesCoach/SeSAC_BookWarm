@@ -9,4 +9,5 @@ import Foundation
 
 protocol BookStorage {
     func storeBookInfo(book: Book)
+    func readBookInfo() -> [Book]
 }

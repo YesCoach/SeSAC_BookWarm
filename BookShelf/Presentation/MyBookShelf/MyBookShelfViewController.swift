@@ -51,8 +51,14 @@ final class MyBookShelfViewController: UICollectionViewController {
         return gesture
     }()
 
+    private let fetchBookUseCase = DIContainer.shared.makeFetchBookUseCase()
     private let userName: String = "고래밥"
-    private var data: [Movie] = []
+//    private var data: [Movie] = []
+    private var data: [Book] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
 
     private var contentMode: MainViewMode = .whole {
         didSet {
@@ -64,12 +70,12 @@ final class MyBookShelfViewController: UICollectionViewController {
         super.viewDidLoad()
         configureNavigationItem()
         configureCollectionView()
-        configureData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+        configureData()
     }
 
     @IBAction func didSearchBarButtonTouched(_ sender: UIBarButtonItem) {
@@ -150,7 +156,7 @@ private extension MyBookShelfViewController {
     }
 
     func configureData() {
-        data = MovieInfo().movie
+        data = fetchBookUseCase.fetchSavedBookData()
     }
 }
 
@@ -161,11 +167,12 @@ extension MyBookShelfViewController {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        switch contentMode {
-        case .whole: return data.count
-        case .favorite: return data.filter { $0.isFavorite }.count
-        case .search: return data.filter { $0.title.contains(searchBar.text!) }.count
-        }
+//        switch contentMode {
+//        case .whole: return data.count
+//        case .favorite: return data.filter { $0.isFavorite }.count
+//        case .search: return data.filter { $0.title.contains(searchBar.text!) }.count
+//        }
+        return data.count
     }
 
     override func collectionView(
@@ -178,22 +185,23 @@ extension MyBookShelfViewController {
         ) as? MyBookShelfCollectionViewCell
         else { return UICollectionViewCell() }
 
-        var movie: Movie
+//        var movie: Movie
+//
+//        switch contentMode {
+//        case .whole:
+//            movie = data[indexPath.row]
+//        case .favorite:
+//            movie = data.filter { $0.isFavorite }[indexPath.row]
+//        case .search:
+//            movie = data.filter { $0.title.contains(searchBar.text!) }[indexPath.row]
+//        }
+//        cell.configure(with: movie) { [weak self] isFavorite in
+//            if let index = self?.data.firstIndex(where: { $0.title == movie.title }) {
+//                self?.data[index].isFavorite = isFavorite
+//            }
+//        }
+        cell.configure(with: data[indexPath.row])
 
-        switch contentMode {
-        case .whole:
-            movie = data[indexPath.row]
-        case .favorite:
-            movie = data.filter { $0.isFavorite }[indexPath.row]
-        case .search:
-            movie = data.filter { $0.title.contains(searchBar.text!) }[indexPath.row]
-        }
-
-        cell.configure(with: movie) { [weak self] isFavorite in
-            if let index = self?.data.firstIndex(where: { $0.title == movie.title }) {
-                self?.data[index].isFavorite = isFavorite
-            }
-        }
         return cell
     }
 }
@@ -205,22 +213,22 @@ extension MyBookShelfViewController {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        let item = data[indexPath.item]
-
-        guard let viewController = UIStoryboard(
-            name: "Main",
-            bundle: nil
-        ).instantiateViewController(
-            withIdentifier: DetailViewController.identifier
-        ) as? DetailViewController else { return }
-
-        viewController.configure(with: item) { [weak self] movie in
-            self?.data[indexPath.item] = movie
-            self?.collectionView.reloadItems(at: [indexPath])
-        }
-
-        viewController.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(viewController, animated: true)
+//        let item = data[indexPath.item]
+//
+//        guard let viewController = UIStoryboard(
+//            name: "Main",
+//            bundle: nil
+//        ).instantiateViewController(
+//            withIdentifier: DetailViewController.identifier
+//        ) as? DetailViewController else { return }
+//
+//        viewController.configure(with: item) { [weak self] movie in
+//            self?.data[indexPath.item] = movie
+//            self?.collectionView.reloadItems(at: [indexPath])
+//        }
+//
+//        viewController.hidesBottomBarWhenPushed = true
+//        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

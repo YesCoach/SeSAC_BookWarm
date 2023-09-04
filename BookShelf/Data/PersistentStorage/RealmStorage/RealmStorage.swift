@@ -27,4 +27,10 @@ extension RealmStorage {
         }
     }
 
+    func readData<T: Object>(_ object: T.Type) -> Results<T> {
+        return realm
+                    .objects(object)
+                    .sorted(byKeyPath: "title", ascending: true)
+    }
+
 }
