@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		890C29632AA59BD500ED7D9C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 890C29622AA59BD500ED7D9C /* Realm */; };
+		890C29652AA59BD500ED7D9C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 890C29642AA59BD500ED7D9C /* RealmSwift */; };
 		892E89C82A77991000254B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89C72A77991000254B54 /* AppDelegate.swift */; };
 		892E89CA2A77991000254B54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89C92A77991000254B54 /* SceneDelegate.swift */; };
 		892E89CF2A77991000254B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E89CD2A77991000254B54 /* Main.storyboard */; };
 		892E89D12A77991100254B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 892E89D02A77991100254B54 /* Assets.xcassets */; };
 		892E89D42A77991100254B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E89D22A77991100254B54 /* LaunchScreen.storyboard */; };
-		892E89DC2A77995400254B54 /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89DB2A77995400254B54 /* MainCollectionViewController.swift */; };
-		892E89DF2A779A3000254B54 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */; };
-		892E89E02A779A3000254B54 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */; };
+		892E89DC2A77995400254B54 /* MyBookShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89DB2A77995400254B54 /* MyBookShelfViewController.swift */; };
+		892E89DF2A779A3000254B54 /* MyBookShelfCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89DD2A779A3000254B54 /* MyBookShelfCollectionViewCell.swift */; };
+		892E89E02A779A3000254B54 /* MyBookShelfCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892E89DE2A779A3000254B54 /* MyBookShelfCollectionViewCell.xib */; };
 		892E89E22A779CA300254B54 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89E12A779CA300254B54 /* Movie.swift */; };
 		892E89E52A779CCF00254B54 /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89E42A779CCF00254B54 /* MovieInfo.swift */; };
 		892E89E72A77A47700254B54 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89E62A77A47700254B54 /* UIColor+.swift */; };
 		892E89EA2A77A7E900254B54 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89E92A77A7E900254B54 /* SearchViewController.swift */; };
 		892E89EC2A77B3AC00254B54 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89EB2A77B3AC00254B54 /* DetailViewController.swift */; };
-		89CA33B42A7A498600DA1978 /* HomeItemTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33B32A7A498600DA1978 /* HomeItemTableHeaderView.swift */; };
+		89CA33B42A7A498600DA1978 /* LookaroundTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33B32A7A498600DA1978 /* LookaroundTableHeaderView.swift */; };
 		89CA33B62A7A4B5700DA1978 /* HomeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33B52A7A4B5700DA1978 /* HomeCategory.swift */; };
 		89CA33B82A7A729100DA1978 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33B72A7A729100DA1978 /* Platform.swift */; };
 		89CA33BA2A7A744E00DA1978 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CA33B92A7A744E00DA1978 /* UIButton+.swift */; };
@@ -34,9 +36,9 @@
 		89CD164B2A82707300B29615 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 89CD164A2A82707300B29615 /* SwiftyJSON */; };
 		89CD164E2A82707D00B29615 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 89CD164D2A82707D00B29615 /* Alamofire */; };
 		89E6F2E22A78EBBD008F7751 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2E12A78EBBD008F7751 /* UITextView+.swift */; };
-		89E6F2F12A7A294A008F7751 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F02A7A294A008F7751 /* HomeViewController.swift */; };
-		89E6F2F42A7A2C03008F7751 /* HomeItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */; };
-		89E6F2F52A7A2C03008F7751 /* HomeItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E6F2F32A7A2C03008F7751 /* HomeItemTableViewCell.xib */; };
+		89E6F2F12A7A294A008F7751 /* LookaroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F02A7A294A008F7751 /* LookaroundViewController.swift */; };
+		89E6F2F42A7A2C03008F7751 /* LookaroundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F22A7A2C03008F7751 /* LookaroundTableViewCell.swift */; };
+		89E6F2F52A7A2C03008F7751 /* LookaroundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E6F2F32A7A2C03008F7751 /* LookaroundTableViewCell.xib */; };
 		89E6F2F82A7A328F008F7751 /* RecentItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6F2F62A7A328F008F7751 /* RecentItemCollectionViewCell.swift */; };
 		89E6F2F92A7A328F008F7751 /* RecentItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E6F2F72A7A328F008F7751 /* RecentItemCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -49,15 +51,15 @@
 		892E89D02A77991100254B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		892E89D32A77991100254B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		892E89D52A77991100254B54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		892E89DB2A77995400254B54 /* MainCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewController.swift; sourceTree = "<group>"; };
-		892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
-		892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
+		892E89DB2A77995400254B54 /* MyBookShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfViewController.swift; sourceTree = "<group>"; };
+		892E89DD2A779A3000254B54 /* MyBookShelfCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookShelfCollectionViewCell.swift; sourceTree = "<group>"; };
+		892E89DE2A779A3000254B54 /* MyBookShelfCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyBookShelfCollectionViewCell.xib; sourceTree = "<group>"; };
 		892E89E12A779CA300254B54 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		892E89E42A779CCF00254B54 /* MovieInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
 		892E89E62A77A47700254B54 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		892E89E92A77A7E900254B54 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		892E89EB2A77B3AC00254B54 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		89CA33B32A7A498600DA1978 /* HomeItemTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemTableHeaderView.swift; sourceTree = "<group>"; };
+		89CA33B32A7A498600DA1978 /* LookaroundTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookaroundTableHeaderView.swift; sourceTree = "<group>"; };
 		89CA33B52A7A4B5700DA1978 /* HomeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategory.swift; sourceTree = "<group>"; };
 		89CA33B72A7A729100DA1978 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		89CA33B92A7A744E00DA1978 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
@@ -68,9 +70,9 @@
 		89CD16422A82695F00B29615 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		89CD16432A82695F00B29615 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		89E6F2E12A78EBBD008F7751 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
-		89E6F2F02A7A294A008F7751 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeItemTableViewCell.swift; sourceTree = "<group>"; };
-		89E6F2F32A7A2C03008F7751 /* HomeItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeItemTableViewCell.xib; sourceTree = "<group>"; };
+		89E6F2F02A7A294A008F7751 /* LookaroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookaroundViewController.swift; sourceTree = "<group>"; };
+		89E6F2F22A7A2C03008F7751 /* LookaroundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookaroundTableViewCell.swift; sourceTree = "<group>"; };
+		89E6F2F32A7A2C03008F7751 /* LookaroundTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookaroundTableViewCell.xib; sourceTree = "<group>"; };
 		89E6F2F62A7A328F008F7751 /* RecentItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		89E6F2F72A7A328F008F7751 /* RecentItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentItemCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +84,8 @@
 			files = (
 				89CD164E2A82707D00B29615 /* Alamofire in Frameworks */,
 				89CD164B2A82707300B29615 /* SwiftyJSON in Frameworks */,
+				890C29632AA59BD500ED7D9C /* Realm in Frameworks */,
+				890C29652AA59BD500ED7D9C /* RealmSwift in Frameworks */,
 				89CD16482A82706B00B29615 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,30 +172,30 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		89CA33C22A7AA8AA00DA1978 /* Home */ = {
+		89CA33C22A7AA8AA00DA1978 /* Lookaround */ = {
 			isa = PBXGroup;
 			children = (
-				89E6F2F02A7A294A008F7751 /* HomeViewController.swift */,
-				89CA33B32A7A498600DA1978 /* HomeItemTableHeaderView.swift */,
-				89E6F2F22A7A2C03008F7751 /* HomeItemTableViewCell.swift */,
-				89E6F2F32A7A2C03008F7751 /* HomeItemTableViewCell.xib */,
+				89E6F2F02A7A294A008F7751 /* LookaroundViewController.swift */,
+				89CA33B32A7A498600DA1978 /* LookaroundTableHeaderView.swift */,
+				89E6F2F22A7A2C03008F7751 /* LookaroundTableViewCell.swift */,
+				89E6F2F32A7A2C03008F7751 /* LookaroundTableViewCell.xib */,
 				89E6F2F62A7A328F008F7751 /* RecentItemCollectionViewCell.swift */,
 				89E6F2F72A7A328F008F7751 /* RecentItemCollectionViewCell.xib */,
 			);
-			path = Home;
+			path = Lookaround;
 			sourceTree = "<group>";
 		};
-		89CA33C32A7AA99D00DA1978 /* Main */ = {
+		89CA33C32A7AA99D00DA1978 /* MyBookShelf */ = {
 			isa = PBXGroup;
 			children = (
-				892E89DB2A77995400254B54 /* MainCollectionViewController.swift */,
-				892E89DD2A779A3000254B54 /* MainCollectionViewCell.swift */,
-				892E89DE2A779A3000254B54 /* MainCollectionViewCell.xib */,
+				892E89DB2A77995400254B54 /* MyBookShelfViewController.swift */,
+				892E89DD2A779A3000254B54 /* MyBookShelfCollectionViewCell.swift */,
+				892E89DE2A779A3000254B54 /* MyBookShelfCollectionViewCell.xib */,
 				892E89E92A77A7E900254B54 /* SearchViewController.swift */,
 				89CD16422A82695F00B29615 /* SearchTableViewCell.swift */,
 				89CD16432A82695F00B29615 /* SearchTableViewCell.xib */,
 			);
-			path = Main;
+			path = MyBookShelf;
 			sourceTree = "<group>";
 		};
 		89CA33C42A7AA9BC00DA1978 /* Detail */ = {
@@ -215,8 +219,8 @@
 			children = (
 				892E89CD2A77991000254B54 /* Main.storyboard */,
 				892E89D22A77991100254B54 /* LaunchScreen.storyboard */,
-				89CA33C22A7AA8AA00DA1978 /* Home */,
-				89CA33C32A7AA99D00DA1978 /* Main */,
+				89CA33C22A7AA8AA00DA1978 /* Lookaround */,
+				89CA33C32A7AA99D00DA1978 /* MyBookShelf */,
 				89CA33C42A7AA9BC00DA1978 /* Detail */,
 			);
 			path = Presentation;
@@ -242,6 +246,8 @@
 				89CD16472A82706B00B29615 /* Kingfisher */,
 				89CD164A2A82707300B29615 /* SwiftyJSON */,
 				89CD164D2A82707D00B29615 /* Alamofire */,
+				890C29622AA59BD500ED7D9C /* Realm */,
+				890C29642AA59BD500ED7D9C /* RealmSwift */,
 			);
 			productName = BookShelf;
 			productReference = 892E89C42A77991000254B54 /* BookShelf.app */;
@@ -275,6 +281,7 @@
 				89CD16462A82706B00B29615 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				89CD16492A82707300B29615 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				89CD164C2A82707D00B29615 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				890C29612AA59BD500ED7D9C /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 892E89C52A77991000254B54 /* Products */;
 			projectDirPath = "";
@@ -290,14 +297,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89E6F2F52A7A2C03008F7751 /* HomeItemTableViewCell.xib in Resources */,
+				89E6F2F52A7A2C03008F7751 /* LookaroundTableViewCell.xib in Resources */,
 				89CD16452A82695F00B29615 /* SearchTableViewCell.xib in Resources */,
 				89CD163B2A82645100B29615 /* .gitignore in Resources */,
 				89E6F2F92A7A328F008F7751 /* RecentItemCollectionViewCell.xib in Resources */,
 				892E89D42A77991100254B54 /* LaunchScreen.storyboard in Resources */,
 				892E89D12A77991100254B54 /* Assets.xcassets in Resources */,
 				892E89CF2A77991000254B54 /* Main.storyboard in Resources */,
-				892E89E02A779A3000254B54 /* MainCollectionViewCell.xib in Resources */,
+				892E89E02A779A3000254B54 /* MyBookShelfCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,8 +317,8 @@
 			files = (
 				892E89E52A779CCF00254B54 /* MovieInfo.swift in Sources */,
 				89CD163D2A8264DF00B29615 /* APIKey.swift in Sources */,
-				89E6F2F42A7A2C03008F7751 /* HomeItemTableViewCell.swift in Sources */,
-				89CA33B42A7A498600DA1978 /* HomeItemTableHeaderView.swift in Sources */,
+				89E6F2F42A7A2C03008F7751 /* LookaroundTableViewCell.swift in Sources */,
+				89CA33B42A7A498600DA1978 /* LookaroundTableHeaderView.swift in Sources */,
 				89E6F2F82A7A328F008F7751 /* RecentItemCollectionViewCell.swift in Sources */,
 				89CA33BA2A7A744E00DA1978 /* UIButton+.swift in Sources */,
 				89CD16442A82695F00B29615 /* SearchTableViewCell.swift in Sources */,
@@ -320,12 +327,12 @@
 				89CD163F2A82669600B29615 /* Book.swift in Sources */,
 				89CA33BC2A7A75D100DA1978 /* UIStackView+.swift in Sources */,
 				892E89EA2A77A7E900254B54 /* SearchViewController.swift in Sources */,
-				892E89DC2A77995400254B54 /* MainCollectionViewController.swift in Sources */,
+				892E89DC2A77995400254B54 /* MyBookShelfViewController.swift in Sources */,
 				892E89E22A779CA300254B54 /* Movie.swift in Sources */,
-				892E89DF2A779A3000254B54 /* MainCollectionViewCell.swift in Sources */,
+				892E89DF2A779A3000254B54 /* MyBookShelfCollectionViewCell.swift in Sources */,
 				892E89EC2A77B3AC00254B54 /* DetailViewController.swift in Sources */,
 				89CA33B82A7A729100DA1978 /* Platform.swift in Sources */,
-				89E6F2F12A7A294A008F7751 /* HomeViewController.swift in Sources */,
+				89E6F2F12A7A294A008F7751 /* LookaroundViewController.swift in Sources */,
 				892E89C82A77991000254B54 /* AppDelegate.swift in Sources */,
 				89E6F2E22A78EBBD008F7751 /* UITextView+.swift in Sources */,
 				892E89CA2A77991000254B54 /* SceneDelegate.swift in Sources */,
@@ -548,6 +555,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		890C29612AA59BD500ED7D9C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.42.1;
+			};
+		};
 		89CD16462A82706B00B29615 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -575,6 +590,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		890C29622AA59BD500ED7D9C /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 890C29612AA59BD500ED7D9C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		890C29642AA59BD500ED7D9C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 890C29612AA59BD500ED7D9C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		89CD16472A82706B00B29615 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 89CD16462A82706B00B29615 /* XCRemoteSwiftPackageReference "Kingfisher" */;

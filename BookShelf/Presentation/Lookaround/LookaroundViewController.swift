@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  LookaroundViewController.swift
 //  BookShelf
 //
 //  Created by 박태현 on 2023/08/02.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
+final class LookaroundViewController: UIViewController {
 
     @IBOutlet var homeItemTableView: UITableView!
     @IBOutlet var recentItemCollectionView: UICollectionView!
@@ -19,7 +19,7 @@ final class HomeViewController: UIViewController {
     }
 }
 
-private extension HomeViewController {
+private extension LookaroundViewController {
     func configureUI() {
         navigationItem.title = "둘러보기"
         configureTableView()
@@ -27,8 +27,8 @@ private extension HomeViewController {
     }
 
     func configureTableView() {
-        let nib = UINib(nibName: HomeItemTableViewCell.identifier, bundle: nil)
-        homeItemTableView.register(nib, forCellReuseIdentifier: HomeItemTableViewCell.identifier)
+        let nib = UINib(nibName: LookaroundTableViewCell.identifier, bundle: nil)
+        homeItemTableView.register(nib, forCellReuseIdentifier: LookaroundTableViewCell.identifier)
 
         homeItemTableView.dataSource = self
         homeItemTableView.delegate = self
@@ -87,7 +87,7 @@ private extension HomeViewController {
 
 // MARK: - TableView DataSource 구현부
 
-extension HomeViewController: UITableViewDataSource {
+extension LookaroundViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -97,9 +97,9 @@ extension HomeViewController: UITableViewDataSource {
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: HomeItemTableViewCell.identifier,
+            withIdentifier: LookaroundTableViewCell.identifier,
             for: indexPath
-        ) as? HomeItemTableViewCell
+        ) as? LookaroundTableViewCell
         else { return UITableViewCell() }
 
         cell.configure(with: data[indexPath.row])
@@ -110,7 +110,7 @@ extension HomeViewController: UITableViewDataSource {
     // Custom Header View를 구현해서, 원하는 section에 넣어주는 작업.
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-            let header = HomeItemTableHeaderView()
+            let header = LookaroundTableHeaderView()
             header.configure(with: .popluar)
             return header
         }
@@ -135,7 +135,7 @@ extension HomeViewController: UITableViewDataSource {
 
 // MARK: - TableView Delegate 구현부
 
-extension HomeViewController: UITableViewDelegate {
+extension LookaroundViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .none)
 //        tableView.deselectRow(at: indexPath, animated: true)
@@ -146,7 +146,7 @@ extension HomeViewController: UITableViewDelegate {
 
 // MARK: - CollectionView DataSource 구현부
 
-extension HomeViewController: UICollectionViewDataSource {
+extension LookaroundViewController: UICollectionViewDataSource {
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -172,7 +172,7 @@ extension HomeViewController: UICollectionViewDataSource {
 
 // MARK: - CollectionView Delegate 구현부
 
-extension HomeViewController: UICollectionViewDelegate {
+extension LookaroundViewController: UICollectionViewDelegate {
     func collectionView(
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath

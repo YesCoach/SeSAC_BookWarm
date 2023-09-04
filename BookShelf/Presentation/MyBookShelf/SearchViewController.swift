@@ -71,7 +71,7 @@ private extension SearchViewController {
         tableView.register(nib, forCellReuseIdentifier: SearchTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
-//        tableView.prefetchDataSource = self
+    //        tableView.prefetchDataSource = self
         tableView.keyboardDismissMode = .onDrag
         tableView.rowHeight = 180.0
         emptyLabel.font = .systemFont(ofSize: 16, weight: .regular)

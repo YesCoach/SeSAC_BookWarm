@@ -1,5 +1,5 @@
 //
-//  MainCollectionViewCell.swift
+//  MyBookShelfCollectionViewCell.swift
 //  BookShelf
 //
 //  Created by 박태현 on 2023/07/31.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class MainCollectionViewCell: UICollectionViewCell {
+class MyBookShelfCollectionViewCell: UICollectionViewCell {
 
-    static let identifier = "MainCollectionViewCell"
+    static let identifier = "MyBookShelfCollectionViewCell"
 
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var rateLabel: UILabel!
@@ -36,7 +36,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension MainCollectionViewCell {
+extension MyBookShelfCollectionViewCell {
     func configure(with data: Movie, completion: @escaping (Bool) -> ()) {
         nameLabel.text = data.title
         rateLabel.text = "\(data.rate)"
@@ -48,7 +48,7 @@ extension MainCollectionViewCell {
     }
 }
 
-private extension MainCollectionViewCell {
+private extension MyBookShelfCollectionViewCell {
     func configureUI() {
         contentView.backgroundColor = .random
         contentView.layer.cornerRadius = 15.0

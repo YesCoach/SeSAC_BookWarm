@@ -1,5 +1,5 @@
 //
-//  HomeItemTableHeaderView.swift
+//  LookaroundTableHeaderView.swift
 //  BookShelf
 //
 //  Created by 박태현 on 2023/08/02.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeItemTableHeaderView: UIView {
+final class LookaroundTableHeaderView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15.0, weight: .bold)
@@ -24,7 +24,7 @@ final class HomeItemTableHeaderView: UIView {
     }
 }
 
-private extension HomeItemTableHeaderView {
+private extension LookaroundTableHeaderView {
     func configureUI() {
         addSubview(titleLabel)
         [
@@ -39,7 +39,7 @@ private extension HomeItemTableHeaderView {
     }
 }
 
-extension HomeItemTableHeaderView {
+extension LookaroundTableHeaderView {
     func configure(with category: HomeCategory) {
         titleLabel.text = category.description
     }

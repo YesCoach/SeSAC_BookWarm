@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Collection View Controller-->
+        <!--My Book Shelf View Controller-->
         <scene sceneID="UdL-Mo-P8u">
             <objects>
-                <collectionViewController interactionActivityTrackingBaseName=" " id="3Nq-bT-2LW" customClass="MainCollectionViewController" customModule="BookShelf" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="MyBookShelfViewController" interactionActivityTrackingBaseName=" " id="3Nq-bT-2LW" customClass="MyBookShelfViewController" customModule="BookShelf" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3V4-ZH-4wZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,10 +99,10 @@
             </objects>
             <point key="canvasLocation" x="2421" y="-689"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Lookaround View Controller-->
         <scene sceneID="wqH-in-o2U">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="Hxv-ic-tQ1" customClass="HomeViewController" customModule="BookShelf" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LookaroundViewController" id="Hxv-ic-tQ1" customClass="LookaroundViewController" customModule="BookShelf" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a30-en-bkm">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

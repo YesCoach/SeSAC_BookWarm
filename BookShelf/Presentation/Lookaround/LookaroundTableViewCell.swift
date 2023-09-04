@@ -1,5 +1,5 @@
 //
-//  HomeItemTableViewCell.swift
+//  LookaroundTableViewCell.swift
 //  BookShelf
 //
 //  Created by 박태현 on 2023/08/02.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class HomeItemTableViewCell: UITableViewCell {
+final class LookaroundTableViewCell: UITableViewCell {
 
-    static let identifier = "HomeItemTableViewCell"
+    static let identifier = "LookaroundTableViewCell"
 
     @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
@@ -29,7 +29,7 @@ final class HomeItemTableViewCell: UITableViewCell {
     }
 }
 
-private extension HomeItemTableViewCell {
+private extension LookaroundTableViewCell {
     func configureUI() {
         posterImageView.layer.cornerRadius = 10.0
         posterImageView.contentMode = .scaleAspectFill
@@ -42,7 +42,7 @@ private extension HomeItemTableViewCell {
     }
 }
 
-extension HomeItemTableViewCell {
+extension LookaroundTableViewCell {
     func configure(with data: Movie) {
         posterImageView.image = UIImage(named: data.posterImageName)
         titleLabel.text = data.title

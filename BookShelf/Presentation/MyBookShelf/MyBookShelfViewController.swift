@@ -1,5 +1,5 @@
 //
-//  MainCollectionViewController.swift
+//  MyBookShelfViewController.swift
 //  BookShelf
 //
 //  Created by 박태현 on 2023/07/31.
@@ -13,7 +13,7 @@ enum MainViewMode {
     case search
 }
 
-final class MainCollectionViewController: UICollectionViewController {
+final class MyBookShelfViewController: UICollectionViewController {
 
     private lazy var favoriteBarButton: UIBarButtonItem = {
         let button = UIButton()
@@ -107,7 +107,7 @@ final class MainCollectionViewController: UICollectionViewController {
 
 // MARK: - Private Method
 
-private extension MainCollectionViewController {
+private extension MyBookShelfViewController {
     func configureNavigationItem() {
         navigationItem.title = "\(userName)님의 책장"
         navigationItem.titleView = searchBar
@@ -122,7 +122,7 @@ private extension MainCollectionViewController {
         let nib = UINib(nibName: "MainCollectionViewCell", bundle: nil)
         collectionView.register(
             nib,
-            forCellWithReuseIdentifier: MainCollectionViewCell.identifier
+            forCellWithReuseIdentifier: MyBookShelfCollectionViewCell.identifier
         )
 
         let flowLayout = UICollectionViewFlowLayout()
@@ -156,7 +156,7 @@ private extension MainCollectionViewController {
 
 // MARK: - DataSource 구현부
 
-extension MainCollectionViewController {
+extension MyBookShelfViewController {
     override func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -173,9 +173,9 @@ extension MainCollectionViewController {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: MainCollectionViewCell.identifier,
+            withReuseIdentifier: MyBookShelfCollectionViewCell.identifier,
             for: indexPath
-        ) as? MainCollectionViewCell
+        ) as? MyBookShelfCollectionViewCell
         else { return UICollectionViewCell() }
 
         var movie: Movie
@@ -200,7 +200,7 @@ extension MainCollectionViewController {
 
 // MARK: - CollectionViewDelegate 구현부
 
-extension MainCollectionViewController {
+extension MyBookShelfViewController {
     override func collectionView(
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
@@ -226,7 +226,7 @@ extension MainCollectionViewController {
 
 // MARK: - UISearchBarDelegate 구현부
 
-extension MainCollectionViewController: UISearchBarDelegate {
+extension MyBookShelfViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBar.showsCancelButton = !searchText.isEmpty
         favoriteBarButton.isHidden = !searchText.isEmpty
