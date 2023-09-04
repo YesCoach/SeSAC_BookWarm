@@ -9,8 +9,6 @@ import UIKit
 
 final class RecentItemCollectionViewCell: UICollectionViewCell {
 
-    static let identifier = "RecentItemCollectionViewCell"
-
     @IBOutlet var posterImageView: UIImageView!
 
     override func awakeFromNib() {

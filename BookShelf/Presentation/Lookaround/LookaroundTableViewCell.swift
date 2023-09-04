@@ -9,8 +9,6 @@ import UIKit
 
 final class LookaroundTableViewCell: UITableViewCell {
 
-    static let identifier = "LookaroundTableViewCell"
-
     @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var infoLabel: UILabel!

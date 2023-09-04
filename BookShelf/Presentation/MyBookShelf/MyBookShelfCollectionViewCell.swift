@@ -9,8 +9,6 @@ import UIKit
 
 class MyBookShelfCollectionViewCell: UICollectionViewCell {
 
-    static let identifier = "MyBookShelfCollectionViewCell"
-
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var rateLabel: UILabel!
     @IBOutlet var posterImageView: UIImageView!

@@ -15,6 +15,8 @@
 		890C29712AA5AA6E00ED7D9C /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29702AA5AA6E00ED7D9C /* URLSession+.swift */; };
 		890C29732AA5AA9E00ED7D9C /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29722AA5AA9E00ED7D9C /* APIError.swift */; };
 		890C29752AA5AE6100ED7D9C /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29742AA5AE6100ED7D9C /* URLRequest+.swift */; };
+		890C29772AA5B45D00ED7D9C /* KakaoSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29762AA5B45D00ED7D9C /* KakaoSearchResult.swift */; };
+		890C29792AA5B6DC00ED7D9C /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29782AA5B6DC00ED7D9C /* ReusableView.swift */; };
 		892E89C82A77991000254B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89C72A77991000254B54 /* AppDelegate.swift */; };
 		892E89CA2A77991000254B54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89C92A77991000254B54 /* SceneDelegate.swift */; };
 		892E89CF2A77991000254B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E89CD2A77991000254B54 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		890C29702AA5AA6E00ED7D9C /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
 		890C29722AA5AA9E00ED7D9C /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		890C29742AA5AE6100ED7D9C /* URLRequest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+.swift"; sourceTree = "<group>"; };
+		890C29762AA5B45D00ED7D9C /* KakaoSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSearchResult.swift; sourceTree = "<group>"; };
+		890C29782AA5B6DC00ED7D9C /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		892E89C42A77991000254B54 /* BookShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		892E89C72A77991000254B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		892E89C92A77991000254B54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				89CA33BB2A7A75D100DA1978 /* UIStackView+.swift */,
 				890C29702AA5AA6E00ED7D9C /* URLSession+.swift */,
 				890C29742AA5AE6100ED7D9C /* URLRequest+.swift */,
+				890C29782AA5B6DC00ED7D9C /* ReusableView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 				89CA33B52A7A4B5700DA1978 /* HomeCategory.swift */,
 				89CA33B72A7A729100DA1978 /* Platform.swift */,
 				89CD163E2A82669600B29615 /* Book.swift */,
+				890C29762AA5B45D00ED7D9C /* KakaoSearchResult.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -357,12 +363,14 @@
 				890C29682AA5A3A100ED7D9C /* APIURL.swift in Sources */,
 				89E6F2F82A7A328F008F7751 /* RecentItemCollectionViewCell.swift in Sources */,
 				89CA33BA2A7A744E00DA1978 /* UIButton+.swift in Sources */,
+				890C29792AA5B6DC00ED7D9C /* ReusableView.swift in Sources */,
 				89CD16442A82695F00B29615 /* SearchTableViewCell.swift in Sources */,
 				89CA33B62A7A4B5700DA1978 /* HomeCategory.swift in Sources */,
 				892E89E72A77A47700254B54 /* UIColor+.swift in Sources */,
 				89CD163F2A82669600B29615 /* Book.swift in Sources */,
 				890C296D2AA5A9F400ED7D9C /* APIHeader.swift in Sources */,
 				890C296F2AA5AA4300ED7D9C /* NetworkManager.swift in Sources */,
+				890C29772AA5B45D00ED7D9C /* KakaoSearchResult.swift in Sources */,
 				89CA33BC2A7A75D100DA1978 /* UIStackView+.swift in Sources */,
 				892E89EA2A77A7E900254B54 /* SearchViewController.swift in Sources */,
 				892E89DC2A77995400254B54 /* MyBookShelfViewController.swift in Sources */,

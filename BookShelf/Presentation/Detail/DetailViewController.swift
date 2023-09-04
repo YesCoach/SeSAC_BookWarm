@@ -9,8 +9,6 @@ import UIKit
 
 final class DetailViewController: UIViewController {
 
-    static let identifier = "DetailViewController"
-
     @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var infoLabel: UILabel!
     @IBOutlet var overviewLabel: UILabel!

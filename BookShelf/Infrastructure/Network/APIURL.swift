@@ -38,7 +38,6 @@ extension APIURL.Kakao {
 
         switch self {
         case let .search( _, query, page):
-            let query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             urlQueryItems = [
                 URLQueryItem(name: "query", value: query),
                 URLQueryItem(name: "page", value: "\(page)")

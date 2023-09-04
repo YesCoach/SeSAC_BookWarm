@@ -11,8 +11,6 @@ import SwiftyJSON
 
 final class SearchViewController: UIViewController {
 
-    static let identifier = "SearchViewController"
-
     // MARK: - UI Components
 
     @IBOutlet var tableView: UITableView!
@@ -94,54 +92,22 @@ private extension SearchViewController {
     }
 
     func fetchData(with keyword: String, page: Int) {
-        // Request Header
-        let headers: HTTPHeaders = .init(["Authorization": "KakaoAK \(APIKey.kakaoKey)"])
-        // Query Value
-        let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-
-        // Pagination Query 반영
-        let url = "https://dapi.kakao.com/v3/search/book?query=\(encodedKeyword)&page=\(page)"
 
         indicatorView.startAnimating()
         indicatorView.isHidden = false
-        AF.request(
-            url,
-            method: .get,
-            headers: headers
-        )
-        // 유효성 검사 - Request에 대한 Response가 성공했는지 StatusCode로 확인
-        .validate(statusCode: 200..<300)
-        .responseJSON { [weak self] response in
-            self?.indicatorView.stopAnimating()
-            self?.indicatorView.isHidden = true
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
 
-                // 리소스가 마지막 페이지인지 확인하고 프로퍼티에 저장
-                self?.isEnd = json["meta"]["is_end"].boolValue
-                let data = json["documents"].map({ (str, json) in
-                    let book = Book(
-                        title: json["title"].stringValue,
-                        authors: json["authors"].map{ (_, json) in
-                            json.stringValue
-                        },
-                        contents: json["contents"].stringValue,
-                        price: json["price"].intValue,
-                        salePrice: json["sale_price"].intValue,
-                        status: json["status"].stringValue,
-                        thumbnail: json["thumbnail"].stringValue,
-                        translators: json["translators"].map{ (_, json) in
-                            json.stringValue
-                        }
-                    )
-                    return book
-                })
-                self?.dataList.append(contentsOf: data)
-
+        NetworkManager.shared.request(
+            api: .search(type: .book, query: keyword, page: page)
+        ) { [weak self] (result: Result<KakaoSearchResult<Book>, APIError>) in
+            guard let self else { return }
+            switch result {
+            case .success(let data):
+                dataList.append(contentsOf: data.documents)
             case .failure(let error):
-                print(error)
+                debugPrint(error)
             }
+            indicatorView.stopAnimating()
+            indicatorView.isHidden = true
         }
     }
 

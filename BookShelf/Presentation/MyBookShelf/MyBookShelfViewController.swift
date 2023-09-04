@@ -119,7 +119,7 @@ private extension MyBookShelfViewController {
 
     func configureCollectionView() {
         // Xib -> UINib
-        let nib = UINib(nibName: "MainCollectionViewCell", bundle: nil)
+        let nib = UINib(nibName: MyBookShelfCollectionViewCell.identifier, bundle: nil)
         collectionView.register(
             nib,
             forCellWithReuseIdentifier: MyBookShelfCollectionViewCell.identifier

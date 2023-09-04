@@ -10,8 +10,6 @@ import Kingfisher
 
 final class SearchTableViewCell: UITableViewCell {
 
-    static let identifier = "SearchTableViewCell"
-
     @IBOutlet var thumbnailImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var authorLabel: UILabel!
@@ -33,12 +31,17 @@ final class SearchTableViewCell: UITableViewCell {
 extension SearchTableViewCell {
 
     func configure(with book: Book) {
-        let url = URL(string: book.thumbnail)
-        thumbnailImageView.kf.setImage(with: url)
+        if let _url = book.thumbnail, let url = URL(string: _url) {
+            thumbnailImageView.kf.setImage(with: url)
+        }
         nameLabel.text = book.title
-        authorLabel.text = book.authors.joined(separator: ", ")
-        translatorLabel.text = book.translators.joined(separator: ", ")
-        priceLabel.text = "\(book.price)원"
+        if let authors = book.authors {
+            authorLabel.text = authors.joined(separator: ", ")
+        }
+        if let translators = book.translators {
+            translatorLabel.text = translators.joined(separator: ", ")
+        }
+        priceLabel.text = "\(book.price ?? 0)원"
         statusLabel.text = book.status
         contentLabel.text = book.contents
     }

@@ -7,15 +7,21 @@
 
 import Foundation
 
-struct Book {
-    var title: String
-    var authors: [String]
-    var contents: String
-    var price: Int
-    var salePrice: Int
-    var status: String
-    var thumbnail: String
-    var translators: [String]
+struct Book: Codable {
+    let authors: [String]?
+    let contents, datetime, isbn: String?
+    let price: Int?
+    let publisher: String?
+    let salePrice: Int?
+    let status: String?
+    let thumbnail: String?
+    let title: String?
+    let translators: [String]?
+    let url: String?
 
-    var isFavorite: Bool = false
+    enum CodingKeys: String, CodingKey {
+        case authors, contents, datetime, isbn, price, publisher
+        case salePrice = "sale_price"
+        case status, thumbnail, title, translators, url
+    }
 }
