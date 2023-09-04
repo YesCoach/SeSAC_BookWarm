@@ -17,6 +17,18 @@
 		890C29752AA5AE6100ED7D9C /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29742AA5AE6100ED7D9C /* URLRequest+.swift */; };
 		890C29772AA5B45D00ED7D9C /* KakaoSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29762AA5B45D00ED7D9C /* KakaoSearchResult.swift */; };
 		890C29792AA5B6DC00ED7D9C /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29782AA5B6DC00ED7D9C /* ReusableView.swift */; };
+		890C29802AA5C35100ED7D9C /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C297F2AA5C35100ED7D9C /* RealmStorage.swift */; };
+		890C29842AA5C6FD00ED7D9C /* SearchBookUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29832AA5C6FD00ED7D9C /* SearchBookUseCase.swift */; };
+		890C29892AA5C8B000ED7D9C /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29882AA5C8B000ED7D9C /* BookRepository.swift */; };
+		890C298B2AA5CAB500ED7D9C /* DefaultBookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C298A2AA5CAB500ED7D9C /* DefaultBookRepository.swift */; };
+		890C298D2AA5CB6700ED7D9C /* BookStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C298C2AA5CB6700ED7D9C /* BookStorage.swift */; };
+		890C29902AA5CBBD00ED7D9C /* RealmBookStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C298F2AA5CBBD00ED7D9C /* RealmBookStorage.swift */; };
+		890C29932AA5CE5000ED7D9C /* BookDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29922AA5CE5000ED7D9C /* BookDTO+Mapping.swift */; };
+		890C29982AA5E1FC00ED7D9C /* Book+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29972AA5E1FC00ED7D9C /* Book+Mapping.swift */; };
+		890C299C2AA5EA9200ED7D9C /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C299B2AA5EA9200ED7D9C /* DIContainer.swift */; };
+		890C299E2AA5EAAA00ED7D9C /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C299D2AA5EAAA00ED7D9C /* AppDIContainer.swift */; };
+		890C29A02AA5EE3500ED7D9C /* KakaoSearchResultDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C299F2AA5EE3500ED7D9C /* KakaoSearchResultDTO+Mapping.swift */; };
+		890C29A22AA5F57D00ED7D9C /* DTOMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C29A12AA5F57D00ED7D9C /* DTOMapping.swift */; };
 		892E89C82A77991000254B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89C72A77991000254B54 /* AppDelegate.swift */; };
 		892E89CA2A77991000254B54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892E89C92A77991000254B54 /* SceneDelegate.swift */; };
 		892E89CF2A77991000254B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892E89CD2A77991000254B54 /* Main.storyboard */; };
@@ -60,6 +72,18 @@
 		890C29742AA5AE6100ED7D9C /* URLRequest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+.swift"; sourceTree = "<group>"; };
 		890C29762AA5B45D00ED7D9C /* KakaoSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoSearchResult.swift; sourceTree = "<group>"; };
 		890C29782AA5B6DC00ED7D9C /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		890C297F2AA5C35100ED7D9C /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
+		890C29832AA5C6FD00ED7D9C /* SearchBookUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookUseCase.swift; sourceTree = "<group>"; };
+		890C29882AA5C8B000ED7D9C /* BookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
+		890C298A2AA5CAB500ED7D9C /* DefaultBookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBookRepository.swift; sourceTree = "<group>"; };
+		890C298C2AA5CB6700ED7D9C /* BookStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStorage.swift; sourceTree = "<group>"; };
+		890C298F2AA5CBBD00ED7D9C /* RealmBookStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBookStorage.swift; sourceTree = "<group>"; };
+		890C29922AA5CE5000ED7D9C /* BookDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookDTO+Mapping.swift"; sourceTree = "<group>"; };
+		890C29972AA5E1FC00ED7D9C /* Book+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book+Mapping.swift"; sourceTree = "<group>"; };
+		890C299B2AA5EA9200ED7D9C /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		890C299D2AA5EAAA00ED7D9C /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		890C299F2AA5EE3500ED7D9C /* KakaoSearchResultDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaoSearchResultDTO+Mapping.swift"; sourceTree = "<group>"; };
+		890C29A12AA5F57D00ED7D9C /* DTOMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOMapping.swift; sourceTree = "<group>"; };
 		892E89C42A77991000254B54 /* BookShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		892E89C72A77991000254B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		892E89C92A77991000254B54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +153,109 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		890C297A2AA5C28300ED7D9C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				890C29912AA5CE2700ED7D9C /* Network */,
+				890C297B2AA5C2B100ED7D9C /* PersistentStorage */,
+				890C29852AA5C87400ED7D9C /* Repositories */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		890C297B2AA5C2B100ED7D9C /* PersistentStorage */ = {
+			isa = PBXGroup;
+			children = (
+				890C29812AA5C62E00ED7D9C /* RealmStorage */,
+				890C297C2AA5C30F00ED7D9C /* BookStorage */,
+			);
+			path = PersistentStorage;
+			sourceTree = "<group>";
+		};
+		890C297C2AA5C30F00ED7D9C /* BookStorage */ = {
+			isa = PBXGroup;
+			children = (
+				890C298C2AA5CB6700ED7D9C /* BookStorage.swift */,
+				890C298E2AA5CBA100ED7D9C /* RealmStorage */,
+			);
+			path = BookStorage;
+			sourceTree = "<group>";
+		};
+		890C29812AA5C62E00ED7D9C /* RealmStorage */ = {
+			isa = PBXGroup;
+			children = (
+				890C297F2AA5C35100ED7D9C /* RealmStorage.swift */,
+			);
+			path = RealmStorage;
+			sourceTree = "<group>";
+		};
+		890C29822AA5C6E400ED7D9C /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				890C29832AA5C6FD00ED7D9C /* SearchBookUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		890C29852AA5C87400ED7D9C /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				890C298A2AA5CAB500ED7D9C /* DefaultBookRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		890C29862AA5C88300ED7D9C /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				890C29872AA5C8A300ED7D9C /* Repositories */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		890C29872AA5C8A300ED7D9C /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				890C29882AA5C8B000ED7D9C /* BookRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		890C298E2AA5CBA100ED7D9C /* RealmStorage */ = {
+			isa = PBXGroup;
+			children = (
+				890C29962AA5D18D00ED7D9C /* EntityMapping */,
+				890C298F2AA5CBBD00ED7D9C /* RealmBookStorage.swift */,
+			);
+			path = RealmStorage;
+			sourceTree = "<group>";
+		};
+		890C29912AA5CE2700ED7D9C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				890C29952AA5CE5E00ED7D9C /* DataMapping */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		890C29952AA5CE5E00ED7D9C /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				890C29A12AA5F57D00ED7D9C /* DTOMapping.swift */,
+				890C29922AA5CE5000ED7D9C /* BookDTO+Mapping.swift */,
+				890C299F2AA5EE3500ED7D9C /* KakaoSearchResultDTO+Mapping.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		890C29962AA5D18D00ED7D9C /* EntityMapping */ = {
+			isa = PBXGroup;
+			children = (
+				890C29972AA5E1FC00ED7D9C /* Book+Mapping.swift */,
+			);
+			path = EntityMapping;
+			sourceTree = "<group>";
+		};
 		892E89BB2A77990F00254B54 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +278,7 @@
 				89CA33C12A7AA87B00DA1978 /* Application */,
 				892E89E32A779CAD00254B54 /* Domain */,
 				89E6F2E32A792A84008F7751 /* Presentation */,
+				890C297A2AA5C28300ED7D9C /* Data */,
 				890C29662AA5A36D00ED7D9C /* Infrastructure */,
 				89CA33C02A7AA85F00DA1978 /* Common */,
 				89CA33C52A7AA9F500DA1978 /* Mock */,
@@ -165,6 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				89CA33BF2A7AA83600DA1978 /* Entities */,
+				890C29822AA5C6E400ED7D9C /* UseCase */,
+				890C29862AA5C88300ED7D9C /* Interfaces */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -208,6 +338,8 @@
 			children = (
 				892E89C72A77991000254B54 /* AppDelegate.swift */,
 				892E89C92A77991000254B54 /* SceneDelegate.swift */,
+				890C299D2AA5EAAA00ED7D9C /* AppDIContainer.swift */,
+				890C299B2AA5EA9200ED7D9C /* DIContainer.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -358,23 +490,32 @@
 				892E89E52A779CCF00254B54 /* MovieInfo.swift in Sources */,
 				89CD163D2A8264DF00B29615 /* APIKey.swift in Sources */,
 				89E6F2F42A7A2C03008F7751 /* LookaroundTableViewCell.swift in Sources */,
+				890C29902AA5CBBD00ED7D9C /* RealmBookStorage.swift in Sources */,
 				89CA33B42A7A498600DA1978 /* LookaroundTableHeaderView.swift in Sources */,
 				890C29712AA5AA6E00ED7D9C /* URLSession+.swift in Sources */,
 				890C29682AA5A3A100ED7D9C /* APIURL.swift in Sources */,
 				89E6F2F82A7A328F008F7751 /* RecentItemCollectionViewCell.swift in Sources */,
+				890C29982AA5E1FC00ED7D9C /* Book+Mapping.swift in Sources */,
 				89CA33BA2A7A744E00DA1978 /* UIButton+.swift in Sources */,
+				890C298D2AA5CB6700ED7D9C /* BookStorage.swift in Sources */,
 				890C29792AA5B6DC00ED7D9C /* ReusableView.swift in Sources */,
+				890C29A22AA5F57D00ED7D9C /* DTOMapping.swift in Sources */,
 				89CD16442A82695F00B29615 /* SearchTableViewCell.swift in Sources */,
 				89CA33B62A7A4B5700DA1978 /* HomeCategory.swift in Sources */,
+				890C29932AA5CE5000ED7D9C /* BookDTO+Mapping.swift in Sources */,
 				892E89E72A77A47700254B54 /* UIColor+.swift in Sources */,
 				89CD163F2A82669600B29615 /* Book.swift in Sources */,
+				890C29842AA5C6FD00ED7D9C /* SearchBookUseCase.swift in Sources */,
 				890C296D2AA5A9F400ED7D9C /* APIHeader.swift in Sources */,
+				890C298B2AA5CAB500ED7D9C /* DefaultBookRepository.swift in Sources */,
 				890C296F2AA5AA4300ED7D9C /* NetworkManager.swift in Sources */,
 				890C29772AA5B45D00ED7D9C /* KakaoSearchResult.swift in Sources */,
 				89CA33BC2A7A75D100DA1978 /* UIStackView+.swift in Sources */,
+				890C29802AA5C35100ED7D9C /* RealmStorage.swift in Sources */,
 				892E89EA2A77A7E900254B54 /* SearchViewController.swift in Sources */,
 				892E89DC2A77995400254B54 /* MyBookShelfViewController.swift in Sources */,
 				892E89E22A779CA300254B54 /* Movie.swift in Sources */,
+				890C29892AA5C8B000ED7D9C /* BookRepository.swift in Sources */,
 				892E89DF2A779A3000254B54 /* MyBookShelfCollectionViewCell.swift in Sources */,
 				892E89EC2A77B3AC00254B54 /* DetailViewController.swift in Sources */,
 				89CA33B82A7A729100DA1978 /* Platform.swift in Sources */,
@@ -382,7 +523,10 @@
 				892E89C82A77991000254B54 /* AppDelegate.swift in Sources */,
 				890C29752AA5AE6100ED7D9C /* URLRequest+.swift in Sources */,
 				89E6F2E22A78EBBD008F7751 /* UITextView+.swift in Sources */,
+				890C29A02AA5EE3500ED7D9C /* KakaoSearchResultDTO+Mapping.swift in Sources */,
+				890C299E2AA5EAAA00ED7D9C /* AppDIContainer.swift in Sources */,
 				892E89CA2A77991000254B54 /* SceneDelegate.swift in Sources */,
+				890C299C2AA5EA9200ED7D9C /* DIContainer.swift in Sources */,
 				890C29732AA5AA9E00ED7D9C /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

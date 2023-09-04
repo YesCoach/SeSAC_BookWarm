@@ -7,20 +7,14 @@
 
 import Foundation
 
-struct KakaoSearchResult<T: Codable>: Codable {
+struct KakaoSearchResult<T> {
     var documents: [T]
     var meta: Meta
 }
 
 // MARK: - Meta
 
-struct Meta: Codable {
+struct Meta {
     var isEnd: Bool
     var pageableCount, totalCount: Int
-
-    enum CodingKeys: String, CodingKey {
-        case isEnd = "is_end"
-        case pageableCount = "pageable_count"
-        case totalCount = "total_count"
-    }
 }

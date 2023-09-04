@@ -91,7 +91,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="snA-aW-bLI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ze4-nR-yXc">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="ze4-nR-yXc">
                     <connections>
                         <action selector="didBackgroundViewTouched:" destination="8eC-l2-BJC" id="NyS-Wy-h6h"/>
                     </connections>

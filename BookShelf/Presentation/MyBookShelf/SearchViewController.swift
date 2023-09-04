@@ -42,6 +42,8 @@ final class SearchViewController: UIViewController {
     private var isEnd = false
     private var searchKeyword: String = ""
 
+    private let searchBookUseCase = DIContainer.shared.makeSearchBookUseCase()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -69,7 +71,7 @@ private extension SearchViewController {
         tableView.register(nib, forCellReuseIdentifier: SearchTableViewCell.identifier)
         tableView.dataSource = self
         tableView.delegate = self
-    //        tableView.prefetchDataSource = self
+        tableView.prefetchDataSource = self
         tableView.keyboardDismissMode = .onDrag
         tableView.rowHeight = 180.0
         emptyLabel.font = .systemFont(ofSize: 16, weight: .regular)
@@ -96,9 +98,7 @@ private extension SearchViewController {
         indicatorView.startAnimating()
         indicatorView.isHidden = false
 
-        NetworkManager.shared.request(
-            api: .search(type: .book, query: keyword, page: page)
-        ) { [weak self] (result: Result<KakaoSearchResult<Book>, APIError>) in
+        searchBookUseCase.searchBook(query: keyword, page: page) { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let data):
@@ -109,6 +109,7 @@ private extension SearchViewController {
             indicatorView.stopAnimating()
             indicatorView.isHidden = true
         }
+
     }
 
 }
@@ -161,12 +162,17 @@ extension SearchViewController: UITableViewDataSourcePrefetching {
 
 extension SearchViewController: UITableViewDelegate {
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("\(scrollView.contentOffset.y) >> \(scrollView.contentSize.height)")
-        if scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.height) {
-            page += 1
-            fetchData(with: searchKeyword, page: page)
-        }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        print("\(scrollView.contentOffset.y) >> \(scrollView.contentSize.height)")
+//        if scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.height) {
+//            page += 1
+//            fetchData(with: searchKeyword, page: page)
+//        }
+//    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let book = dataList[indexPath.row]
+        searchBookUseCase.addBook(book: book)
     }
 
 }
