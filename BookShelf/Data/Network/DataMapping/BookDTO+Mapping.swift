@@ -41,6 +41,7 @@ extension BookDTO {
             salePrice: salePrice,
             status: status,
             thumbnail: thumbnail,
+            localImageURL: nil,
             title: title,
             translators: translators,
             url: url

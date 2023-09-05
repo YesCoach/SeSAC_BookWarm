@@ -10,16 +10,15 @@ import Foundation
 final class DefaultBookRepository {
 
     private let networkManager: NetworkManager
-    private let bookStorage: BookStorage
 
-    init(networkManager: NetworkManager, bookStorage: BookStorage) {
+    init(networkManager: NetworkManager) {
         self.networkManager = networkManager
-        self.bookStorage = bookStorage
     }
 
 }
 
 extension DefaultBookRepository: BookRepository {
+
     func fetchBookList(
         query: String,
         page: Int,
@@ -35,13 +34,5 @@ extension DefaultBookRepository: BookRepository {
                 completion(.failure(error))
             }
         }
-    }
-
-    func storeBookInfo(book: Book) {
-        bookStorage.storeBookInfo(book: book)
-    }
-
-    func readBookInfo() -> [Book] {
-        return bookStorage.readBookInfo()
     }
 }

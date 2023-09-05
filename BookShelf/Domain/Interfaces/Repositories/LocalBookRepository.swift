@@ -1,13 +1,13 @@
 //
-//  BookStorage.swift
+//  LocalBookRepository.swift
 //  BookShelf
 //
-//  Created by 박태현 on 2023/09/04.
+//  Created by 박태현 on 2023/09/05.
 //
 
 import Foundation
 
-protocol BookStorage {
+protocol LocalBookRepository {
     func createBookData(book: Book)
     func readBookData() -> [Book]
 }

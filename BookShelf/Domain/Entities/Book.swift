@@ -15,6 +15,7 @@ struct Book {
     let salePrice: Int?
     let status: String?
     let thumbnail: String?
+    let localImageURL: String?
     let title: String?
     let translators: [String]?
     let url: String?

@@ -33,16 +33,21 @@ final class DIContainer {
         return DefaultSearchBookUseCase(bookRepository: makeBookRepository())
     }
 
-    func makeFetchBookUseCase() -> FetchBookUseCase {
-        return DefaultFetchBookUseCase(bookRepository: makeBookRepository())
+    func makeLocalBookUseCase() -> LocalBookUseCase {
+        return DefaultLocalBookUseCase(localBookRepository: makeLocalBookRepository())
     }
 
     // MARK: - Repository
 
     func makeBookRepository() -> BookRepository {
         return DefaultBookRepository(
-            networkManager: dependencies.apiDataTransferService,
-            bookStorage: bookStorage
+            networkManager: dependencies.apiDataTransferService
+        )
+    }
+
+    func makeLocalBookRepository() -> LocalBookRepository {
+        return DefaultLocalBookRepository(
+            bookStorage: RealmBookStorage(realmStorage: .shared)
         )
     }
 }

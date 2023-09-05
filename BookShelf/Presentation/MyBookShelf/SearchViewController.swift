@@ -43,6 +43,7 @@ final class SearchViewController: UIViewController {
     private var searchKeyword: String = ""
 
     private let searchBookUseCase = DIContainer.shared.makeSearchBookUseCase()
+    private let localBookUseCase = DIContainer.shared.makeLocalBookUseCase()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -172,7 +173,8 @@ extension SearchViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let book = dataList[indexPath.row]
-        searchBookUseCase.addBook(book: book)
+        localBookUseCase.createBookData(book: book)
+
     }
 
 }

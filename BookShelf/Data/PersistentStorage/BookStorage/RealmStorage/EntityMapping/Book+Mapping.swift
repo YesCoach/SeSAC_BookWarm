@@ -22,6 +22,7 @@ class BookEntity: Object, RealmMapping {
     @Persisted var salePrice: Int?
     @Persisted var status: String?
     @Persisted var thumbnail: String?
+    @Persisted var localImageURL: String?
     @Persisted var translators: List<String>
     @Persisted var url: String?
 
@@ -53,6 +54,8 @@ class BookEntity: Object, RealmMapping {
         self.url = url
         self.authorsArray = authors ?? []
         self.translatorsArray = translators ?? []
+
+        self.localImageURL = "\(_id).jpg"
     }
 
     func toDomain() -> DomainType {
@@ -66,6 +69,7 @@ class BookEntity: Object, RealmMapping {
             salePrice: salePrice,
             status: status,
             thumbnail: thumbnail,
+            localImageURL: localImageURL,
             title: title,
             translators: translatorsArray,
             url: url

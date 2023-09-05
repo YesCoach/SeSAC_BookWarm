@@ -51,7 +51,7 @@ final class MyBookShelfViewController: UICollectionViewController {
         return gesture
     }()
 
-    private let fetchBookUseCase = DIContainer.shared.makeFetchBookUseCase()
+    private let localBookUseCase = DIContainer.shared.makeLocalBookUseCase()
     private let userName: String = "고래밥"
 //    private var data: [Movie] = []
     private var data: [Book] = [] {
@@ -156,7 +156,7 @@ private extension MyBookShelfViewController {
     }
 
     func configureData() {
-        data = fetchBookUseCase.fetchSavedBookData()
+        data = localBookUseCase.readBookData()
     }
 }
 

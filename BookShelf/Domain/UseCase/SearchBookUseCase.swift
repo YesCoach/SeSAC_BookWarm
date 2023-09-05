@@ -13,7 +13,6 @@ protocol SearchBookUseCase {
         page: Int,
         completion: @escaping (Result<KakaoSearchResult<Book>, APIError>) -> ()
     )
-    func addBook(book: Book)
 }
 
 final class DefaultSearchBookUseCase: SearchBookUseCase {
@@ -32,9 +31,5 @@ final class DefaultSearchBookUseCase: SearchBookUseCase {
         bookRepository.fetchBookList(query: query, page: page) { result in
             completion(result)
         }
-    }
-
-    func addBook(book: Book) {
-        bookRepository.storeBookInfo(book: book)
     }
 }
