@@ -47,8 +47,35 @@ extension MyBookShelfCollectionViewCell {
     func configure(with data: Book) {
         nameLabel.text = data.title
         rateLabel.text = ""
-        if let _url = data.thumbnail, let url = URL(string: _url) {
-            posterImageView.kf.setImage(with: url)
+        if let _url = data.thumbnail,
+           let url = URL(string: _url),
+           let localImageURL = data.localImageURL
+        {
+            if let localImage = FileSystemManager
+                .shared
+                .loadImageFromDocument(fileName: localImageURL)
+            {
+                posterImageView.image = localImage
+                print("localImage loaded")
+            } else {
+                posterImageView.kf.setImage(with: url) { result in
+                    switch result {
+                    case .success(let kfResult):
+                        FileSystemManager.shared.saveImageToDocument(
+                            fileName: localImageURL,
+                            image: kfResult.image
+                        )
+                    case .failure(let error):
+                        debugPrint(error)
+                        if let image = UIImage(systemName: "photo") {
+                            FileSystemManager.shared.saveImageToDocument(
+                                fileName: localImageURL,
+                                image: image
+                            )
+                        }
+                    }
+                }
+            }
         }
         favoriteButton.isSelected = false
     }

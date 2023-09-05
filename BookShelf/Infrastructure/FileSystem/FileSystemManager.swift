@@ -9,7 +9,11 @@ import UIKit
 
 final class FileSystemManager {
 
-    static func removeImageFromDocument(fileName: String) {
+    static let shared = FileSystemManager()
+
+    private init() { }
+
+    func removeImageFromDocument(fileName: String) {
         // 1. 도큐먼트 경로 찾기
         guard let documentDirectory = FileManager.default.urls(
             for: .documentDirectory, in: .userDomainMask
@@ -27,12 +31,12 @@ final class FileSystemManager {
     }
 
     // 도큐먼트 폴더에서 이미지를 가져오는 메서드
-    static func loadImageFromDocument(fileName: String) -> UIImage? {
+    func loadImageFromDocument(fileName: String) -> UIImage? {
         // 1. 도큐먼트 경로 찾기
         guard let documentDirectory = FileManager.default.urls(
             for: .documentDirectory, in: .userDomainMask
         ).first
-        else { return UIImage(systemName: "star.fill") }
+        else { return nil }
 
         // 2. 경로 설정(세부 경로, 이미지가 저장되어 있는 위치)
         let fileURL = documentDirectory.appendingPathComponent(fileName)
@@ -40,12 +44,12 @@ final class FileSystemManager {
         if FileManager.default.fileExists(atPath: fileURL.path) {
             return UIImage(contentsOfFile: fileURL.path)
         } else {
-            return UIImage(systemName: "star.fill")
+            return nil
         }
     }
 
     // 도큐먼트 폴더에 이미지를 저장하는 메서드
-    static func saveImageToDocument(fileName: String, image: UIImage) {
+    func saveImageToDocument(fileName: String, image: UIImage) {
         // 1. 도큐먼트 경로 찾기
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
 
