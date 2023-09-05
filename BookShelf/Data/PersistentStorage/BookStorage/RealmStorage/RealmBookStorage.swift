@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 final class RealmBookStorage {
 
@@ -21,18 +22,19 @@ extension RealmBookStorage: BookStorage {
 
     func createBookData(book: Book) {
         let bookEntity = BookEntity(
-            title: book.title,
+            id: book.isbn,
+            title: book.title!,
             authors: book.authors,
             contents: book.contents,
             datetime: book.datetime,
-            isbn: book.isbn,
-            price: book.price,
+            price: book.price!,
             publisher: book.publisher,
             salePrice: book.salePrice,
             status: book.status,
             thumbnail: book.thumbnail,
             translators: book.translators,
-            url: book.url
+            url: book.url,
+            memo: book.memo
         )
         realmStorage.createData(data: bookEntity)
     }
@@ -41,4 +43,20 @@ extension RealmBookStorage: BookStorage {
         return realmStorage.readData(BookEntity.self).map { $0.toDomain() }
     }
 
+    func updateBookData(book: Book) {
+        do {
+            let realm = try Realm()
+            if let object = realm.object(
+                ofType: BookEntity.self,
+                forPrimaryKey: book.isbn
+            ) {
+                realmStorage.updateData(data: object) { object in
+                    object.memo = book.memo
+                    object.isFavorite = book.isFavorite
+                }
+            }
+        } catch {
+            print(error)
+        }
+    }
 }

@@ -11,13 +11,12 @@ import RealmSwift
 class BookEntity: Object, RealmMapping {
     typealias DomainType = Book
 
-    @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var title: String?
+    @Persisted(primaryKey: true) var id: String
+    @Persisted var title: String
     @Persisted var authors: List<String>
     @Persisted var contents: String?
     @Persisted var datetime: String?
-    @Persisted var isbn: String?
-    @Persisted var price: Int?
+    @Persisted var price: Int
     @Persisted var publisher: String?
     @Persisted var salePrice: Int?
     @Persisted var status: String?
@@ -25,45 +24,49 @@ class BookEntity: Object, RealmMapping {
     @Persisted var localImageURL: String?
     @Persisted var translators: List<String>
     @Persisted var url: String?
+    @Persisted var memo: String?
+    @Persisted var isFavorite: Bool
 
     convenience init(
-        title: String?,
-        authors: [String]? = nil,
-        contents: String? = nil,
-        datetime: String? = nil,
-        isbn: String? = nil,
-        price: Int? = nil,
-        publisher: String? = nil,
-        salePrice: Int? = nil,
-        status: String? = nil,
-        thumbnail: String? = nil,
-        translators: [String]? = nil,
-        url: String? = nil
+        id: String,
+        title: String,
+        authors: [String]?,
+        contents: String?,
+        datetime: String?,
+        price: Int,
+        publisher: String?,
+        salePrice: Int?,
+        status: String?,
+        thumbnail: String?,
+        translators: [String]?,
+        url: String?,
+        memo: String?
     ) {
         self.init()
-        self._id = _id
+        self.id = id
         self.title = title
         self.contents = contents
         self.datetime = datetime
-        self.isbn = isbn
         self.price = price
         self.publisher = publisher
         self.salePrice = salePrice
         self.status = status
         self.thumbnail = thumbnail
         self.url = url
+        self.memo = memo
         self.authorsArray = authors ?? []
         self.translatorsArray = translators ?? []
+        self.isFavorite = false
 
         self.localImageURL = "\(_id).jpg"
     }
 
     func toDomain() -> DomainType {
         return DomainType(
+            isbn: id,
             authors: authorsArray,
             contents: contents,
             datetime: datetime,
-            isbn: isbn,
             price: price,
             publisher: publisher,
             salePrice: salePrice,
@@ -72,7 +75,9 @@ class BookEntity: Object, RealmMapping {
             localImageURL: localImageURL,
             title: title,
             translators: translatorsArray,
-            url: url
+            url: url,
+            isFavorite: isFavorite,
+            memo: memo
         )
     }
 }

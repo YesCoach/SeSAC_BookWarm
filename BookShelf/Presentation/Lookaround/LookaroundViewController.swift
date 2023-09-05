@@ -75,13 +75,13 @@ private extension LookaroundViewController {
         ) as? DetailViewController
         else { return }
 
-        viewController.configure(with: movie) { [weak self] movie in
-            self?.data[indexPath.row] = movie
-        }
-
-        let navigationVC = UINavigationController(rootViewController: viewController)
-        navigationVC.modalPresentationStyle = .fullScreen
-        present(navigationVC, animated: true)
+//        viewController.configure(with: movie) { [weak self] movie in
+//            self?.data[indexPath.row] = movie
+//        }
+//
+//        let navigationVC = UINavigationController(rootViewController: viewController)
+//        navigationVC.modalPresentationStyle = .fullScreen
+//        present(navigationVC, animated: true)
     }
 }
 

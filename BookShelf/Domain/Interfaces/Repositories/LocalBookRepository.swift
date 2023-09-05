@@ -10,4 +10,5 @@ import Foundation
 protocol LocalBookRepository {
     func createBookData(book: Book)
     func readBookData() -> [Book]
+    func updateBookData(book: Book)
 }

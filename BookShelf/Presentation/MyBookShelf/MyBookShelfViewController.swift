@@ -53,7 +53,6 @@ final class MyBookShelfViewController: UICollectionViewController {
 
     private let localBookUseCase = DIContainer.shared.makeLocalBookUseCase()
     private let userName: String = "고래밥"
-//    private var data: [Movie] = []
     private var data: [Book] = [] {
         didSet {
             collectionView.reloadData()
@@ -213,22 +212,19 @@ extension MyBookShelfViewController {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-//        let item = data[indexPath.item]
-//
-//        guard let viewController = UIStoryboard(
-//            name: "Main",
-//            bundle: nil
-//        ).instantiateViewController(
-//            withIdentifier: DetailViewController.identifier
-//        ) as? DetailViewController else { return }
-//
-//        viewController.configure(with: item) { [weak self] movie in
-//            self?.data[indexPath.item] = movie
-//            self?.collectionView.reloadItems(at: [indexPath])
-//        }
-//
-//        viewController.hidesBottomBarWhenPushed = true
-//        navigationController?.pushViewController(viewController, animated: true)
+        let item = data[indexPath.item]
+
+        guard let viewController = UIStoryboard(
+            name: "Main",
+            bundle: nil
+        ).instantiateViewController(
+            withIdentifier: DetailViewController.identifier
+        ) as? DetailViewController else { return }
+
+        viewController.configure(with: item)
+
+        viewController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

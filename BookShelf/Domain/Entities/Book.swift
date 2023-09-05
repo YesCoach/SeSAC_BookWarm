@@ -8,8 +8,9 @@
 import Foundation
 
 struct Book {
+    let isbn: String
     let authors: [String]?
-    let contents, datetime, isbn: String?
+    let contents, datetime: String?
     let price: Int?
     let publisher: String?
     let salePrice: Int?
@@ -19,4 +20,6 @@ struct Book {
     let title: String?
     let translators: [String]?
     let url: String?
+    var isFavorite: Bool = false
+    var memo: String?
 }

@@ -10,8 +10,9 @@ import Foundation
 struct BookDTO: DTOMapping {
     typealias DomainType = Book
 
+    let isbn: String
     let authors: [String]?
-    let contents, datetime, isbn: String?
+    let contents, datetime: String?
     let price: Int?
     let publisher: String?
     let salePrice: Int?
@@ -32,10 +33,10 @@ extension BookDTO {
 
     func toDomain() -> DomainType {
         return .init(
+            isbn: isbn,
             authors: authors,
             contents: contents,
             datetime: datetime,
-            isbn: isbn,
             price: price,
             publisher: publisher,
             salePrice: salePrice,

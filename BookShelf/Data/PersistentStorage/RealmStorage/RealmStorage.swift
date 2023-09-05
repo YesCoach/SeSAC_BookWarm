@@ -21,16 +21,32 @@ final class RealmStorage {
 extension RealmStorage {
 
     func createData<T: Object>(data: T) {
-        try! realm.write {
-            realm.add(data)
-            print("Realm Add Succeed")
+        do {
+            try realm.write {
+                realm.add(data)
+                print("Realm Add Succeed")
+            }
+        } catch {
+            debugPrint(error)
         }
     }
 
     func readData<T: Object>(_ object: T.Type) -> Results<T> {
         return realm
-                    .objects(object)
-                    .sorted(byKeyPath: "title", ascending: true)
+            .objects(object)
+            .sorted(byKeyPath: "title", ascending: true)
+    }
+
+    func updateData<T: Object>(data: T, completion: ((T) -> ())) {
+        do {
+            try realm.write {
+                completion(data)
+                realm.add(data, update: .modified)
+                print("Realm update completed")
+            }
+        } catch {
+            debugPrint(error)
+        }
     }
 
 }

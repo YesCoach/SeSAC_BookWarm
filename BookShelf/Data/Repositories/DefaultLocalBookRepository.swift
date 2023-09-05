@@ -24,7 +24,11 @@ extension DefaultLocalBookRepository: LocalBookRepository {
     }
 
     func readBookData() -> [Book] {
-        return bookStorage.readBookData()
+        return bookStorage.readBookData().map { $0 }
+    }
+
+    func updateBookData(book: Book) {
+        return bookStorage.updateBookData(book: book)
     }
 
 }

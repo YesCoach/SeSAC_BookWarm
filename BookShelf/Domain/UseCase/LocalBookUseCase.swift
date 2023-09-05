@@ -10,6 +10,7 @@ import Foundation
 protocol LocalBookUseCase {
     func readBookData() -> [Book]
     func createBookData(book: Book)
+    func updateBookData(book: Book)
 }
 
 final class DefaultLocalBookUseCase {
@@ -29,5 +30,9 @@ extension DefaultLocalBookUseCase: LocalBookUseCase {
 
     func createBookData(book: Book) {
         localBookRepository.createBookData(book: book)
+    }
+
+    func updateBookData(book: Book) {
+        localBookRepository.updateBookData(book: book)
     }
 }

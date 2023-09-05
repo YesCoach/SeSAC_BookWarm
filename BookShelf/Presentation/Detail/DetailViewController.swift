@@ -25,9 +25,14 @@ final class DetailViewController: UIViewController {
         return button
     }()
 
-    private var data: Movie?
+//    private lazy var saveButton: UIBarButtonItem = {
+//        let button = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector)
+//    }()
+
+    private let localBookUseCase = DIContainer.shared.makeLocalBookUseCase()
+
+    private var data: Book?
     private let placeHolder = "메모를 입력해보세요"
-    private var completionHandler: ((Movie) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +49,7 @@ final class DetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         disableLargeTitle()
-        saveChangedMovieData()
+        saveChangedData()
     }
 
     @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
@@ -63,18 +68,23 @@ final class DetailViewController: UIViewController {
     @objc func didFavoriteBarButtonTouched(_ sender: UIBarButtonItem) {
         sender.isSelected.toggle()
         data?.isFavorite = sender.isSelected
-        if let data {
-            completionHandler?(data)
-        }
+    }
+
+    @objc func didSaveBarButtonTouched(_ sender: UIBarButtonItem) {
+
     }
 }
 
 private extension DetailViewController {
     func configureUI() {
         guard let data else { return }
-        infoLabel.text = data.info
-        overviewLabel.text = data.overview
-        posterImageView.image = .init(named: data.posterImageName)
+        infoLabel.text = data.title
+        overviewLabel.text = data.contents
+        if let localImageURL = data.localImageURL {
+            posterImageView.image = FileSystemManager
+                .shared
+                .loadImageFromDocument(fileName: localImageURL)
+        }
         posterImageView.contentMode = .scaleAspectFill
         favoriteButton.isSelected = data.isFavorite
 
@@ -136,22 +146,21 @@ private extension DetailViewController {
     }
 
     /// VC가 사라지기 전에, 변동 데이터를 저장하는 메소드입니다.
-    func saveChangedMovieData() {
+    func saveChangedData() {
         if memoTextView.text! == placeHolder || memoTextView.text.isEmpty {
             data?.memo = nil
         } else {
             data?.memo = memoTextView.text!
         }
         if let data {
-            completionHandler?(data)
+            localBookUseCase.updateBookData(book: data)
         }
     }
 }
 
 extension DetailViewController {
-    func configure(with data: Movie, completion: @escaping (Movie) -> ()) {
+    func configure(with data: Book) {
         self.data = data
-        completionHandler = completion
     }
 }
 

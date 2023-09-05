@@ -77,7 +77,7 @@ extension MyBookShelfCollectionViewCell {
                 }
             }
         }
-        favoriteButton.isSelected = false
+        favoriteButton.isSelected = data.isFavorite
     }
 }
 
