@@ -16,9 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        let config = Realm.Configuration(schemaVersion: 1) { migration, oldSchemaVersion in
+        let config = Realm.Configuration(schemaVersion: 2) { migration, oldSchemaVersion in
             if oldSchemaVersion < 1 {
-                // Auto Migration
+                // Auto Migration - 새로운 컬럼 추가(isAlreadyRead)
+            }
+            if oldSchemaVersion < 2 {
+                // Auto Migration - 기존 컬럼 삭제(isAlreadyRead)
             }
 
         }

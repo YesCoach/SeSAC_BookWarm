@@ -26,7 +26,6 @@ class BookEntity: Object, RealmMapping {
     @Persisted var url: String?
     @Persisted var memo: String?
     @Persisted var isFavorite: Bool
-    @Persisted var isAlreadyRead: Bool?
 
     convenience init(
         id: String,
@@ -42,8 +41,7 @@ class BookEntity: Object, RealmMapping {
         translators: [String]?,
         url: String?,
         memo: String?,
-        isFavorite: Bool = false,
-        isAlreadyRead: Bool? = false
+        isFavorite: Bool = false
     ) {
         self.init()
         self.id = id
@@ -60,7 +58,6 @@ class BookEntity: Object, RealmMapping {
         self.authorsArray = authors ?? []
         self.translatorsArray = translators ?? []
         self.isFavorite = isFavorite
-        self.isAlreadyRead = isAlreadyRead
 
         self.localImageURL = "\(_id).jpg"
     }
