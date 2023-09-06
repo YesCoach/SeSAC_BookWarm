@@ -11,4 +11,5 @@ protocol BookStorage {
     func createBookData(book: Book)
     func readBookData() -> [Book]
     func updateBookData(book: Book)
+    func deleteBookData(book: Book)
 }

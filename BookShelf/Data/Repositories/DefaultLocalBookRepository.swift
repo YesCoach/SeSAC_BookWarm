@@ -31,4 +31,7 @@ extension DefaultLocalBookRepository: LocalBookRepository {
         return bookStorage.updateBookData(book: book)
     }
 
+    func deleteBookData(book: Book) {
+        bookStorage.deleteBookData(book: book)
+    }
 }

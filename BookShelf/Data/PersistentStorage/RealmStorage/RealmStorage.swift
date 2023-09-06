@@ -49,4 +49,15 @@ extension RealmStorage {
         }
     }
 
+    func deledeData<T: Object>(data: T) {
+        do {
+            try realm.write {
+                realm.delete(data)
+                print("Realm delete completed")
+            }
+        } catch {
+            debugPrint(error)
+        }
+    }
+
 }

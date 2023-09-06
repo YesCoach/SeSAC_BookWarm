@@ -71,7 +71,10 @@ final class DetailViewController: UIViewController {
     }
 
     @IBAction func didDeleteBarButtonTouched(_ sender: Any) {
-
+        if let data {
+            localBookUseCase.deleteBookData(book: data)
+        }
+        didDismissBarButtonTouched()
     }
 
 

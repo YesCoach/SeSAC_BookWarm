@@ -59,4 +59,18 @@ extension RealmBookStorage: BookStorage {
             print(error)
         }
     }
+
+    func deleteBookData(book: Book) {
+        do {
+            let realm = try Realm()
+            if let objcet = realm.object(
+                ofType: BookEntity.self,
+                forPrimaryKey: book.isbn
+            ) {
+                realmStorage.deledeData(data: objcet)
+            }
+        } catch {
+            print(error)
+        }
+    }
 }

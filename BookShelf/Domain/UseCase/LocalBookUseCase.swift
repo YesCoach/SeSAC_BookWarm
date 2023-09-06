@@ -11,6 +11,7 @@ protocol LocalBookUseCase {
     func readBookData() -> [Book]
     func createBookData(book: Book)
     func updateBookData(book: Book)
+    func deleteBookData(book: Book)
 }
 
 final class DefaultLocalBookUseCase {
@@ -35,4 +36,9 @@ extension DefaultLocalBookUseCase: LocalBookUseCase {
     func updateBookData(book: Book) {
         localBookRepository.updateBookData(book: book)
     }
+
+    func deleteBookData(book: Book) {
+        localBookRepository.deleteBookData(book: book)
+    }
+
 }
