@@ -25,10 +25,6 @@ final class DetailViewController: UIViewController {
         return button
     }()
 
-//    private lazy var saveButton: UIBarButtonItem = {
-//        let button = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector)
-//    }()
-
     private let localBookUseCase = DIContainer.shared.makeLocalBookUseCase()
 
     private var data: Book?
@@ -49,7 +45,6 @@ final class DetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         disableLargeTitle()
-        saveChangedData()
     }
 
     @IBAction func didBackgroundViewTouched(_ sender: UITapGestureRecognizer) {
@@ -57,7 +52,7 @@ final class DetailViewController: UIViewController {
     }
 
     // viewController의 화면 전환 방식에 따른 돌아가기 버튼 로직 분기 처리
-    @objc func didDismissBarButtonTouched(_ sender: UIBarButtonItem) {
+    @objc func didDismissBarButtonTouched() {
         if navigationController?.modalPresentationStyle == .fullScreen {
             dismiss(animated: true)
         } else {
@@ -70,9 +65,17 @@ final class DetailViewController: UIViewController {
         data?.isFavorite = sender.isSelected
     }
 
-    @objc func didSaveBarButtonTouched(_ sender: UIBarButtonItem) {
+    @IBAction func didSaveButtonTouched(_ sender: Any) {
+        saveChangedData()
+        didDismissBarButtonTouched()
+    }
+
+    @IBAction func didDeleteBarButtonTouched(_ sender: Any) {
 
     }
+
+
+
 }
 
 private extension DetailViewController {

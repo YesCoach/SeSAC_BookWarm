@@ -230,13 +230,32 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="p0m-90-68c"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="5z4-qG-gIk"/>
                             </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U4T-4n-MWZ">
+                                <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                                <items>
+                                    <barButtonItem title="수정" id="ODc-aE-adU">
+                                        <connections>
+                                            <action selector="didSaveButtonTouched:" destination="bWk-NV-PZn" id="bg3-MY-NqT"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XKX-QJ-QWp"/>
+                                    <barButtonItem title="삭제" id="VwH-I5-rQY">
+                                        <connections>
+                                            <action selector="didDeleteBarButtonTouched:" destination="bWk-NV-PZn" id="XxU-v9-iuP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EkA-ce-LH4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="U4T-4n-MWZ" firstAttribute="trailing" secondItem="EkA-ce-LH4" secondAttribute="trailing" id="0XE-hi-dd0"/>
                             <constraint firstItem="RdF-rk-hoL" firstAttribute="leading" secondItem="HXM-t4-Y1E" secondAttribute="leading" id="2qL-Cz-qtM"/>
+                            <constraint firstItem="EkA-ce-LH4" firstAttribute="bottom" secondItem="U4T-4n-MWZ" secondAttribute="bottom" id="ENs-BR-77q"/>
                             <constraint firstItem="RdF-rk-hoL" firstAttribute="top" secondItem="EkA-ce-LH4" secondAttribute="top" id="HRx-Ds-4tk"/>
+                            <constraint firstItem="U4T-4n-MWZ" firstAttribute="leading" secondItem="EkA-ce-LH4" secondAttribute="leading" id="P7m-WO-J11"/>
                             <constraint firstItem="RdF-rk-hoL" firstAttribute="bottom" secondItem="EkA-ce-LH4" secondAttribute="bottom" priority="250" id="WHU-hE-XcO"/>
                             <constraint firstAttribute="trailing" secondItem="RdF-rk-hoL" secondAttribute="trailing" id="cAF-pL-sxg"/>
                             <constraint firstItem="Y6A-RI-Gdx" firstAttribute="width" secondItem="HXM-t4-Y1E" secondAttribute="width" id="wXO-jd-4Ak"/>
