@@ -15,6 +15,8 @@ final class DetailViewController: UIViewController {
     @IBOutlet var memoTextView: UITextView!
     @IBOutlet var stackView: UIStackView!
     @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var toolBar: UIToolbar!
+    @IBOutlet var scrollViewBottomConstraint: NSLayoutConstraint!
 
     private lazy var favoriteButton: UIButton = {
         let button = UIButton()
@@ -137,11 +139,7 @@ private extension DetailViewController {
         navigationItem.largeTitleDisplayMode = .automatic
     }
 
-    func configureLayout() {
-        scrollView.bottomAnchor.constraint(
-            equalTo: view.keyboardLayoutGuide.topAnchor
-        ).isActive = true
-    }
+    func configureLayout() { }
 
     func enableLargeTitle() {
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -174,6 +172,8 @@ extension DetailViewController {
 
 extension DetailViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
+        toolBar.isHidden = true
+        scrollViewBottomConstraint.constant = toolBar.frame.height * (-1)
         if textView.text == placeHolder {
             textView.text = ""
             textView.textColor = .label
@@ -181,6 +181,8 @@ extension DetailViewController: UITextViewDelegate {
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
+        toolBar.isHidden = false
+        scrollViewBottomConstraint.constant = 0
         if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             textView.text = ""
             textView.setupPlaceHolder(with: placeHolder)
