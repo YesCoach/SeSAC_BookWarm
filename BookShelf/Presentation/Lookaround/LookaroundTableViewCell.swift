@@ -25,6 +25,8 @@ final class LookaroundTableViewCell: UITableViewCell {
         posterImageView.image = nil
         platformStackView.removeAllSubviews()
     }
+
+    
 }
 
 private extension LookaroundTableViewCell {

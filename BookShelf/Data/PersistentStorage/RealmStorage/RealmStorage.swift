@@ -20,6 +20,15 @@ final class RealmStorage {
 
 extension RealmStorage {
 
+    func checkSchemaVersion() {
+        do {
+            let version = try schemaVersionAtURL(realm.configuration.fileURL!)
+            print("Schema Version: \(version)")
+        } catch {
+            print(error)
+        }
+    }
+
     func createData<T: Object>(data: T) {
         do {
             try realm.write {
