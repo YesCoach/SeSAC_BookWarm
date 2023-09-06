@@ -13,10 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        let config = Realm.Configuration(schemaVersion: 4) { migration, oldSchemaVersion in
+        let config = Realm.Configuration(schemaVersion: 5) { migration, oldSchemaVersion in
             if oldSchemaVersion < 1 {
                 // Auto Migration - 새로운 컬럼 추가(isAlreadyRead)
             }
@@ -37,6 +37,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     guard let oldObject, let newObject else { return }
                     // 새로운 컬럼에 기존의 컬럼 값들을 결합
                     newObject["titlePrice"] = "\(oldObject["title"])\(oldObject["price"])"
+                }
+            }
+            if oldSchemaVersion < 5 {
+                migration.enumerateObjects(ofType: BookEntity.className()) { oldObject, newObject in
+                    guard let newObject else { return }
+                    newObject["isAlreadyRead"] = false
                 }
             }
         }

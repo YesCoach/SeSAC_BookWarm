@@ -34,7 +34,9 @@ extension RealmBookStorage: BookStorage {
             thumbnail: book.thumbnail,
             translators: book.translators,
             url: book.url,
-            memo: book.memo
+            memo: book.memo,
+            isFavorite: book.isFavorite,
+            isAlreadyRead: book.isFavorite
         )
         realmStorage.createData(data: bookEntity)
     }
