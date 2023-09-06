@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        let config = Realm.Configuration(schemaVersion: 3) { migration, oldSchemaVersion in
+        let config = Realm.Configuration(schemaVersion: 4) { migration, oldSchemaVersion in
             if oldSchemaVersion < 1 {
                 // Auto Migration - 새로운 컬럼 추가(isAlreadyRead)
             }
@@ -24,12 +24,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Auto Migration - 기존 컬럼 삭제(isAlreadyRead)
             }
             if oldSchemaVersion < 3 {
-                // Manula Migration - 기존 컬럼명 변경
+                // Manual Migration - 기존 컬럼명 변경
                 migration.renameProperty(
                     onType: BookEntity.className(),
                     from: "isFavorite",
                     to: "favorite"
                 )
+            }
+            if oldSchemaVersion < 4 {
+                // Manual Migration - 기존의 컬럼을 결합하여 새로운 컬럼 생성
+                migration.enumerateObjects(ofType: BookEntity.className()) { oldObject, newObject in
+                    guard let oldObject, let newObject else { return }
+                    // 새로운 컬럼에 기존의 컬럼 값들을 결합
+                    newObject["titlePrice"] = "\(oldObject["title"])\(oldObject["price"])"
+                }
             }
         }
 
