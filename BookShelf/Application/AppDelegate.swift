@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        let config = Realm.Configuration(schemaVersion: 5) { migration, oldSchemaVersion in
+        let config = Realm.Configuration(schemaVersion: 6) { migration, oldSchemaVersion in
             if oldSchemaVersion < 1 {
                 // Auto Migration - 새로운 컬럼 추가(isAlreadyRead)
             }
@@ -45,12 +45,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     newObject["isAlreadyRead"] = false
                 }
             }
+            if oldSchemaVersion < 6 {
+                migration.enumerateObjects(ofType: BookEntity.className()) { oldObject, newObject in
+                    guard let oldObject, let newObject else { return }
+                    newObject["price"] = oldObject["price"]
+                }
+            }
         }
 
         Realm.Configuration.defaultConfiguration = config
 
         return true
-    }
+        }
 
     // MARK: UISceneSession Lifecycle
 

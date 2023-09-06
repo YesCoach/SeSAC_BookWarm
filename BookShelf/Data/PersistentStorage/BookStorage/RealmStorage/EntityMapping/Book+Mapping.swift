@@ -16,7 +16,7 @@ class BookEntity: Object, RealmMapping {
     @Persisted var authors: List<String>
     @Persisted var contents: String?
     @Persisted var datetime: String?
-    @Persisted var price: Int
+    @Persisted var price: Int?
     @Persisted var publisher: String?
     @Persisted var salePrice: Int?
     @Persisted var status: String?
@@ -34,7 +34,7 @@ class BookEntity: Object, RealmMapping {
         authors: [String]?,
         contents: String?,
         datetime: String?,
-        price: Int,
+        price: Int?,
         publisher: String?,
         salePrice: Int?,
         status: String?,
