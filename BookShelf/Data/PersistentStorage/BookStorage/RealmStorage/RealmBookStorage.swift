@@ -52,7 +52,7 @@ extension RealmBookStorage: BookStorage {
             ) {
                 realmStorage.updateData(data: object) { object in
                     object.memo = book.memo
-                    object.isFavorite = book.isFavorite
+                    object.favorite = book.isFavorite
                 }
             }
         } catch {

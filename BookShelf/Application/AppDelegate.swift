@@ -16,14 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        let config = Realm.Configuration(schemaVersion: 2) { migration, oldSchemaVersion in
+        let config = Realm.Configuration(schemaVersion: 3) { migration, oldSchemaVersion in
             if oldSchemaVersion < 1 {
                 // Auto Migration - 새로운 컬럼 추가(isAlreadyRead)
             }
             if oldSchemaVersion < 2 {
                 // Auto Migration - 기존 컬럼 삭제(isAlreadyRead)
             }
-
+            if oldSchemaVersion < 3 {
+                // Manula Migration - 기존 컬럼명 변경
+                migration.renameProperty(
+                    onType: BookEntity.className(),
+                    from: "isFavorite",
+                    to: "favorite"
+                )
+            }
         }
 
         Realm.Configuration.defaultConfiguration = config
